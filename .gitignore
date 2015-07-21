@@ -2,3 +2,7 @@
 /config/app.php
 /tmp/*
 /logs/*
+plugins/.DS_Store
+.DS_Store
+/nbproject/private/
+nbproject

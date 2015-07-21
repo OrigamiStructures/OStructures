@@ -1,0 +1,3 @@
+[submodule "plugins/Geshi"]
+	path = plugins/Geshi
+	url = https://dreamingmind@github.com/OrigamiStructures/Geshi.git
