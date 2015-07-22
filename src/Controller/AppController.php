@@ -27,7 +27,7 @@ use Cake\Event\Event;
  */
 class AppController extends Controller
 {
-	public $helpers = array('Cake3xMarkdown.CakeMarkdown', 'Geshi,Geshi');
+	public $helpers = array('Cake3xMarkdown.CakeMarkdown', 'Geshi.Geshi');
 
     /**
      * Initialization hook method.
