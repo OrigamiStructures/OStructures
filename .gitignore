@@ -6,3 +6,4 @@ plugins/.DS_Store
 .DS_Store
 /nbproject/private/
 nbproject
+config/app.php
