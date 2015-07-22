@@ -36,7 +36,7 @@
     <div class="row texts">
         <div class="columns large-9">
             <h6 class="subheader"><?= __('Text') ?></h6>
-            <?= $this->Text->autoParagraph(h($article->text)) ?>
+            <?= $this->CakeMarkdown->transform($article->text) ?>
         </div>
     </div>
     <div class="row texts">

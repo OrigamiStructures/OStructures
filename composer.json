@@ -23,7 +23,8 @@
     "autoload": {
         "psr-4": {
             "App\\": "src",
-            "Cake3xMarkdown\\": "./plugins/Cake3xMarkdown/src"
+            "Cake3xMarkdown\\": "./plugins/Cake3xMarkdown/src",
+			"Michelf\\": "./plugins/Cake3xMarkdown/src/Vendor/PhpMarkdown/Michelf"
         }
     },
     "autoload-dev": {
