@@ -4,3 +4,6 @@
 [submodule "plugins/CrudViews"]
 	path = plugins/CrudViews
 	url = https://curlyjason@github.com/OrigamiStructures/crudViews.git
+[submodule "plugins/Cake3xMarkdown"]
+	path = plugins/Cake3xMarkdown
+	url = https://curlyjason@github.com/OrigamiStructures/Cake3xMarkdown.git
