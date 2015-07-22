@@ -1,3 +1,6 @@
 [submodule "plugins/Geshi"]
 	path = plugins/Geshi
 	url = https://dreamingmind@github.com/OrigamiStructures/Geshi.git
+[submodule "plugins/CrudViews"]
+	path = plugins/CrudViews
+	url = https://curlyjason@github.com/OrigamiStructures/crudViews.git
