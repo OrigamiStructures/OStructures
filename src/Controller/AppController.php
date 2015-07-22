@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -26,7 +27,7 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
-	public $helpers = array('Cake3xMarkdown.CakeMarkdown');
+	public $helpers = array('Cake3xMarkdown.CakeMarkdown', 'Geshi,Geshi');
 
     /**
      * Initialization hook method.
@@ -40,4 +41,10 @@ class AppController extends Controller
         parent::initialize();
         $this->loadComponent('Flash');
     }
+	
+	
+	public function beforeRender(Event $event) {
+		// configure the markdown helper with geshi helper for code parsing
+		$this->helpers['Cake3xMarkdown.CakeMarkdown'] = ['Geshi' => $this->Geshi];
+	}
 }
