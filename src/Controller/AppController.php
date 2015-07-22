@@ -26,6 +26,7 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
+	public $helpers = array('Cake3xMarkdown.Markdown');
 
     /**
      * Initialization hook method.
