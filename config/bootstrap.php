@@ -202,4 +202,4 @@ DispatcherFactory::add('ControllerFactory');
  */
 Type::build('datetime')->useLocaleParser();
 
-Plugin::load('Cake3xMarkdown', ['bootstrap' => false, 'routes' => true]);
+Plugin::load('Cake3xMarkdown', ['bootstrap' => false, 'routes' => false]);
