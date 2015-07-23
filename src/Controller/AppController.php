@@ -45,6 +45,6 @@ class AppController extends Controller
 	
 	public function beforeRender(Event $event) {
 		// configure the markdown helper with geshi helper for code parsing
-		$this->helpers['Cake3xMarkdown.CakeMarkdown'] = ['Geshi' => $this->Geshi];
+		$this->helpers['Cake3xMarkdown.CakeMarkdown'] = ['helpers' => 'Geshi'];
 	}
 }
