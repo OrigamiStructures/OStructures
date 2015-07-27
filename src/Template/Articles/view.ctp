@@ -1,8 +1,11 @@
 <?php
-$this->Geshi->template('php', 'php');
-$this->Geshi->template('javascript', 'javascript');
-debug($this->Geshi->templates());
-debug($this->CakeMarkdown->Geshi->templates());
+$this->Geshi->template('Template');
+$this->Geshi->template('Template')->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
+$this->Geshi->template('Template')->set_overall_style('padding: 1em 1.5em; background-color: wheat');
+////$this->Geshi->template('php', 'php');
+//$this->Geshi->template('javascript', 'javascript');
+//debug($this->Geshi->templates());
+//debug($this->CakeMarkdown->Geshi->templates());
 ?>
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
@@ -42,7 +45,7 @@ debug($this->CakeMarkdown->Geshi->templates());
     <div class="row texts">
         <div class="columns large-9">
             <h6 class="subheader"><?= __('Text') ?></h6>
-            <?= $this->CakeMarkdown->transform($article->text) ?>
+            <?= $this->CakeMarkdown->transform($article) ?>
         </div>
     </div>
     <div class="row texts">
