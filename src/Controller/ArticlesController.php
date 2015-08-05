@@ -20,6 +20,7 @@ class ArticlesController extends AppController
     {
         $this->set('articles', $this->paginate($this->Articles));
         $this->set('_serialize', ['articles']);
+//		debug($this->paginate($this->Articles));
     }
 
     /**
