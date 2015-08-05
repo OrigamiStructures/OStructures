@@ -48,9 +48,9 @@ class ArticlesFixture extends TestFixture
             'text' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
             'type' => 'Lorem ipsum dolor sit amet',
             'slug' => 'Lorem ipsum dolor sit amet',
-            'created' => '2015-07-22 18:41:01',
-            'modified' => '2015-07-22 18:41:01',
-            'updated' => '2015-07-22 18:41:01',
+            'created' => '2015-08-05 22:18:05',
+            'modified' => '2015-08-05 22:18:05',
+            'updated' => '2015-08-05 22:18:05',
             'summary' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.'
         ],
     ];

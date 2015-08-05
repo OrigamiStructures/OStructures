@@ -1,19 +1,18 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Article;
+use App\Model\Entity\Topic;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Articles Model
+ * Topics Model
  *
- * @property \Cake\ORM\Association\HasMany $Images
- * @property \Cake\ORM\Association\BelongsToMany $Topics
+ * @property \Cake\ORM\Association\BelongsToMany $Articles
  */
-class ArticlesTable extends Table
+class TopicsTable extends Table
 {
 
     /**
@@ -24,16 +23,13 @@ class ArticlesTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('articles');
-        $this->displayField('title');
+        $this->table('topics');
+        $this->displayField('name');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
-        $this->hasMany('Images', [
-            'foreignKey' => 'article_id'
-        ]);
-        $this->belongsToMany('Topics', [
-            'foreignKey' => 'article_id',
-            'targetForeignKey' => 'topic_id',
+        $this->belongsToMany('Articles', [
+            'foreignKey' => 'topic_id',
+            'targetForeignKey' => 'article_id',
             'joinTable' => 'articles_topics'
         ]);
     }
@@ -51,19 +47,10 @@ class ArticlesTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
-            ->allowEmpty('title');
-            
-        $validator
-            ->allowEmpty('text');
-            
-        $validator
-            ->allowEmpty('type');
+            ->allowEmpty('name');
             
         $validator
             ->allowEmpty('slug');
-            
-        $validator
-            ->allowEmpty('summary');
 
         return $validator;
     }
