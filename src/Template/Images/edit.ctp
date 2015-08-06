@@ -13,11 +13,11 @@
     </ul>
 </div>
 <div class="images form large-10 medium-9 columns">
-    <?= $this->Form->create($image) ?>
+    <?= $this->Form->create($image, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Edit Image') ?></legend>
         <?php
-            echo $this->Form->input('image');
+            echo $this->Form->input('image', ['type' => 'file']);
             echo $this->Form->input('image_dir');
             echo $this->Form->input('article_id', ['options' => $articles, 'empty' => true]);
             echo $this->Form->input('mimetype');

@@ -182,7 +182,7 @@ Request::addDetector('tablet', function ($request) {
 
 Plugin::load('Migrations');
 Plugin::load('Geshi', ['autoload' => TRUE, 'routes' => TRUE]);
-Plugin::load('Proffer', ['bootstrap' => true]);
+Plugin::load('Proffer', ['bootstrap' => true, 'autoload' => TRUE]);
 Plugin::load('Cake3xMarkdown', ['autoload' => TRUE]);
 
 // Only try to load DebugKit in development mode

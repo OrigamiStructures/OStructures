@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Proffer;
 
 /**
  * Images Model
@@ -31,7 +32,7 @@ class ImagesTable extends Table
             'foreignKey' => 'article_id'
         ]);
 		$this->addBehavior('Proffer.Proffer', [
-			'photo' => [    // The name of your upload field
+			'image' => [    // The name of your upload field
 				'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
 				'dir' => 'image_dir',   // The name of the field to store the folder
 				'thumbnailSizes' => [ // Declare your thumbnails
