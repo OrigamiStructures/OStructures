@@ -33,7 +33,7 @@ class ImagesTable extends Table
         ]);
 		$this->addBehavior('Proffer.Proffer', [
 			'image' => [    // The name of your upload field
-				'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
+				'root' => WWW_ROOT . 'img', // Customise the root upload folder here, or omit to use the default
 				'dir' => 'image_dir',   // The name of the field to store the folder
 				'thumbnailSizes' => [ // Declare your thumbnails
 					'square' => ['w' => 200, 'h' => 200],   // Define the size and prefix of your thumbnails
