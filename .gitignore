@@ -7,5 +7,4 @@ plugins/.DS_Store
 /nbproject/private/
 nbproject
 config/app.php
-/webroot/files/*
 /plugins/composer.*
