@@ -9,12 +9,15 @@ use App\Controller\ArticlesController;
  */
 class BlogArticlesController extends ArticlesController {
 	
-	public $useTable = 'articles';
-
 	public function edit($id = null) {
 		$this->loadModel('Articles');
-//		$this->BlogArticles = $this->Articles;
 		parent::edit($id);
 		
 	}
+	
+	public function add() {
+		$this->loadModel('Articles');
+		parent::add();
+	}
+
 }

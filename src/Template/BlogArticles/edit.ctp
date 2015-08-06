@@ -14,10 +14,6 @@ $this->end();
 		<?= $this->Form->end(); ?>
 	</div>
 	<div class="large-5 columns preview-zone"">
-		<div class="row">
-			<p class="column medium-4" style="background: lavender;">Preview1</p>
-			<p class="column medium-4" style="background: linen;">Preview2</p>
-			<p class="column medium-4" style="background: lightsteelblue;">Preview3</p>
-		</div>
+		<?= $this->CakeMarkdown->transform($article); ?>
 	</div>
 </div>
