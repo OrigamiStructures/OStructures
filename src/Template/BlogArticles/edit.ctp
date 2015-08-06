@@ -8,8 +8,10 @@ $this->end();
 		<p >Resources</p>
 	</div>
 	<div class="medium-8 large-5 columns edit-zone"">
-		<p>Inputs</p>
-		<!-- <?= debug($article); ?> -->
+		<?= $this->Form->create($article); ?>
+		<?= $this->element('BlogArticles/edit_fieldset') ?>
+		<?= $this->Form->button(__('Submit')); ?>
+		<?= $this->Form->end(); ?>
 	</div>
 	<div class="large-5 columns preview-zone"">
 		<div class="row">
