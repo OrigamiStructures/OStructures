@@ -8,3 +8,4 @@ plugins/.DS_Store
 nbproject
 config/app.php
 /webroot/files/*
+/plugins/composer.*
