@@ -28,24 +28,28 @@
         </div>
         <div class="large-2 columns numbers end">
 			<div class="row">
-				<h6 class="subheader"><?= __('Id') ?></h6>
-				<p><?= $this->Number->format($image->id) ?></p>
-				<h6 class="subheader"><?= __('Filesize') ?></h6>
-				<p><?= $this->Number->format($image->filesize) ?></p>
-				<h6 class="subheader"><?= __('Width') ?></h6>
-				<p><?= $this->Number->format($image->width) ?></p>
-				<h6 class="subheader"><?= __('Height') ?></h6>
-				<p><?= $this->Number->format($image->height) ?></p>
-				<h6 class="subheader"><?= __('Date') ?></h6>
-				<p><?= $this->Number->format($image->date) ?></p>
-				<h6 class="subheader"><?= __('Upload') ?></h6>
-				<p><?= $this->Number->format($image->upload) ?></p>
-			</div>
-			<div class="row dates">
-				<h6 class="subheader"><?= __('Modified') ?></h6>
-				<p><?= h($image->modified) ?></p>
-				<h6 class="subheader"><?= __('Created') ?></h6>
-				<p><?= h($image->created) ?></p>
+				<div class="columns small-6">
+					<h6 class="subheader"><?= __('Id') ?></h6>
+					<p><?= $this->Number->format($image->id) ?></p>
+					<h6 class="subheader"><?= __('Filesize') ?></h6>
+					<p><?= $this->Number->format($image->filesize) ?></p>
+					<h6 class="subheader"><?= __('Width') ?></h6>
+					<p><?= $this->Number->format($image->width) ?></p>
+					<h6 class="subheader"><?= __('Height') ?></h6>
+					<p><?= $this->Number->format($image->height) ?></p>
+					<h6 class="subheader"><?= __('Date') ?></h6>
+					<p><?= $this->Number->format($image->date) ?></p>
+					<h6 class="subheader"><?= __('Upload') ?></h6>
+					<p><?= $this->Number->format($image->upload) ?></p>
+				</div>
+<!--			</div>
+			<div class="row dates">-->
+				<div class="columns small-6">
+					<h6 class="subheader"><?= __('Modified') ?></h6>
+					<p><?= h($image->modified) ?></p>
+					<h6 class="subheader"><?= __('Created') ?></h6>
+					<p><?= h($image->created) ?></p>
+				</div>
 			</div>
         </div>
 		<div class="large-3 columns images end">
