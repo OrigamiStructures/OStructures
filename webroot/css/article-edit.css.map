@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,cAAe;EACd,UAAU,EAAE,WAAW;EACvB,KAAK,EAAE,KAAK;;AAGb,UAAW;EACV,UAAU,EAAE,KAAK;;AAGlB,aAAc;EACb,UAAU,EAAE,SAAS",
-"sources": ["../scss/article-edit.scss"],
-"names": [],
-"file": "article-edit.css"
-}
