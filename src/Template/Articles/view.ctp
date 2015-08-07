@@ -16,6 +16,8 @@ $this->Geshi->template('Template')->set_overall_style('padding: 1em 1.5em; backg
         <li><?= $this->Html->link(__('New Article'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Images'), ['controller' => 'Images', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Image'), ['controller' => 'Images', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Topics'), ['controller' => 'Topics', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Topic'), ['controller' => 'Topics', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="articles view large-10 medium-9 columns">
@@ -98,6 +100,44 @@ $this->Geshi->template('Template')->set_overall_style('padding: 1em 1.5em; backg
                 <?= $this->Html->link(__('Edit'), ['controller' => 'Images', 'action' => 'edit', $images->id]) ?>
 
                 <?= $this->Form->postLink(__('Delete'), ['controller' => 'Images', 'action' => 'delete', $images->id], ['confirm' => __('Are you sure you want to delete # {0}?', $images->id)]) ?>
+
+            </td>
+        </tr>
+
+        <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
+    </div>
+</div>
+<div class="related row">
+    <div class="column large-12">
+    <h4 class="subheader"><?= __('Related Topics') ?></h4>
+    <?php if (!empty($article->topics)): ?>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th><?= __('Id') ?></th>
+            <th><?= __('Name') ?></th>
+            <th><?= __('Slug') ?></th>
+            <th><?= __('Created') ?></th>
+            <th><?= __('Modified') ?></th>
+            <th><?= __('Updated') ?></th>
+            <th class="actions"><?= __('Actions') ?></th>
+        </tr>
+        <?php foreach ($article->topics as $topics): ?>
+        <tr>
+            <td><?= h($topics->id) ?></td>
+            <td><?= h($topics->name) ?></td>
+            <td><?= h($topics->slug) ?></td>
+            <td><?= h($topics->created) ?></td>
+            <td><?= h($topics->modified) ?></td>
+            <td><?= h($topics->updated) ?></td>
+
+            <td class="actions">
+                <?= $this->Html->link(__('View'), ['controller' => 'Topics', 'action' => 'view', $topics->id]) ?>
+
+                <?= $this->Html->link(__('Edit'), ['controller' => 'Topics', 'action' => 'edit', $topics->id]) ?>
+
+                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Topics', 'action' => 'delete', $topics->id], ['confirm' => __('Are you sure you want to delete # {0}?', $topics->id)]) ?>
 
             </td>
         </tr>

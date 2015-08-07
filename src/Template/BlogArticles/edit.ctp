@@ -18,6 +18,7 @@ $this->end();
 	<div class="medium-8 large-5 columns edit-zone">
 		<?= $this->Form->create($article); ?>
 		<?= $this->element('BlogArticles/edit_fieldset') ?>
+		<?= $this->Form->input('continue', ['label' => 'Preview and continue editing', 'type' => 'checkbox']); ?>
 		<?= $this->Form->button(__('Submit'), ['class' => 'button expand']); ?>
 		<?= $this->Form->end(); ?>
 	</div>
