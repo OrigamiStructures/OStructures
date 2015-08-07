@@ -37,6 +37,7 @@ class ArticlesController extends AppController
         ]);
         $this->set('article', $article);
         $this->set('_serialize', ['article']);
+		$this->set('topics', $this->Articles->Topics->find('all'));
     }
 
     /**

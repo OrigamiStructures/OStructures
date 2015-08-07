@@ -34,6 +34,13 @@ fieldset {
 	}
 }
 
+button.tiny#maximize {
+	padding-top: 5px;
+	padding-bottom: 6px;
+	float: right;
+	margin-bottom: -4px;
+}
+
 button {
-	border-radius: 1em;
+	border-radius: .25em;
 }
