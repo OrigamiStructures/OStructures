@@ -33,7 +33,7 @@ class ArticlesController extends AppController
     public function view($id = null)
     {
         $article = $this->Articles->get($id, [
-            'contain' => ['Images']
+            'contain' => ['Images', 'Topics']
         ]);
         $this->set('article', $article);
         $this->set('_serialize', ['article']);

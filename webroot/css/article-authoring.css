@@ -1,0 +1,29 @@
+#container {
+  margin: 0 0.9375em; }
+
+.resource-zone {
+  margin: .5em 0 0;
+  /*background: lightyellow;*/
+  float: right; }
+  .resource-zone img {
+    max-width: 180px; }
+
+.edit-zone {
+  /*background: wheat;*/ }
+
+.preview-zone {
+  /*background: lightblue;*/ }
+  .preview-zone img {
+    /*max-width: 800px;*/ }
+
+fieldset {
+  padding: 0;
+  margin: .5em 0;
+  border: none; }
+  fieldset .inner {
+    margin: 0; }
+
+button {
+  border-radius: 1em; }
+
+/*# sourceMappingURL=article-authoring.css.map */
