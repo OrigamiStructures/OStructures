@@ -12,7 +12,7 @@
         <li><?= $this->Html->link(__('New Article'), ['controller' => 'Articles', 'action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="images form large-10 medium-9 columns">
+<div class="images form large-7 medium-6 columns">
     <?= $this->Form->create($image, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Edit Image') ?></legend>
@@ -32,4 +32,8 @@
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+</div>
+<div class="images large-3 columns">
+	<?php $path = "images/image/{$image['image_dir']}/{$image['image']}"; ?>
+	<?= $this->Html->image($path); ?>
 </div>
