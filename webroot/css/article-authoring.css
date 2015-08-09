@@ -1,5 +1,9 @@
 #container {
-  margin: 0 0.9375em; }
+  margin: 0 0.9375em;
+  height: 100%; }
+
+div#content, div#content > div.row {
+  height: 100%; }
 
 .edit-zone {
   /*background: wheat;*/ }
@@ -30,39 +34,78 @@ button {
   .edit-zone {
     background: oldlace; }
 
+  .sm-tall-100 {
+    height: 100%; }
+
+  .sm-tall-40 {
+    height: 40%; }
+
+  .sm-tall-60 {
+    height: 60%; }
+
+  .sm-tall-auto {
+    height: auto; }
+
   .resource-zone {
-    position: fixed;
-    margin: 0;
-    right: 0;
-    z-index: 100; }
+    backround-color: taupe;
+    /*		position: fixed;
+    		margin: 0;
+    		right: 0;
+    		z-index: 100;*/ }
     .resource-zone .row {
-      display: none; }
+      /*display: none;*/ }
     .resource-zone #resource-placeholder {
-      background-color: burlywood;
-      display: block;
-      width: 25px;
-      height: 25px; }
+      /*			background-color: burlywood;
+      			display: block;
+      			width: 25px;
+      			height: 25px;*/
+      display: none; }
 
   /*	.resource-zone > row {
   		display: none;
   	}*/ }
 @media only screen and (min-width: 40.063em) {
   /*medium*/
+  .md-tall-40 {
+    height: 40%; }
+
+  .md-tall-60 {
+    height: 60%; }
+
+  .md-tall-100 {
+    height: 100%; }
+
+  .md-tall-auto {
+    height: auto; }
+
   .edit-zone {
     background: wheat; }
 
   .resource-zone {
-    margin: .5em 0 0;
-    background: lightyellow;
     float: right;
-    position: relative;
-    z-index: 100; }
+    /*		margin: .5em 0 0;
+    		background: lightyellow;
+    		position: relative;
+    		z-index: 100;
+    		height: 100%;*/ }
     .resource-zone .row {
-      display: block; }
+      /*display: block;*/ }
     .resource-zone #resource-placeholder {
-      display: none; } }
+      /*display: none;*/ } }
 @media only screen and (min-width: 64.063em) {
   /*large*/
+  .lrg-tall-40 {
+    height: 40%; }
+
+  .lrg-tall-60 {
+    height: 60%; }
+
+  .lrg-tall-100 {
+    height: 100%; }
+
+  .lrg-tall-auto {
+    height: auto; }
+
   .edit-zone {
     background: goldenrod; } }
 
