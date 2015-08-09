@@ -11,6 +11,7 @@ div#content, div#content > div.row {
 }
 
 .preview-zone {
+	overflow: scroll;
 	/*background: lightblue;*/
 	
 	img {

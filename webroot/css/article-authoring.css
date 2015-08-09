@@ -9,6 +9,7 @@ div#content, div#content > div.row {
   /*background: wheat;*/ }
 
 .preview-zone {
+  overflow: scroll;
   /*background: lightblue;*/ }
   .preview-zone img {
     /*max-width: 800px;*/ }
