@@ -1,3 +1,5 @@
+@import "/Library/WebServer/Documents/OStructures/webroot/bower_components/foundation/scss/foundation/components/grid";
+
 #container {
 	margin: 0 0.9375em;
 	height: 100%;
@@ -40,46 +42,35 @@ button {
 	border-radius: .25em;
 }
 
+/*small*/
 @media only screen{
-	/*small*/
-	
-	.edit-zone {
-		background: oldlace;
-	}
 	
 	.sm-tall-100 {height: 100%;}
 	.sm-tall-40{height: 40%;}
 	.sm-tall-60{height: 60%;}
 	.sm-tall-auto{height:auto;}
 	
+	.edit-zone {
+		background: oldlace;
+		@include grid-column(12);
+	}
+	
 	.resource-zone {
+		@include grid-column(12);
 		backround-color: taupe;
-/*		position: fixed;
-		margin: 0;
-		right: 0;
-		z-index: 100;*/
-		
-		.row {
-			/*display: none;*/
-		}
 		
 		#resource-placeholder {
-/*			background-color: burlywood;
-			display: block;
-			width: 25px;
-			height: 25px;*/
 			display: none;
 		}
 	}
+	.preview-zone{
+		@include grid-column(12);
+	}
 	
-/*	.resource-zone > row {
-		display: none;
-	}*/
-
 }
 
+/*Medium*/
 @media only screen and (min-width:40.063em){
-	/*medium*/
 	
 	.md-tall-40{height: 40%;}
 	.md-tall-60{height: 60%;}
@@ -87,38 +78,43 @@ button {
 	.md-tall-auto{height: auto;}
 	
 	.edit-zone {
+		@include grid-column(8);
 		background: wheat;
 	}
 
 	.resource-zone {
-		float: right;
-/*		margin: .5em 0 0;
-		background: lightyellow;
-		position: relative;
-		z-index: 100;
-		height: 100%;*/
+		@include grid-column($columns:4, $float:right);
 		
 		.row {
-			/*display: block;*/
 		}
 		
 		#resource-placeholder {
-			/*display: none;*/
 		}
 	}
+	
+	.preview-zone {
+		@include grid-column(12);
+	}
+	
 
 }
-
+/*large*/
 @media only screen and (min-width:64.063em){
-	/*large*/
 	
 	.lrg-tall-40{height: 40%;}
 	.lrg-tall-60{height: 60%;}
 	.lrg-tall-100{height: 100%;}
 	.lrg-tall-auto{height:auto;}
 	
-.edit-zone {
-	background: goldenrod;
-}
+	.edit-zone {
+		@include grid-column(5);
+		background: goldenrod;
+	}
+	.resource-zone {
+		@include grid-column($columns:2, $float:right);
+	}
+	.preview-zone {
+		@include grid-column(5);
+	}
 
 }
