@@ -37,6 +37,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('app.css') ?>
 </head>
 <body class="home">
     <header>
@@ -56,7 +57,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation/url-rewriting.html" style="color:#fff;">Help me configure it</a>
             2) <a target="_blank" href="http://book.cakephp.org/3.0/en/development/configuration.html#general-configuration" style="color:#fff;">I don't / can't use URL rewriting</a>
         </p>
-
+		<div class="row">
+			<div class="columns large-12 foundationTests">
+				<div class="panel">
+					<h5>Try one of these buttons:</h5>
+					<p><a href="#" class="small button">Simple Button</a><br/>
+					<a href="#" class="small radius button">Radius Button</a><br/>
+					<a href="#" class="small round button">Round Button</a><br/>            
+					<a href="#" class="medium success button">Success Btn</a><br/>
+					<a href="#" class="medium alert button">Alert Btn</a><br/>
+					<a href="#" class="medium secondary button">Secondary Btn</a></p>           
+				</div>
+			</div>
+		</div>
         <div class="row">
             <div class="columns large-5 platform checks">
                 <?php if (version_compare(PHP_VERSION, '5.4.16', '>=')): ?>
@@ -187,5 +200,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
     <footer>
     </footer>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
