@@ -1181,37 +1181,30 @@ button {
 
 /*small*/
 @media only screen {
-  /*	.sm-tall-100 {height: 100%;}
-  	.sm-tall-40{height: 40%;}
-  	.sm-tall-60{height: 60%;}
-  	.sm-tall-auto{height:auto;}*/
   .edit-zone {
     background: oldlace;
+    height: 60%;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 100%;
     float: left; }
 
   .resource-zone {
+    height: auto;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 100%;
     float: left;
     backround-color: taupe; }
-    .resource-zone #resource-placeholder {
-      display: none; }
 
   .preview-zone {
+    height: 40%;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 100%;
     float: left; } }
 /*Medium*/
 @media only screen and (min-width: 40.063em) {
-  /*	.md-tall-40{height: 40%;}
-  	.md-tall-60{height: 60%;}
-  	.md-tall-100{height: 100%;}
-  	.md-tall-auto{height: auto;}*/
   .edit-zone {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -1232,11 +1225,8 @@ button {
     float: left; } }
 /*large*/
 @media only screen and (min-width: 64.063em) {
-  /*	.lrg-tall-40{height: 40%;}
-  	.lrg-tall-60{height: 60%;}
-  	.lrg-tall-100{height: 100%;}
-  	.lrg-tall-auto{height:auto;}*/
   .edit-zone {
+    height: 100%;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 41.66667%;
@@ -1250,6 +1240,7 @@ button {
     float: right; }
 
   .preview-zone {
+    height: 100%;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 41.66667%;

@@ -1,11 +1,14 @@
 @import "/Library/WebServer/Documents/OStructures/webroot/bower_components/foundation/scss/foundation/components/grid";
 
+@import "/Library/WebServer/Documents/OStructures/webroot/scss/height-block.scss";
+
 #container {
 	margin: 0 0.9375em;
-	height: 100%;
+	@include tall(100);
 }
+
 div#content, div#content > div.row {
-	height: 100%;
+	@include tall(100);
 }
 
 .edit-zone {
@@ -45,26 +48,21 @@ button {
 /*small*/
 
 @media only screen{
-	
-/*	.sm-tall-100 {height: 100%;}
-	.sm-tall-40{height: 40%;}
-	.sm-tall-60{height: 60%;}
-	.sm-tall-auto{height:auto;}*/
-	
+
 	.edit-zone {
 		background: oldlace;
+		@include tall(60);
 		@include grid-column(12);
 	}
-	
+
 	.resource-zone {
+		@include tall(auto);
 		@include grid-column(12);
 		backround-color: taupe;
-		
-		#resource-placeholder {
-			display: none;
-		}
 	}
+
 	.preview-zone{
+		@include tall(40);
 		@include grid-column(12);
 	}
 	
@@ -73,11 +71,6 @@ button {
 /*Medium*/
 @media only screen and (min-width:40.063em){
 	
-/*	.md-tall-40{height: 40%;}
-	.md-tall-60{height: 60%;}
-	.md-tall-100{height: 100%;}
-	.md-tall-auto{height: auto;}*/
-	
 	.edit-zone {
 		@include grid-column(8);
 		background: wheat;
@@ -85,12 +78,6 @@ button {
 
 	.resource-zone {
 		@include grid-column($columns:4, $float:right);
-		
-		.row {
-		}
-		
-		#resource-placeholder {
-		}
 	}
 	
 	.preview-zone {
@@ -102,12 +89,8 @@ button {
 /*large*/
 @media only screen and (min-width:64.063em){
 	
-/*	.lrg-tall-40{height: 40%;}
-	.lrg-tall-60{height: 60%;}
-	.lrg-tall-100{height: 100%;}
-	.lrg-tall-auto{height:auto;}*/
-	
 	.edit-zone {
+		@include tall(100);
 		@include grid-column(5);
 		background: goldenrod;
 	}
@@ -115,12 +98,11 @@ button {
 		@include grid-column($columns:2, $float:right);
 	}
 	.preview-zone {
+		@include tall(100);
 		@include grid-column(5);
 	}
 
 }
-
-@import "/Library/WebServer/Documents/OStructures/webroot/scss/height-block.scss";
 
     @media #{$small-up} {
 		@include height-set($range:sm);
