@@ -9,15 +9,15 @@ div#content, div#content > div.row {
 }
 
 .edit-zone {
-	/*background: wheat;*/
+	background: wheat;
 }
 
 .preview-zone {
 	overflow: scroll;
-	/*background: lightblue;*/
+	background: lightblue;
 	
 	img {
-		/*max-width: 800px;*/
+		max-width: 800px;
 	}
 }
 
@@ -43,12 +43,13 @@ button {
 }
 
 /*small*/
+
 @media only screen{
 	
-	.sm-tall-100 {height: 100%;}
+/*	.sm-tall-100 {height: 100%;}
 	.sm-tall-40{height: 40%;}
 	.sm-tall-60{height: 60%;}
-	.sm-tall-auto{height:auto;}
+	.sm-tall-auto{height:auto;}*/
 	
 	.edit-zone {
 		background: oldlace;
@@ -72,10 +73,10 @@ button {
 /*Medium*/
 @media only screen and (min-width:40.063em){
 	
-	.md-tall-40{height: 40%;}
+/*	.md-tall-40{height: 40%;}
 	.md-tall-60{height: 60%;}
 	.md-tall-100{height: 100%;}
-	.md-tall-auto{height: auto;}
+	.md-tall-auto{height: auto;}*/
 	
 	.edit-zone {
 		@include grid-column(8);
@@ -101,10 +102,10 @@ button {
 /*large*/
 @media only screen and (min-width:64.063em){
 	
-	.lrg-tall-40{height: 40%;}
+/*	.lrg-tall-40{height: 40%;}
 	.lrg-tall-60{height: 60%;}
 	.lrg-tall-100{height: 100%;}
-	.lrg-tall-auto{height:auto;}
+	.lrg-tall-auto{height:auto;}*/
 	
 	.edit-zone {
 		@include grid-column(5);
@@ -118,3 +119,18 @@ button {
 	}
 
 }
+
+@import "/Library/WebServer/Documents/OStructures/webroot/scss/height-block.scss";
+
+    @media #{$small-up} {
+		@include height-set($range:sm);
+	}
+	
+    @media #{$medium-up} {
+		@include height-set($range:md);
+	}
+	
+    @media #{$large-up} {
+		@include height-set($range:lrg);
+	}
+
