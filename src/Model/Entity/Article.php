@@ -57,4 +57,9 @@ class Article extends Entity implements MarkdownInterface, GeshiInterface {
 		return $language;
 	}
 
+	public function toc() {
+//		debug($this->text);
+		preg_match_all('/(#+.+)/', $this->text, $headings);
+		return $headings;
+	}
 }
