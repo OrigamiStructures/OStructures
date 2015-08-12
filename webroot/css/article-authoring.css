@@ -1149,16 +1149,16 @@ select {
     left: auto; } }
 #container {
   margin: 0 0.9375em;
-  height: 100%; }
+  /*@include tall(100);*/ }
 
 div#content, div#content > div.row {
-  height: 100%; }
+  /*@include tall(100);*/ }
 
 .edit-zone {
   background: wheat; }
 
 .preview-zone {
-  overflow: scroll;
+  /*overflow: scroll;*/
   background: lightblue; }
   .preview-zone img {
     max-width: 800px; }
@@ -1183,14 +1183,14 @@ button {
 @media only screen {
   .edit-zone {
     background: oldlace;
-    height: 60%;
+    /*@include tall(60);*/
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 100%;
     float: left; }
 
   .resource-zone {
-    height: auto;
+    /*@include tall(auto);*/
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 100%;
@@ -1198,7 +1198,7 @@ button {
     backround-color: taupe; }
 
   .preview-zone {
-    height: 40%;
+    /*@include tall(40);*/
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 100%;
@@ -1226,7 +1226,7 @@ button {
 /*large*/
 @media only screen and (min-width: 64.063em) {
   .edit-zone {
-    height: 100%;
+    /*@include tall(100);*/
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 41.66667%;
@@ -1240,7 +1240,7 @@ button {
     float: right; }
 
   .preview-zone {
-    height: 100%;
+    /*@include tall(100);*/
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     width: 41.66667%;

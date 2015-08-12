@@ -4,11 +4,11 @@
 
 #container {
 	margin: 0 0.9375em;
-	@include tall(100);
+	/*@include tall(100);*/
 }
 
 div#content, div#content > div.row {
-	@include tall(100);
+	/*@include tall(100);*/
 }
 
 .edit-zone {
@@ -16,7 +16,7 @@ div#content, div#content > div.row {
 }
 
 .preview-zone {
-	overflow: scroll;
+	/*overflow: scroll;*/
 	background: lightblue;
 	
 	img {
@@ -51,18 +51,18 @@ button {
 
 	.edit-zone {
 		background: oldlace;
-		@include tall(60);
+		/*@include tall(60);*/
 		@include grid-column(12);
 	}
 
 	.resource-zone {
-		@include tall(auto);
+		/*@include tall(auto);*/
 		@include grid-column(12);
 		backround-color: taupe;
 	}
 
 	.preview-zone{
-		@include tall(40);
+		/*@include tall(40);*/
 		@include grid-column(12);
 	}
 	
@@ -90,7 +90,7 @@ button {
 @media only screen and (min-width:64.063em){
 	
 	.edit-zone {
-		@include tall(100);
+		/*@include tall(100);*/
 		@include grid-column(5);
 		background: goldenrod;
 	}
@@ -98,7 +98,7 @@ button {
 		@include grid-column($columns:2, $float:right);
 	}
 	.preview-zone {
-		@include tall(100);
+		/*@include tall(100);*/
 		@include grid-column(5);
 	}
 

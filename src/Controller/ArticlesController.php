@@ -20,7 +20,6 @@ class ArticlesController extends AppController
     {
         $this->set('articles', $this->paginate($this->Articles));
         $this->set('_serialize', ['articles']);
-//		debug($this->paginate($this->Articles));
     }
 
     /**
@@ -33,11 +32,11 @@ class ArticlesController extends AppController
     public function view($id = null)
     {
         $article = $this->Articles->get($id, [
-            'contain' => ['Images', 'Topics']
+            'contain' => ['Topics', 'Images']
         ]);
+		debug($article->toc());
         $this->set('article', $article);
         $this->set('_serialize', ['article']);
-		$this->set('topics', $this->Articles->Topics->find('all'));
     }
 
     /**
@@ -57,7 +56,8 @@ class ArticlesController extends AppController
                 $this->Flash->error(__('The article could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('article'));
+        $topics = $this->Articles->Topics->find('list', ['limit' => 200]);
+        $this->set(compact('article', 'topics'));
         $this->set('_serialize', ['article']);
     }
 
@@ -71,7 +71,7 @@ class ArticlesController extends AppController
     public function edit($id = null)
     {
         $article = $this->Articles->get($id, [
-            'contain' => ['Images']
+            'contain' => ['Topics']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $article = $this->Articles->patchEntity($article, $this->request->data);
@@ -82,7 +82,8 @@ class ArticlesController extends AppController
                 $this->Flash->error(__('The article could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('article'));
+        $topics = $this->Articles->Topics->find('list', ['limit' => 200]);
+        $this->set(compact('article', 'topics'));
         $this->set('_serialize', ['article']);
     }
 

@@ -10,6 +10,8 @@
         <li><?= $this->Html->link(__('List Articles'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Images'), ['controller' => 'Images', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Image'), ['controller' => 'Images', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Topics'), ['controller' => 'Topics', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Topic'), ['controller' => 'Topics', 'action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="articles form large-10 medium-9 columns">
@@ -22,6 +24,7 @@
             echo $this->Form->input('type');
             echo $this->Form->input('slug');
             echo $this->Form->input('summary');
+            echo $this->Form->input('topics._ids', ['options' => $topics]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
