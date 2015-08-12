@@ -5,21 +5,12 @@ $this->end();
 ?>
 <div class="row sm-tall-100">
 	<div class="resource-zone">
-		<div id="resource-placeholder"></div>
-		<div class="row">
-			<div class="small-6 column image_resource">
-                <h3>Images linked to this article</h3>
-				<?= $this->element('Resources/image_resources', ['images' => $articleImages]); ?>
-                <h3>Images linked to NO articles</h3>
-				<?= $this->element('Resources/image_resources', ['images' => $unlinkedImages]); ?>
-                <h3>Images linked to OTHER articles</h3>
-				<?= $this->element('Resources/image_resources', ['images' => $linkedImages]); ?>
-			</div>
-			<div class="small-6 column article_resource">
-				<p>Future text resources</p>
-			</div>
-		</div>
-		
+        <h3>Images linked to this article</h3>
+		<?= $this->element('Resources/image_resources', ['images' => $articleImages]); ?>
+        <h3>Images linked to NO articles</h3>
+		<?= $this->element('Resources/image_resources', ['images' => $unlinkedImages]); ?>
+        <h3>Images linked to OTHER articles</h3>
+		<?= $this->element('Resources/image_resources', ['images' => $linkedImages]); ?>
 	</div>
 	<div class="edit-zone">
 		<?= $this->Form->create($article); ?>

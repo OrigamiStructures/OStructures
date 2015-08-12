@@ -20,7 +20,7 @@ div#content, div#content > div.row {
 	background: lightblue;
 	
 	img {
-		max-width: 800px;
+		max-width: 100%;
 	}
 }
 
@@ -59,6 +59,13 @@ button {
 		/*@include tall(auto);*/
 		@include grid-column(12);
 		backround-color: taupe;
+        .resourceImage {
+            @include grid-column(4);
+        }
+        .MarkdownImageLink{
+            @include grid-column(8);
+            font-size: 50%;
+        }
 	}
 
 	.preview-zone{
