@@ -8,7 +8,12 @@ $this->end();
 		<div id="resource-placeholder"></div>
 		<div class="row">
 			<div class="small-6 column image_resource">
-				<?= $this->element('Resources/image_resources', ['images' => $article->images]); ?>
+                <h3>Images linked to this article</h3>
+				<?= $this->element('Resources/image_resources', ['images' => $articleImages]); ?>
+                <h3>Images linked to NO articles</h3>
+				<?= $this->element('Resources/image_resources', ['images' => $unlinkedImages]); ?>
+                <h3>Images linked to OTHER articles</h3>
+				<?= $this->element('Resources/image_resources', ['images' => $linkedImages]); ?>
 			</div>
 			<div class="small-6 column article_resource">
 				<p>Future text resources</p>
