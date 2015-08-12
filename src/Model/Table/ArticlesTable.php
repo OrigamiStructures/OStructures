@@ -28,13 +28,18 @@ class ArticlesTable extends Table
         $this->displayField('title');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
-        $this->hasMany('Images', [
-            'foreignKey' => 'article_id'
-        ]);
+        // $this->hasMany('Images', [
+        //     'foreignKey' => 'article_id'
+        // ]);
         $this->belongsToMany('Topics', [
             'foreignKey' => 'article_id',
             'targetForeignKey' => 'topic_id',
             'joinTable' => 'articles_topics'
+        ]);
+        $this->belongsToMany('Images', [
+            'foreignKey' => 'article_id',
+            'targetForeignKey' => 'image_id',
+            'joinTable' => 'articles_images'
         ]);
     }
 

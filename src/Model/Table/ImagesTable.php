@@ -28,8 +28,13 @@ class ImagesTable extends Table
         $this->displayField('title');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
-        $this->belongsTo('Articles', [
-            'foreignKey' => 'article_id'
+        // $this->belongsTo('Articles', [
+        //     'foreignKey' => 'article_id'
+        // ]);
+        $this->belongsToMany('Articles', [
+            'foreignKey' => 'image_id',
+            'targetForeignKey' => 'article_id',
+            'joinTable' => 'articles_images'
         ]);
 		$this->addBehavior('Proffer.Proffer', [
 			'image' => [    // The name of your upload field
