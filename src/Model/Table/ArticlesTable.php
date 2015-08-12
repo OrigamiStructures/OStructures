@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Sluggable;
 
 /**
  * Articles Model
@@ -31,6 +32,10 @@ class ArticlesTable extends Table
         // $this->hasMany('Images', [
         //     'foreignKey' => 'article_id'
         // ]);
+		$this->addBehavior('Sluggable.Sluggable', [
+            'pattern' => ':title',
+			'overwrite' => true
+        ]);
         $this->belongsToMany('Topics', [
             'foreignKey' => 'article_id',
             'targetForeignKey' => 'topic_id',
