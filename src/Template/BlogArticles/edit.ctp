@@ -8,7 +8,7 @@ $this->end();
 		<div id="resource-placeholder"></div>
 		<div class="row">
 			<div class="small-6 column image_resource">
-				<?= $this->element('Images/image_resources', ['images' => $article->images]); ?>
+				<?= $this->element('Resources/image_resources', ['images' => $article->images]); ?>
 			</div>
 			<div class="small-6 column article_resource">
 				<p>Future text resources</p>

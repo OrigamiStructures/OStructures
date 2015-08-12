@@ -184,6 +184,7 @@ Plugin::load('Migrations');
 Plugin::load('Geshi', ['autoload' => TRUE, 'routes' => TRUE]);
 Plugin::load('Proffer', ['bootstrap' => true, 'autoload' => TRUE]);
 Plugin::load('Cake3xMarkdown', ['autoload' => TRUE]);
+Plugin::load('Sluggable');
 
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system

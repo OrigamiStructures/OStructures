@@ -34,7 +34,8 @@
             <td><?= h($article->updated) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $article->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $article->id]) ?>
+                <?= $this->Html->link(__('CRUD Edit'), ['action' => 'edit', $article->id]) ?>
+                <?= $this->Html->link(__('Article Edit'), ['controller' => 'blog_articles', 'action' => 'edit', $article->id]) ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $article->id], ['confirm' => __('Are you sure you want to delete # {0}?', $article->id)]) ?>
             </td>
         </tr>
