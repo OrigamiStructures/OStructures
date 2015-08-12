@@ -60,6 +60,11 @@ class Article extends Entity implements MarkdownInterface, GeshiInterface {
 	public function toc() {
 //		debug($this->text);
 		preg_match_all('/(#+.+)/', $this->text, $headings);
+		$level = 1;
+		$toc = [$this->heading];
+		foreach ($headings as $heading) {
+			
+		}
 		return $headings;
 	}
 }
