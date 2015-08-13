@@ -20,6 +20,7 @@ $this->end();
 		<?= $this->Form->end(); ?>
 	</div>
 	<div class="preview-zone">
+		<?= $this->element('BlogArticles/article_toc'); ?>
 		<?= $this->CakeMarkdown->transform($article); ?>
 	</div>
 </div>
