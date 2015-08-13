@@ -4,6 +4,9 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 use Cake3xMarkdown\Model\Entity\Interfaces\MarkdownInterface;
 use Cake3xMarkdown\Model\Entity\Interfaces\GeshiInterface;
+use Cake\Utility\Inflector;
+use Cake\Collection\Collection;
+use Cake\Utility\Hash;
 
 /**
  * Article Entity.
@@ -58,13 +61,16 @@ class Article extends Entity implements MarkdownInterface, GeshiInterface {
 	}
 
 	public function toc() {
-//		debug($this->text);
 		preg_match_all('/(#+.+)/', $this->text, $headings);
-		$level = 1;
-		$toc = [$this->heading];
-		foreach ($headings as $heading) {
-			
-		}
-		return $headings;
+		array_unshift($headings[0], '#' . $this->title);
+		
+		$heads = new Collection($headings[0]);
+		$heads = $heads->map(function ($value, $key) {
+			$value = trim($value, "\r\n");
+			return [preg_replace('/^(#+).*/', '$1', $value), preg_replace('/^#+/', '', $value), Inflector::slug($value)];
+		});
+		
+		return $heads;
 	}
+	
 }

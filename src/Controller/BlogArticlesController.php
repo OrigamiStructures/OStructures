@@ -17,6 +17,7 @@ class BlogArticlesController extends ArticlesController {
             $article = $this->Articles->get($id, [
                 'contain' => ['Images', 'Topics']
             ]);
+//		debug($article->toc());
             $articleImages = new Collection($article->images);
             $Images = $this->Articles->Images->find('all');
             $Images->contain(['Articles']);
@@ -38,7 +39,8 @@ class BlogArticlesController extends ArticlesController {
                 $this->Flash->error(__('The article could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('article', 'articleImages', 'unlinkedImages', 'linkedImages'));
+		$toc = $article->toc();
+        $this->set(compact('article', 'articleImages', 'unlinkedImages', 'linkedImages', 'toc'));
         $this->set('_serialize', ['article']);
 	}
     
