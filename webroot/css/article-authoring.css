@@ -1148,17 +1148,15 @@ select {
     right: 91.66667%;
     left: auto; } }
 #container {
-  margin: 0 0.9375em;
-  /*@include tall(100);*/ }
+  margin: 0 0.9375em; }
 
 div#content, div#content > div.row {
-  /*@include tall(100);*/ }
+  height: 100%; }
 
 .edit-zone {
   background: wheat; }
 
 .preview-zone {
-  /*overflow: scroll;*/
   background: lightblue; }
   .preview-zone img {
     max-width: 100%; }
