@@ -8,7 +8,8 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Sluggable;
 use Cake\Event\Event;
-use Cake\Utility\Inflector;
+//use Cake\Utility\Inflector;
+use Sluggable\Utility\Slug;
 
 /**
  * Articles Model
@@ -31,7 +32,8 @@ class ArticlesTable extends Table
 			
 			$entity->text = preg_replace(
 					'/(#+.+)/', 
-					'<span class="anchor" id="=====' . "\"></span>\n$1", 
+//					'<span class="anchor" id="=====' . "\"></span>\n$1", 
+					'<span class="anchor" id="====="><a href="#' . Slug::generate('toc-:title', $entity) . "\">Table of contents</a></span>\n$1", 
 					$entity->text
 			);
 			preg_match_all('/\n(#+.+)/', $entity->text, $headings);
@@ -40,7 +42,7 @@ class ArticlesTable extends Table
 			$count = 0;
 			$string = '';
 			while ($count < $max) {
-				$string .= $text[$count] . Inflector::slug($headings[0][$count++]);
+				$string .= $text[$count] . Slug::generate($headings[0][$count++]);
 			}
 			$entity->text = $string . $text[$count];
 //			debug($entity->text);

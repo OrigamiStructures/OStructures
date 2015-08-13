@@ -7,6 +7,7 @@ use Cake3xMarkdown\Model\Entity\Interfaces\GeshiInterface;
 use Cake\Utility\Inflector;
 use Cake\Collection\Collection;
 use Cake\Utility\Hash;
+use Sluggable\Utility\Slug;
 
 /**
  * Article Entity.
@@ -67,7 +68,7 @@ class Article extends Entity implements MarkdownInterface, GeshiInterface {
 		$heads = new Collection($headings[0]);
 		$heads = $heads->map(function ($value, $key) {
 			$value = trim($value, "\r\n");
-			return [preg_replace('/^(#+).*/', '$1', $value), preg_replace('/^#+/', '', $value), Inflector::slug($value)];
+			return [preg_replace('/^(#+).*/', '$1', $value), preg_replace('/^#+/', '', $value), Slug::generate($value)];
 		});
 		
 		return $heads;

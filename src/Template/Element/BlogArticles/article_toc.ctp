@@ -1,6 +1,6 @@
-
+<?php use Sluggable\Utility\Slug; ?>
 <!-- START OF ARTICLE TOC -->
-<ul>
+<ul id="<?= Slug::generate('toc-:title', $article); ?>">
 	<?php
 	$toc_array = $toc->toArray();
 
