@@ -8,7 +8,8 @@ $this->end();
 		<?= $this->element('BlogArticles/resources', [
 			'articleImages' => $articleImages,
 			'linkedImages' => $linkedImages,
-			'unlinkedImages' => $unlinkedImages]); ?>
+			'unlinkedImages' => $unlinkedImages,
+			'otherArticles' => $otherArticles]); ?>
 	</div>
 	<div class="edit-zone">
 		<?= $this->Form->create($article); ?>

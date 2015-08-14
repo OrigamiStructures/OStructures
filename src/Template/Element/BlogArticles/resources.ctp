@@ -17,4 +17,10 @@
       <?= $this->element('Resources/image_resources', ['images' => $linkedImages]); ?>
     </div>
   </li>
+  <li class="accordion-navigation">
+    <a href="#panel4d" role="tab" id="panel4d-heading" aria-controls="panel4d">OTHER articles</a>
+    <div id="panel4d" class="content active" role="tabpanel" aria-labelledby="panel4d-heading">
+      <?= $this->element('Resources/text_resources', ['articles' => $otherArticles]); ?>
+    </div>
+  </li>
 </ul>

@@ -62,12 +62,15 @@ button {
         }
         @include grid-column(12);
         backround-color: taupe;
-        .resourceImage {
+        .resourceImage, .resourceArticle{
             @include grid-column(7);
         }
-        .MarkdownImageLink{
+        .MarkdownImageLink, .MarkdownArticleLink{
             @include grid-column(5);
             font-size: 50%;
+            height: 40px;
+            overflow: hidden;
+            line-height: 100%;
         }
     }
 
