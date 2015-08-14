@@ -32,6 +32,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <script src="/OStructures/bower_components/modernizr/modernizr.js"></script>
 </head>
 <body>
     <header>
@@ -55,5 +56,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <footer>
         </footer>
     </div>
+    <script src="/OStructures/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="/OStructures/bower_components/foundation/js/foundation.min.js"></script>
 </body>
 </html>
