@@ -10,6 +10,7 @@ use Sluggable;
 use Cake\Event\Event;
 //use Cake\Utility\Inflector;
 use Sluggable\Utility\Slug;
+use Cake\Collection\Collection;
 
 /**
  * Articles Model
@@ -23,32 +24,34 @@ class ArticlesTable extends Table
     public function beforeSave(Event $event, Article $entity) {
 
         if ($entity->isNew() || $entity->dirty('text')) {
-			
-			$entity->text = preg_replace(
-					'/<span class="anchor".*<\/span>\W/', 
-					'', 
-					$entity->text
-			);
-			
-			$entity->text = preg_replace(
-					'/(#+.+)/', 
+						
+			$stub_toc_anchors = preg_replace(
+					'/((^#)|(\n#))(#*.+)/', 
 //					'<span class="anchor" id="=====' . "\"></span>\n$1", 
-					'<span class="anchor" id="====="><a href="#' . Slug::generate('toc-:title', $entity) . "\">Table of contents</a></span>\n$1", 
+					'<span class="anchor" id="====="><a href="#' . Slug::generate('toc-:title', $entity) . "\">Table of contents</a></span>\n#$4", 
 					$entity->text
 			);
-			preg_match_all('/\n(#+.+)/', $entity->text, $headings);
-			$text = explode('=====', $entity->text);
+			
+			preg_match_all('/((^#)|(\n#))(#*.+)/', $entity->text, $headings);
+//			debug($headings);
+			$text = explode('=====', $stub_toc_anchors);
+//			debug($text);
 			$max = count($text) - 1;
 			$count = 0;
-			$string = '';
+			$entity->display_text = '';
+			$toc = ['#' . $entity->title];
 			while ($count < $max) {
-				$string .= $text[$count] . Slug::generate($headings[0][$count++]);
+				$entity->display_text .= $text[$count] . Slug::generate($headings[4][$count]);
+				array_push($toc, '#' . trim($headings[4][$count++], "\r\n"));
 			}
-			$entity->text = $string . $text[$count];
-//			debug($entity->text);
+			$entity->display_text .= $text[$count];
+			$toc = new Collection($toc);
+			$toc = $toc->map(function ($value, $key) {
+				return [preg_replace('/^(#+).*/', '$1', $value), preg_replace('/^#+/', '', $value), Slug::generate($value)];
+			});
 
+			$entity->toc = serialize($toc->toArray());
 
-//			debug($string);
 			debug('insure the image links');
 			debug('setup the topics');
 		}
