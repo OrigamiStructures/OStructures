@@ -1,0 +1,1 @@
+<?= $this->CakeMarkdown->transform($article);?>
