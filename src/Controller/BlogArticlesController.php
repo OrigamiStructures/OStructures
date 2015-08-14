@@ -90,5 +90,21 @@ class BlogArticlesController extends ArticlesController {
 		parent::index();
 		$this->render('/Articles/index');
 	}
+    
+    public function mainPage() {
+        $this->layout = 'min';
+        $this->loadModel('Articles');
+        try {
+            $articles = $this->Articles->find('all');
+            $articles->contain(['Images', 'Topics']);
+            $articles->where([
+                'publish' => 1
+            ]);
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+        $this->set(compact('articles'));
+        $this->set('_serialize', ['articles']);
+    }
 
 }
