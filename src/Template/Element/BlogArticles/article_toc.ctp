@@ -2,7 +2,7 @@
 <!-- START OF ARTICLE TOC -->
 <ul id="<?= Slug::generate('toc-:title', $article); ?>">
 	<?php
-	$toc_array = $toc->toArray();
+	$toc_array = is_object($toc) ? $toc->toArray() : [];
 
 	foreach ($toc as $index => $anchor) :
 		list($h_level, $title, $slug) = $anchor;
@@ -40,10 +40,12 @@
 	endforeach;
 	
 	// Close to root from wherever we ended
-	$dif = strlen($toc_array[count($toc_array) - 1][0]);
-	while ($dif > 0) :
-		echo "</li>\n</ul>\n\t";
-		$dif--;
-	endwhile;
+	if (!empty($toc_array)) :
+		$dif = strlen($toc_array[count($toc_array) - 1][0]);
+		while ($dif > 0) :
+			echo "</li>\n</ul>\n\t";
+			$dif--;
+		endwhile;
+	endif;	
 	?>
 <!-- END OF ARTICLE TOC -->
