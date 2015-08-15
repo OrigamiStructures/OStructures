@@ -1,6 +1,6 @@
 <fieldset>
 	<fieldset class="unminimize inner">
-		<?= $this->Form->input('heading'); ?>
+		<?= $this->Form->input('title'); ?>
 		<?= $this->Form->input('summary', ['rows' => 'auto']); ?>
 	</fieldset>
 	<fieldset class="maximize inner">
