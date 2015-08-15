@@ -23,6 +23,7 @@ class BlogArticlesController extends ArticlesController {
             $Images->contain(['Articles']);
             $unlinkedImages = $this->unlinkedImages($Images);
             $linkedImages = $this->linkedImages($Images, $id);
+            $otherArticles = $this->otherArticles($id);
         } catch (Exception $exc) {
             $article = $articleImages = $unlinkedImages = $linkedImages = array();
             echo $exc->getTraceAsString();
@@ -40,7 +41,7 @@ class BlogArticlesController extends ArticlesController {
             }
         }
 		$toc = $article->toc();
-        $this->set(compact('article', 'articleImages', 'unlinkedImages', 'linkedImages', 'toc'));
+        $this->set(compact('article', 'articleImages', 'unlinkedImages', 'linkedImages', 'toc', 'otherArticles'));
         $this->set('_serialize', ['article']);
 	}
     
@@ -79,6 +80,18 @@ class BlogArticlesController extends ArticlesController {
             }
         });
     }
+
+    private function otherArticles($id) {
+        $this->loadModel('Articles');
+        try {
+            $otherArticles = $this->Articles->find('all');
+            $otherArticles->where([
+                'id !=' => $id]);
+        } catch (Exception $e) {
+            
+        }
+        return $otherArticles;
+    }
 	
 	public function add() {
 		$this->loadModel('Articles');
@@ -90,5 +103,21 @@ class BlogArticlesController extends ArticlesController {
 		parent::index();
 		$this->render('/Articles/index');
 	}
+    
+    public function mainPage() {
+        $this->layout = 'min';
+        $this->loadModel('Articles');
+        try {
+            $articles = $this->Articles->find('all');
+            $articles->contain(['Images', 'Topics']);
+            $articles->where([
+                'publish' => 1
+            ]);
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+        $this->set(compact('articles'));
+        $this->set('_serialize', ['articles']);
+    }
 
 }

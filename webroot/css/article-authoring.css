@@ -1148,17 +1148,15 @@ select {
     right: 91.66667%;
     left: auto; } }
 #container {
-  margin: 0 0.9375em;
-  /*@include tall(100);*/ }
+  margin: 0 0.9375em; }
 
 div#content, div#content > div.row {
-  /*@include tall(100);*/ }
+  height: 100%; }
 
 .edit-zone {
   background: wheat; }
 
 .preview-zone {
-  /*overflow: scroll;*/
   background: lightblue; }
   .preview-zone img {
     max-width: 100%; }
@@ -1196,17 +1194,22 @@ button {
     width: 100%;
     float: left;
     backround-color: taupe; }
-    .resource-zone .resourceImage {
+    .resource-zone ul {
+      margin-left: 0; }
+    .resource-zone .resourceImage, .resource-zone .resourceArticle {
       padding-left: 0.9375rem;
       padding-right: 0.9375rem;
-      width: 33.33333%;
+      width: 58.33333%;
       float: left; }
-    .resource-zone .MarkdownImageLink {
+    .resource-zone .MarkdownImageLink, .resource-zone .MarkdownArticleLink {
       padding-left: 0.9375rem;
       padding-right: 0.9375rem;
-      width: 66.66667%;
+      width: 41.66667%;
       float: left;
-      font-size: 50%; }
+      font-size: 50%;
+      height: 40px;
+      overflow: hidden;
+      line-height: 100%; }
 
   .preview-zone {
     /*@include tall(40);*/

@@ -3,123 +3,129 @@
 @import "/Library/WebServer/Documents/OStructures/webroot/scss/height-block.scss";
 
 #container {
-	margin: 0 0.9375em;
-	/*@include tall(100);*/
+    margin: 0 0.9375em;
+    // @include tall(100);
 }
 
 div#content, div#content > div.row {
-	/*@include tall(100);*/
+    @include tall(100);
 }
 
 .edit-zone {
-	background: wheat;
+    background: wheat;
 }
 
 .preview-zone {
-	/*overflow: scroll;*/
-	background: lightblue;
-	
-	img {
-		max-width: 100%;
-	}
+    // overflow: scroll;
+    background: lightblue;
+    
+    img {
+        max-width: 100%;
+    }
 }
 
 fieldset {
-	padding: 0;
-	margin: .5em 0;
-	border: none;
-	
-	.inner {
-		margin: 0;
-	}
+    padding: 0;
+    margin: .5em 0;
+    border: none;
+    
+    .inner {
+        margin: 0;
+    }
 }
 
 button.tiny#maximize {
-	padding-top: 5px;
-	padding-bottom: 6px;
-	float: right;
-	margin-bottom: -4px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+    float: right;
+    margin-bottom: -4px;
 }
 
 button {
-	border-radius: .25em;
+    border-radius: .25em;
 }
 
 /*small*/
 
 @media only screen{
 
-	.edit-zone {
-		background: oldlace;
-		/*@include tall(60);*/
-		@include grid-column(12);
-	}
+    .edit-zone {
+        background: oldlace;
+        /*@include tall(60);*/
+        @include grid-column(12);
+    }
 
-	.resource-zone {
-		/*@include tall(auto);*/
-		@include grid-column(12);
-		backround-color: taupe;
-        .resourceImage {
-            @include grid-column(4);
+    .resource-zone {
+        /*@include tall(auto);*/
+        ul{
+            margin-left: 0;
         }
-        .MarkdownImageLink{
-            @include grid-column(8);
+        @include grid-column(12);
+        backround-color: taupe;
+        .resourceImage, .resourceArticle{
+            @include grid-column(7);
+        }
+        .MarkdownImageLink, .MarkdownArticleLink{
+            @include grid-column(5);
             font-size: 50%;
+            height: 40px;
+            overflow: hidden;
+            line-height: 100%;
         }
-	}
+    }
 
-	.preview-zone{
-		/*@include tall(40);*/
-		@include grid-column(12);
-	}
-	
+    .preview-zone{
+        /*@include tall(40);*/
+        @include grid-column(12);
+    }
+    
 }
 
 /*Medium*/
 @media only screen and (min-width:40.063em){
-	
-	.edit-zone {
-		@include grid-column(8);
-		background: wheat;
-	}
+    
+    .edit-zone {
+        @include grid-column(8);
+        background: wheat;
+    }
 
-	.resource-zone {
-		@include grid-column($columns:4, $float:right);
-	}
-	
-	.preview-zone {
-		@include grid-column(12);
-	}
-	
+    .resource-zone {
+        @include grid-column($columns:4, $float:right);
+    }
+    
+    .preview-zone {
+        @include grid-column(12);
+    }
+    
 
 }
 /*large*/
 @media only screen and (min-width:64.063em){
-	
-	.edit-zone {
-		/*@include tall(100);*/
-		@include grid-column(5);
-		background: goldenrod;
-	}
-	.resource-zone {
-		@include grid-column($columns:2, $float:right);
-	}
-	.preview-zone {
-		/*@include tall(100);*/
-		@include grid-column(5);
-	}
+    
+    .edit-zone {
+        /*@include tall(100);*/
+        @include grid-column(5);
+        background: goldenrod;
+    }
+    .resource-zone {
+        @include grid-column($columns:2, $float:right);
+    }
+    .preview-zone {
+        /*@include tall(100);*/
+        @include grid-column(5);
+    }
 
 }
 
     @media #{$small-up} {
-		@include height-set($range:sm);
-	}
-	
+        @include height-set($range:sm);
+    }
+    
     @media #{$medium-up} {
-		@include height-set($range:md);
-	}
-	
+        @include height-set($range:md);
+    }
+    
     @media #{$large-up} {
-		@include height-set($range:lrg);
-	}
+        @include height-set($range:lrg);
+    }
 
