@@ -20,43 +20,121 @@ use Cake\Collection\Collection;
  */
 class ArticlesTable extends Table
 {
+	
+	/**
+	 * Regex pattern to find h1-h6 in markdown
+	 * 
+	 * The heading come back on index 4 of the match array 
+	 * and they will be missing one # from the front of the 
+	 * match string. The match will also have a newline at the end.
+	 *
+	 * @var string 
+	 */
+	protected $heading_detection_pattern = '/((^#)|(\n#))(#*.+)/';
 
-    public function beforeSave(Event $event, Article $entity) {
+	/**
+	 * Do the background processing to fluff the markdown article
+	 * 
+	 * Adds 
+	 *	- automatic article TOC
+	 *  - automatic article categorization
+	 *	- automatic image record linking
+	 *	- automatic referenced article record linking
+	 *  - and possibly image node markup?
+	 * 
+	 * @param Event $event
+	 * @param Article $entity
+	 */
+	public function beforeSave(Event $event, Article $entity) {
 
+		if (!$entity->dirty('text') && $entity->dirty('title')) {
+			$this->buildToc($entity);
+		}
         if ($entity->isNew() || $entity->dirty('text')) {
-						
-			$stub_toc_anchors = preg_replace(
-					'/((^#)|(\n#))(#*.+)/', 
-//					'<span class="anchor" id="=====' . "\"></span>\n$1", 
-					'<span class="anchor" id="====="><a href="#' . Slug::generate('toc-:title', $entity) . "\">Table of contents</a></span>\n#$4", 
-					$entity->text
-			);
-			
-			preg_match_all('/((^#)|(\n#))(#*.+)/', $entity->text, $headings);
-//			debug($headings);
-			$text = explode('=====', $stub_toc_anchors);
-//			debug($text);
-			$max = count($text) - 1;
-			$count = 0;
-			$entity->display_text = '';
-			$toc = ['#' . $entity->title];
-			while ($count < $max) {
-				$entity->display_text .= $text[$count] . Slug::generate($headings[4][$count]);
-				array_push($toc, '#' . trim($headings[4][$count++], "\r\n"));
-			}
-			$entity->display_text .= $text[$count];
-			$toc = new Collection($toc);
-			$toc = $toc->map(function ($value, $key) {
-				return [preg_replace('/^(#+).*/', '$1', $value), preg_replace('/^#+/', '', $value), Slug::generate($value)];
-			});
-
-			$entity->toc = serialize($toc->toArray());
+			$this->addTocAnchors($entity);
 
 			debug('insure the image links');
 			debug('setup the topics');
 		}
 	}
+	
+	/**
+	 * Build the TOC anchor points and return-to-toc links
+	 * 
+	 * Every <hx> level is an table of contents entry and needs an anchor. 
+	 * And each also gets a link to return the user to the TOC.
+	 * 
+	 * Since we're processing new headings here, when done we'll call 
+	 * for regeneration of the TOC array which is also stored in the table
+	 * 
+	 * @param object $entity
+	 */
+	private function addTocAnchors($entity) {
+		// limitation in the use of capture blocks as function arguments 
+		// force this process to be done in two stages. 
+		// "=====" should be Slug::generate('$4') but that doesn't work
+		$stub_toc_anchors = preg_replace(
+				$this->heading_detection_pattern, 
+//					'<span class="anchor" id="=====' . "\"></span>\n$1", 
+				'<span class="anchor" id="====="><a href="#' . Slug::generate('toc-:title', $entity) . "\">Table of contents</a></span>\n#$4", 
+				$entity->text
+		);
 
+		preg_match_all($this->heading_detection_pattern, $entity->text, $headings);
+		$headings = $headings[4];
+		$text = explode('=====', $stub_toc_anchors);
+		$max = count($text) - 1;
+		$count = 0;
+		$entity->display_text = '';
+		
+		while ($count < $max) {
+			$entity->display_text .= $text[$count] . Slug::generate($headings[$count++]);
+		}
+		$entity->display_text .= $text[$count];
+		
+		$this->buildToc($entity, $headings);
+	}
+
+	/**
+	 * Build an array to guide table of contents rendering
+	 * 
+	 * The array will contain an entry for the article title (as an h1) and 
+	 * one entry for every heading in the article. The array is stored 
+	 * serialized in the db.
+	 * 
+	 * <pre>
+	 *	$toc [
+	 *		0 => [
+	 *			0 => '#', // The hash marks from the markdown heading
+	 *			1 => 'Big Time Programming', // The heading text
+	 *			2 => 'big-time-programming'] // The heading slug 
+	 *		],
+	 *		1 => [ // the next heading data set ]
+	 *	];
+	 * 
+	 * @param object $entity
+	 * @param array $headings
+	 */
+	private function buildToc($entity, $headings = []) {
+		if (empty($headings)) {
+			preg_match_all($this->heading_detection_pattern, $entity->text, $headings);
+			$headings = $headings[4];
+		}
+		$count = 0;
+		$max = count($headings);
+		
+		// the regex pattern lost the first # on every heading and captured the trailing newline
+		$toc = ['#' . $entity->title];
+		while ($count < $max) {
+			array_push($toc, '#' . trim($headings[$count++], "\r\n"));
+		}
+		$toc = new Collection($toc);
+		$toc = $toc->map(function ($value, $key) {
+			return [preg_replace('/^(#+).*/', '$1', $value), preg_replace('/^#+/', '', $value), Slug::generate($value)];
+		});
+		$entity->toc = serialize($toc->toArray());
+	}
+	
 	/**
      * Initialize method
      *
