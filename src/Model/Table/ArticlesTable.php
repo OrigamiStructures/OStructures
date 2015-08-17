@@ -37,10 +37,10 @@ class ArticlesTable extends Table
 	 * 
 	 * Adds 
 	 *	- automatic article TOC
-	 *  - automatic article categorization
-	 *	- automatic image record linking
-	 *	- automatic referenced article record linking
-	 *  - and possibly image node markup?
+	 *  - automatic article categorization (pending)
+	 *	- automatic image record linking (pending)
+	 *	- automatic referenced article record linking (pending)
+	 *  - and possibly image node markup? (no. this is not a viable plan)
 	 * 
 	 * @param Event $event
 	 * @param Article $entity
@@ -51,13 +51,67 @@ class ArticlesTable extends Table
 			$this->buildToc($entity);
 		}
         if ($entity->isNew() || $entity->dirty('text')) {
-			$this->addTocAnchors($entity);
+			$this->manageTocAnchors($entity);
 
+			$entity = $this->manageImageAssociations($entity);
+//			debug($entity);die;
 			debug('insure the image links');
 			debug('setup the topics');
 		}
+		return $entity;
 	}
 	
+	private function manageImageAssociations($entity) {
+		// Get linked images recorded in data tables
+		$images = $this->Images->find('list', [
+			'keyField' => 'id',
+			'valueField' => 'image_dir'
+		]);
+		$images->matching('Articles', function ($q) use ($entity) {
+			return $q->where(['Articles.id' => $entity->id]);
+		});
+		$current_links = $images->toArray();
+		
+		// Get referenced images from newly edited article
+		preg_match_all('/!\[.*\/([a-f0-9\-]{36})\//', $entity->text, $match);
+		$image_keys = $match[1];
+		
+		// Determine the differences
+		$remove = array_diff($current_links, $image_keys); // images to unlink from the article
+		$add = array_diff($image_keys, $current_links); // images to link to the article
+		
+		// Removed unused links
+		foreach ($remove as $image_id => $target) {
+			$unlink_image = $this->Images->get($image_id);
+			$this->Images->unlink($entity, [$unlink_image]);
+		}
+		
+		// Add newly required links
+		foreach ($add as $image_dir) {
+			$image_entity = $this->Images->find()->where(['image_dir' => $image_dir])->first();
+
+			$entity->images[] = $image_entity;
+			$entity->dirty(['images', true]);
+//			$entity->images[] = $image_entity;
+//			$link_entity = new ArticlesImages(['article_id' => $entity->id, 'image_id' => $image_entity->id]);
+//			debug($image_entity->toArray());
+//			$link_entity->save();
+		}
+			debug($entity);
+		debug('to remove');
+		debug($remove);
+		debug('to add');
+		debug($add);
+		debug('current links');
+		debug($current_links);
+		debug('image keys');
+		debug($image_keys);
+		return $entity;
+		//![A picture of a quilt pattern featuring a yellow chick on a white background with green triangles.](/OStructures/img/images/image/22317fac-c34e-4589-811e-476f1e8d9125/IMG_0011.jpg "Yellow chick quilt with green arrows")
+		//[SuperFly!](http://localhost/OStructures/blogArticle/view_article/superfly "SuperFly!")
+	}
+
+
 	/**
 	 * Build the TOC anchor points and return-to-toc links
 	 * 
@@ -69,7 +123,7 @@ class ArticlesTable extends Table
 	 * 
 	 * @param object $entity
 	 */
-	private function addTocAnchors($entity) {
+	private function manageTocAnchors($entity) {
 		// limitation in the use of capture blocks as function arguments 
 		// force this process to be done in two stages. 
 		// "=====" should be Slug::generate('$4') but that doesn't work
@@ -164,6 +218,9 @@ class ArticlesTable extends Table
             'targetForeignKey' => 'image_id',
             'joinTable' => 'articles_images'
         ]);
+//		$this->hasMany('ArticlesImages', [
+//			'foreignKey' => 'article_id'
+//		]);
     }
 
     /**
