@@ -3,4 +3,6 @@ $(document).ready(function(){
     $('.resource-zone').on('toggled', function (event, accordion) {
         console.log(accordion);
     });
-})
+    $('a[href="#panel1d"]').trigger('click');
+    $('a[href="#panel1d"]').trigger('click');
+});
