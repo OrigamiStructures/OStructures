@@ -23,6 +23,6 @@ $this->end();
 	</div>
 	<div class="preview-zone">
 		<?= $this->element('BlogArticles/article_toc'); ?>
-		<?= $this->CakeMarkdown->transform($article); ?>
+		<?= $this->element('BlogArticles/article_view') ?>
 	</div>
 </div>
