@@ -17,18 +17,11 @@ class BlogArticlesController extends ArticlesController {
             $article = $this->Articles->get($id, [
                 'contain' => ['Images', 'Topics']
             ]);
-//		debug($article->toc());
-            $articleImages = new Collection($article->images);
-            $Images = $this->Articles->Images->find('all');
-            $Images->contain(['Articles']);
-            $unlinkedImages = $this->unlinkedImages($Images);
-            $linkedImages = $this->linkedImages($Images, $id);
-            $otherArticles = $this->otherArticles($id);
         } catch (Exception $exc) {
-            $article = $articleImages = $unlinkedImages = $linkedImages = array();
+            $article = [];
             echo $exc->getTraceAsString();
         }
-
+        
         if ($this->request->is(['patch', 'post', 'put'])) {
             $article = $this->Articles->patchEntity($article, $this->request->data);
             if ($this->Articles->save($article)) {
@@ -40,6 +33,22 @@ class BlogArticlesController extends ArticlesController {
                 $this->Flash->error(__('The article could not be saved. Please, try again.'));
             }
         }
+        
+        try {
+            $article = $this->Articles->get($id, [
+                'contain' => ['Images', 'Topics']
+            ]);
+            $articleImages = new Collection($article->images);
+            $Images = $this->Articles->Images->find('all');
+            $Images->contain(['Articles']);
+            $unlinkedImages = $this->unlinkedImages($Images);
+            $linkedImages = $this->linkedImages($Images, $id);
+            $otherArticles = $this->otherArticles($id);
+        } catch (Exception $exc) {
+            $article = $articleImages = $unlinkedImages = $linkedImages = array();
+            echo $exc->getTraceAsString();
+        }
+
 		$toc = $article->toc();
         $this->set(compact('article', 'articleImages', 'unlinkedImages', 'linkedImages', 'toc', 'otherArticles'));
         $this->set('_serialize', ['article']);
