@@ -2,6 +2,10 @@
 $this->append('css');
 echo $this->Html->css('article-authoring');
 $this->end();
+$this->append('script');
+echo $this->Html->script('app');
+echo $this->Html->script('article-authoring');
+$this->end();
 ?>
 <div class="row sm-tall-100">
 	<div class="resource-zone">

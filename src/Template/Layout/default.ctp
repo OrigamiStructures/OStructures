@@ -56,6 +56,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <footer>
         </footer>
     </div>
+    <script src="/OStructures/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/OStructures/bower_components/fastclick/lib/fastclick.js"></script>
     <script src="/OStructures/bower_components/foundation/js/foundation.min.js"></script>
 </body>
