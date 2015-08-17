@@ -18,7 +18,7 @@
     </div>
   </li>
   <li class="accordion-navigation">
-    <a href="#panel4d"">OTHER articles</a>
+    <a href="#panel4d">OTHER articles</a>
     <div id="panel4d" class="content active">
       <?= $this->element('Resources/text_resources', ['articles' => $otherArticles]); ?>
     </div>
