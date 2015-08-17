@@ -43,7 +43,7 @@ class Article extends Entity implements MarkdownInterface, GeshiInterface {
 	}
 
 	public function markdownSource($options = NULL) {
-		return $this->text;
+		return $this->display_text;
 	}
 
 	public function geshiTemplate($args) {
@@ -62,16 +62,8 @@ class Article extends Entity implements MarkdownInterface, GeshiInterface {
 	}
 
 	public function toc() {
-		preg_match_all('/\n(#+.+)/', $this->text, $headings);
-		array_unshift($headings[0], '#' . $this->title);
-		
-		$heads = new Collection($headings[0]);
-		$heads = $heads->map(function ($value, $key) {
-			$value = trim($value, "\r\n");
-			return [preg_replace('/^(#+).*/', '$1', $value), preg_replace('/^#+/', '', $value), Slug::generate($value)];
-		});
-		
-		return $heads;
+		$this->toc = empty($this->toc) ? serialize([]) : $this->toc;
+		return new Collection(unserialize($this->toc));
 	}
 	
 }

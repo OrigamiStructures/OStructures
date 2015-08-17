@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Memento Pattern in CakePHP and PHP in General</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<!-- START OF ARTICLE TOC -->
+		<ul id="toc-the-memento-pattern-in-cakephp-and-php-in-general">
+			<li><a href="#the-memento-pattern-in-cakephp-and-php-in-general">The Memento Pattern in CakePHP (and PHP in general)</a>
+			</li>
+			<li><a href="#refsect1-function-serialize-parameters-para-a-h3">refsect1-function.serialize-parameters"&gt;¶</a>
+			</li>
+		</ul>
+		<!-- END OF ARTICLE TOC -->
+		<div itemscope itemtype="http://schema.org/TechArticle" class="preview-zone">
+			<div itemprop="articleBody">
+				<h1 itemprop="headline" id="the-memento-pattern-in-cakephp-and-php-in-general">The Memento Pattern in CakePHP and PHP in General</h1>
+			<p>Some days, mucking around in 'Design Patterns' is a real trial. Trying to translate the unfamiliar C++ and SmallTalk syntax into PHP while simultaneously trying to decide if the example code has any meaning at all in a stateless web app... sigh.</p>
+
+			<p>Though there have been a couple of times I thought the Memento Pattern would be useful, there are always work-arounds. And the 10 pages of discussion never got me close enough to make much progress.</p>
+
+			<figure itemprop="image"  itemscope itemtype="https://schema.org/ImageObject"><img itemprop="image" title="" alt="" src="/OStructures/img/images/image/11bc8bf5-2e33-42db-8963-a20473d99b0b/square_DSC03227.JPG">
+				<figcaption itemprop="caption">Illustration 32</figcaption></figure>
+
+			<p>The idea is simple enough. Some server process is running and you have an object that was very expensive to assemble for some reason. The server-side task is wrapping up and you're going to send the page off to the client. But you know you're going to need the object again after the site visitor interacts with the page and the resulting new request arrives back at the server. So, you'd like to save the object so it can be reused in&nbsp;subsequent requests.</p>
+
+			<p>But of course, you don't want to the save or restore processes to know anything specific about the structure of the object. Encapsulation as usual, or later changes to the system will cascade through your app.</p>
+
+			<p>I can imagine some ajax situation where such a system would be useful. You'd want the ajax calls to the server to be as quick as possible and having a fully prepared object (or a couple of them) ready to go on demand could really help.</p>
+
+			<p>Rather than bending my brain to&nbsp;assimilate whatever gangum quatro are trying to describe there are alternatives like scaling back my feature expectations, paying the time cost for the feature, using session values to help reduce the cost...</p>
+
+			<p>Imagine my surprise this morning when I was poking around in the Cake core, trying to see if I could make use of the pre-configured model cache. My first step was to read the cached value in and see what was stored in there.</p>
+
+			<p>A little fiddling around in config/app.php reveals the proper cache configuration is <strong>_cake_model_</strong>. And a bit more experimentation revealed that the model names should be prepended with <strong>default_</strong>. So:</p>
+
+			<pre>  debug(\Cake\Cache\Cache::read('default_organizations', '_cake_model_')); die;
+			</pre>
+
+			<p>in my OrganizationsController index action got me a result to examine:</p>
+
+			<div class="cake-debug-output"><span><strong>&nbsp;&nbsp;&nbsp; /src/Controller/OrganizationsController.php</strong> (line <strong>63</strong>)</span>
+				<pre class="cake-debug">  object(Cake\Database\Schema\Table) {
+        [protected] _table =&gt; 'organizations'
+        [protected] _columns =&gt; [
+                'id' =&gt; [
+                        'type' =&gt; 'integer',
+                        'length' =&gt; (int) 11,
+                        'unsigned' =&gt; true,
+                        'null' =&gt; false,
+                        'default' =&gt; null,
+                        'comment' =&gt; '',
+                        'autoIncrement' =&gt; true,
+                        'precision' =&gt; null
+                ],
+                'name' =&gt; [
+                        'type' =&gt; 'string',
+                        'length' =&gt; (int) 256,
+                        'null' =&gt; true,
+                        'default' =&gt; null,
+                        'comment' =&gt; '',
+                        'precision' =&gt; null,
+                        'fixed' =&gt; null
+                ],
+                'created' =&gt; [
+                        'type' =&gt; 'datetime',
+                        'length' =&gt; null,
+                        'null' =&gt; true,
+                        'default' =&gt; null,
+                        'comment' =&gt; '',
+                        'precision' =&gt; null
+                ],
+                'modified' =&gt; [
+                        'type' =&gt; 'datetime',
+                        'length' =&gt; null,
+                        'null' =&gt; true,
+                        'default' =&gt; null,
+                        'comment' =&gt; '',
+                        'precision' =&gt; null
+                ],
+                'updated' =&gt; [
+                        'type' =&gt; 'datetime',
+                        'length' =&gt; null,
+                        'null' =&gt; true,
+                        'default' =&gt; null,
+                        'comment' =&gt; '',
+                        'precision' =&gt; null
+                ]
+        ]
+        [protected] _indexes =&gt; []
+        [protected] _constraints =&gt; [
+                'primary' =&gt; [
+                        'type' =&gt; 'primary',
+                        'columns' =&gt; [
+                                (int) 0 =&gt; 'id'
+                        ],
+                        'length' =&gt; []
+                ]
+        ]
+        [protected] _options =&gt; [
+                'engine' =&gt; 'MyISAM',
+                'collation' =&gt; 'utf8_general_ci'
+        ]
+        [protected] _temporary =&gt; false
+        [protected] _columnKeys =&gt; [
+                'type' =&gt; null,
+                'length' =&gt; null,
+                'precision' =&gt; null,
+                'null' =&gt; null,
+                'default' =&gt; null,
+                'comment' =&gt; null
+        ]
+        [protected] _columnExtras =&gt; [
+                'string' =&gt; [
+                        'fixed' =&gt; null
+                ],
+                'integer' =&gt; [
+                        'unsigned' =&gt; null,
+                        'autoIncrement' =&gt; null
+                ],
+                'biginteger' =&gt; [
+                        'unsigned' =&gt; null,
+                        'autoIncrement' =&gt; null
+                ],
+                'decimal' =&gt; [
+                        'unsigned' =&gt; null
+                ],
+                'float' =&gt; [
+                        'unsigned' =&gt; null
+                ]
+        ]
+        [protected] _indexKeys =&gt; [
+                'type' =&gt; null,
+                'columns' =&gt; [],
+                'length' =&gt; [],
+                'references' =&gt; [],
+                'update' =&gt; 'restrict',
+                'delete' =&gt; 'restrict'
+        ]
+        [protected] _validIndexTypes =&gt; [
+                (int) 0 =&gt; 'index',
+                (int) 1 =&gt; 'fulltext'
+        ]
+        [protected] _validConstraintTypes =&gt; [
+                (int) 0 =&gt; 'primary',
+                (int) 1 =&gt; 'unique',
+                (int) 2 =&gt; 'foreign'
+        ]
+        [protected] _validForeignKeyActions =&gt; [
+                (int) 0 =&gt; 'cascade',
+                (int) 1 =&gt; 'setNull',
+                (int) 2 =&gt; 'setDefault',
+                (int) 3 =&gt; 'noAction',
+                (int) 4 =&gt; 'restrict'
+        ]
+}
+				</pre>
+				<p>But wait! That's an object! Is it really a FULLY OPERATION Death Star... ummm Schema/Table object?</p>
+				<pre>        $obj = \Cake\Cache\Cache::read('default_organizations', '_cake_model_');
+        debug(get_class_methods($obj)); die;<br><br>
+				</pre>
+				<div class="cake-debug-output"><span><strong>&nbsp; /src/Controller/OrganizationsController.php</strong> (line <strong>64</strong>)</span>
+					<pre class="cake-debug">  [
+        (int) 0 =&gt; '__construct',
+        (int) 1 =&gt; 'name',
+        (int) 2 =&gt; 'addColumn',
+        (int) 3 =&gt; 'columns',
+        (int) 4 =&gt; 'column',
+        (int) 5 =&gt; 'columnType',
+        (int) 6 =&gt; 'isNullable',
+        (int) 7 =&gt; 'defaultValues',
+        (int) 8 =&gt; 'addIndex',
+        (int) 9 =&gt; 'indexes',
+        (int) 10 =&gt; 'index',
+        (int) 11 =&gt; 'primaryKey',
+        (int) 12 =&gt; 'addConstraint',
+        (int) 13 =&gt; 'constraints',
+        (int) 14 =&gt; 'constraint',
+        (int) 15 =&gt; 'options',
+        (int) 16 =&gt; 'temporary',
+        (int) 17 =&gt; 'createSql',
+        (int) 18 =&gt; 'dropSql',
+        (int) 19 =&gt; 'truncateSql'
+  ]
+					</pre>
+				</div>
+				<p>Sure enough! Cake is using the Memento Pattern for model caching. How is that happening?</p>
+				<p>A little more digging around in the core, following the logic in Cache::read() reveals nothing special. No exotic services called out of other classes. It all boils down to this simple line:</p>
+				<p>&nbsp;&nbsp;&nbsp; $data = unserialize((string)$data);</p>
+				<p>Seriously? I've used un/serialize() plenty of times to package up arrays. Storing arrays like this in a data table is one of my favorite ways of implementing user preferences.</p>
+				<p>It turns out this is a case where PHP&nbsp;programmers get a design pattern for free. Of the serialize() function, the <a href="http://php.net/manual/en/function.serialize.php" target="_self">PHP Manual</a> says:</p>
+				<h3 class="title">Parameters <a id="refsect1-function-serialize-parameters-para-a-h3" anchor"="" href="http://php.net/manual/en/function.serialize.php&lt;span class=" class="genanchor"></a><a href="#toc-the-memento-pattern-in-cakephp-and-php-in-general">Table of contents</a>
+					#refsect1-function.serialize-parameters"&gt;¶</h3>
+				<dl>
+					<dt><code class="parameter">value</code></dt>
+					<dd>
+						<p class="para">The value to be serialized. <span class="function"><strong>serialize()</strong></span> handles all types, except the <span class="type"><a class="type resource" href="http://php.net/manual/en/language.types.resource.php">resource</a></span>-type. You can even <span class="function"><strong>serialize()</strong></span> arrays that contain references to itself. Circular references inside the array/object you are serializing will also be stored. Any other reference will be lost.</p>
+			<figure itemprop="image"  itemscope itemtype="https://schema.org/ImageObject"><img itemprop="image" title="" alt="" src="/OStructures/img/images/image/11bc8bf5-2e33-42db-8963-a20473d99b0b/square_DSC03227.JPG">
+				<figcaption itemprop="caption">Illustration 32</figcaption></figure>
+						<p class="para">So for the simplest cases (the 90%), you're covered!</p>
+						<p class="para">There are a couple of points you should review on the manual page. The role of the magic __sleep() and __wakeup() methods in the serialize()/unserialize() process will be important. And the binary nature of the serialized result and the implications for storage are also important.</p>
+						<p class="para">Happy optimization!</p>
+						<p itemprop="datePublished">June 20, 2015</p>
+					</dd>
+				</dl>
+			</div>
+			</div>
+		</div>	</body>
+</html>
