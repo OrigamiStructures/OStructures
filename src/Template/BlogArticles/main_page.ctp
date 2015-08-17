@@ -50,7 +50,8 @@ $this->end();
             <div class="large-9 medium-8 columns">
                 <?php
                     foreach ($articles as $key => $article) {
-                        echo $this->element('BlogArticles/article_view', ['article' => $article]);
+                        echo $this->element('BlogArticles/article_summary', ['article' => $article]);
+                        echo $this->element('Authors/author_view', ['authors' => $article->authors]);
                     }
                 ?>
             </div>
