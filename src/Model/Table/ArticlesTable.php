@@ -54,8 +54,6 @@ class ArticlesTable extends Table
 			$this->manageTocAnchors($entity);
 
 			$entity = $this->manageImageAssociations($entity);
-//			debug($entity);die;
-			debug('insure the image links');
 			debug('setup the topics');
 		}
 		return $entity;
@@ -89,26 +87,10 @@ class ArticlesTable extends Table
 		// Add newly required links
 		foreach ($add as $image_dir) {
 			$image_entity = $this->Images->find()->where(['image_dir' => $image_dir])->first();
-
 			$entity->images[] = $image_entity;
-			$entity->dirty(['images', true]);
-//			$entity->images[] = $image_entity;
-//			$link_entity = new ArticlesImages(['article_id' => $entity->id, 'image_id' => $image_entity->id]);
-//			debug($image_entity->toArray());
-//			$link_entity->save();
+			$entity->dirty('images', true);
 		}
-			debug($entity);
-		debug('to remove');
-		debug($remove);
-		debug('to add');
-		debug($add);
-		debug('current links');
-		debug($current_links);
-		debug('image keys');
-		debug($image_keys);
 		return $entity;
-		//![A picture of a quilt pattern featuring a yellow chick on a white background with green triangles.](/OStructures/img/images/image/22317fac-c34e-4589-811e-476f1e8d9125/IMG_0011.jpg "Yellow chick quilt with green arrows")
-		//[SuperFly!](http://localhost/OStructures/blogArticle/view_article/superfly "SuperFly!")
 	}
 
 
