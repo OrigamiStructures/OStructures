@@ -120,10 +120,10 @@ class ArticlesTable extends Table
 				// $heading is markdown style heading
 				// $slug is slug of heading
 				// $return is the id attr of the articles toc block
-				list($heading, $slug, $return) = [
-					preg_replace('/^(#+).*/', '$1', $match) . preg_replace('/^#+/', '', $match), 
+				list($slug, $return, $heading) = [
 					Slug::generate($match),
-					Slug::generate('toc-:title', $entity)];
+					Slug::generate('toc-:title', $entity),
+					preg_replace('/^(#+).*/', '$1', $match) . preg_replace('/^#+/', '', $match)];
 				return sprintf(TOC_LINKBACK, $slug ,$return, $heading);
 			},
 //				,
