@@ -93,6 +93,9 @@ class ArticlesTable extends Table
 		return $entity;
 	}
 
+	private function tocAnchor($matches) {
+		debug($matches);
+	}
 
 	/**
 	 * Build the TOC anchor points and return-to-toc links
@@ -103,31 +106,31 @@ class ArticlesTable extends Table
 	 * Since we're processing new headings here, when done we'll call 
 	 * for regeneration of the TOC array which is also stored in the table
 	 * 
+	 * Sample result:
+	 *  <p class="toc-anchor"><a href="#toc-a-test-article-edited" id="let-s-get-things-rolling">Table of contents</a></p>
+	 *	##Let's get things rolling!
+	 * 
 	 * @param object $entity
 	 */
 	private function manageTocAnchors($entity) {
-		// limitation in the use of capture blocks as function arguments 
-		// force this process to be done in two stages. 
-		// "=====" should be Slug::generate('$4') but that doesn't work
-		$stub_toc_anchors = preg_replace(
-				$this->heading_detection_pattern, 
-				sprintf(TOC_LINKBACK, Slug::generate('toc-:title', $entity) ,Slug::generate('toc-:title', $entity), '$4'),
-				$entity->text
-//					'<span class="anchor" id="=====' . "\"></span>\n$1", 
-//				'<span class="anchor" id="====="><a href="#' . Slug::generate('toc-:title', $entity) . "\">Table of contents</a></span>\n#$4", 
+		$entity->display_text = preg_replace_callback(
+			$this->heading_detection_pattern, 
+			function ($matches) use ($entity) {
+				$match = trim($matches[0], "\n\r ");
+				// $heading is markdown style heading
+				// $slug is slug of heading
+				// $return is the id attr of the articles toc block
+				list($heading, $slug, $return) = [
+					preg_replace('/^(#+).*/', '$1', $match) . preg_replace('/^#+/', '', $match), 
+					Slug::generate($match),
+					Slug::generate('toc-:title', $entity)];
+				return sprintf(TOC_LINKBACK, $slug ,$return, $heading);
+			},
+//				,
+			$entity->text
 		);
-
 		preg_match_all($this->heading_detection_pattern, $entity->text, $headings);
 		$headings = $headings[4];
-		$text = explode('=====', $stub_toc_anchors);
-		$max = count($text) - 1;
-		$count = 0;
-		$entity->display_text = '';
-		
-		while ($count < $max) {
-			$entity->display_text .= $text[$count] . Slug::generate($headings[$count++]);
-		}
-		$entity->display_text .= $text[$count];
 		
 		$this->buildToc($entity, $headings);
 	}
@@ -241,3 +244,7 @@ class ArticlesTable extends Table
         return $validator;
     }
 }
+
+function tocAnchor($matches) {
+		debug($matches);
+	}
