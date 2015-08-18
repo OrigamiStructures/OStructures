@@ -1208,6 +1208,7 @@ button {
       font-size: 80%;
       margin-bottom: .5em; }
     .resource-zone .MarkdownImageLink, .resource-zone .MarkdownArticleLink {
+      color: #888;
       font-size: 50%;
       height: 40px; }
     .resource-zone .MarkdownImageLink {
