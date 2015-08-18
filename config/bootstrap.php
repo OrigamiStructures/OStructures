@@ -206,3 +206,5 @@ DispatcherFactory::add('ControllerFactory');
 Type::build('datetime')->useLocaleParser();
 
 Plugin::load('Cake3xMarkdown', ['autoload' => TRUE]);
+
+define('TOC_LINKBACK', "<span class=\"anchor\" id=\"%s\"><a href=\"#%s\">Table of contents</a></span>\n%s");

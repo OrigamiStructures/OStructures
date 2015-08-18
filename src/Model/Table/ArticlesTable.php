@@ -111,9 +111,10 @@ class ArticlesTable extends Table
 		// "=====" should be Slug::generate('$4') but that doesn't work
 		$stub_toc_anchors = preg_replace(
 				$this->heading_detection_pattern, 
-//					'<span class="anchor" id="=====' . "\"></span>\n$1", 
-				'<span class="anchor" id="====="><a href="#' . Slug::generate('toc-:title', $entity) . "\">Table of contents</a></span>\n#$4", 
+				sprintf(TOC_LINKBACK, Slug::generate('toc-:title', $entity) ,Slug::generate('toc-:title', $entity), '$4'),
 				$entity->text
+//					'<span class="anchor" id="=====' . "\"></span>\n$1", 
+//				'<span class="anchor" id="====="><a href="#' . Slug::generate('toc-:title', $entity) . "\">Table of contents</a></span>\n#$4", 
 		);
 
 		preg_match_all($this->heading_detection_pattern, $entity->text, $headings);
