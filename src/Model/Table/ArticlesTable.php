@@ -44,6 +44,20 @@ class ArticlesTable extends Table
 	 * @var string
 	 */
 	protected $image_link_detection_pattern = '/!\[.*\/([a-f0-9\-]{36})\//';
+	
+	/**
+	 * Regex pattern to find markdown article links
+	 * 
+	 * This will capture the article title and use is in the association logic. 
+	 * The title is assumed to be unique. A bit of a risk, but the best we have. 
+	 * Also, this will capture foreign urls too so the logic must deal with that.
+	 * 
+	 * example markdown article link
+	 * [Aticle Title](http://path/to/article/page "title attribute")
+	 *
+	 * @var string
+	 */
+	protected $article_link_detection_pattern = '/[^!]\[(.*)\]\(.*\)/';
 
 	/**
 	 * Do the background processing to fluff the markdown article
@@ -67,9 +81,18 @@ class ArticlesTable extends Table
 			$this->manageTocAnchors($entity);
 
 			$entity = $this->manageImageAssociations($entity);
+			
+			debug('link the articles');
+			$entity = $this->manageArticleAssociations($entity);
+			
 			debug('setup the topics');
 		}
 		return $entity;
+	}
+	
+	private function manageArticleAssociations($entity) {
+		preg_match_all($this->article_link_detection_pattern, $entity->text, $match);
+		debug($match);
 	}
 	
 	/**
@@ -94,7 +117,7 @@ class ArticlesTable extends Table
 		$current_links = $images->toArray();
 		
 		// Get referenced images from newly edited article
-		preg_match_all($image_link_detection_pattern, $entity->text, $match);
+		preg_match_all($this->image_link_detection_pattern, $entity->text, $match);
 		$image_keys = $match[1];
 		
 		// Determine the differences
