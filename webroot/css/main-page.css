@@ -27,4 +27,14 @@ h2.article-title {
   margin-left: 1.0rem;
   color: #fff; }
 
+author_initial {
+  background: red none repeat scroll 0 0;
+  border-radius: 40px;
+  float: left;
+  margin-right: 10px;
+  padding: 10px 20px; }
+
+.author_block {
+  font-size: 70%; }
+
 /*# sourceMappingURL=main-page.css.map */

@@ -118,7 +118,7 @@ class BlogArticlesController extends ArticlesController {
         $this->loadModel('Articles');
         try {
             $articles = $this->Articles->find('all');
-            $articles->contain(['Images', 'Topics']);
+            $articles->contain(['Images', 'Topics', 'Authors']);
             $articles->where([
                 'publish' => 1
             ]);

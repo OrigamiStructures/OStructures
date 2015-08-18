@@ -201,6 +201,11 @@ class ArticlesTable extends Table
             'targetForeignKey' => 'image_id',
             'joinTable' => 'articles_images'
         ]);
+        $this->belongsToMany('Authors', [
+            'foreignKey' => 'article_id',
+            'targetForeignKey' => 'author_id',
+            'joinTable' => 'articles_authors'
+        ]);
 //		$this->hasMany('ArticlesImages', [
 //			'foreignKey' => 'article_id'
 //		]);
