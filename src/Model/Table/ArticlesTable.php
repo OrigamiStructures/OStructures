@@ -31,6 +31,19 @@ class ArticlesTable extends Table
 	 * @var string 
 	 */
 	protected $heading_detection_pattern = '/((^#)|(\n#))(#*.+)/';
+	
+	/**
+	 * Regex pattern to find markdown image links
+	 * 
+	 * Depends on the image src having a uuid in it. The uuid 
+	 * is also captured for logic that does automatic record associations
+	 * 
+	 * exaple markdown image link
+	 * ![alt attribute text](/path/11bc8bf5-2e33-42db-8963-a20473d99b0b/img.jpg "title attribute")
+	 *
+	 * @var string
+	 */
+	protected $image_link_detection_pattern = '/!\[.*\/([a-f0-9\-]{36})\//';
 
 	/**
 	 * Do the background processing to fluff the markdown article
@@ -59,6 +72,16 @@ class ArticlesTable extends Table
 		return $entity;
 	}
 	
+	/**
+	 * Insure Article is associated with the Images referenced in it's text body
+	 * 
+	 * Images aren't guaranteed to have unique file names but the image upload 
+	 * plugin guarantees a uuid folder unique to each image (and it's thumbnail versions)
+	 * This feature is leveraged to manage the automatic link management.
+	 * 
+	 * @param Entity $entity
+	 * @return Entity
+	 */
 	private function manageImageAssociations($entity) {
 		// Get linked images recorded in data tables
 		$images = $this->Images->find('list', [
@@ -71,7 +94,7 @@ class ArticlesTable extends Table
 		$current_links = $images->toArray();
 		
 		// Get referenced images from newly edited article
-		preg_match_all('/!\[.*\/([a-f0-9\-]{36})\//', $entity->text, $match);
+		preg_match_all($image_link_detection_pattern, $entity->text, $match);
 		$image_keys = $match[1];
 		
 		// Determine the differences
@@ -91,10 +114,6 @@ class ArticlesTable extends Table
 			$entity->dirty('images', true);
 		}
 		return $entity;
-	}
-
-	private function tocAnchor($matches) {
-		debug($matches);
 	}
 
 	/**
@@ -170,6 +189,7 @@ class ArticlesTable extends Table
 		}
 		$toc = new Collection($toc);
 		$toc = $toc->map(function ($value, $key) {
+			// '##My Title' yeilds '##', 'My Title', 'my-title'
 			return [preg_replace('/^(#+).*/', '$1', $value), preg_replace('/^#+/', '', $value), Slug::generate($value)];
 		});
 		$entity->toc = serialize($toc->toArray());
@@ -244,7 +264,3 @@ class ArticlesTable extends Table
         return $validator;
     }
 }
-
-function tocAnchor($matches) {
-		debug($matches);
-	}
