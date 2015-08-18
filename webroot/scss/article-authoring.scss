@@ -62,16 +62,32 @@ button {
         }
         @include grid-column(12);
         backround-color: taupe;
-        .resourceImage, .resourceArticle{
+        .resourceImage{
             @include grid-column(7);
         }
-        .MarkdownImageLink, .MarkdownArticleLink{
-            @include grid-column(5);
-            font-size: 50%;
-            height: 40px;
+		
+        .MarkdownImageLink, .MarkdownArticleLink, .resourceArticle {
             overflow: hidden;
             line-height: 100%;
         }
+		
+       .resourceArticle {
+            font-size: 80%;
+			margin-bottom: .5em;
+        }
+		
+        .MarkdownImageLink, .MarkdownArticleLink {
+            font-size: 50%;
+            height: 40px;
+        }
+		
+        .MarkdownImageLink{
+            @include grid-column(5);
+        }
+		
+		.resourceArticle, .MarkdownArticleLink {
+			@include grid-column(12);
+		}
     }
 
     .preview-zone{

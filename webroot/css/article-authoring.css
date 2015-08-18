@@ -1196,20 +1196,30 @@ button {
     backround-color: taupe; }
     .resource-zone ul {
       margin-left: 0; }
-    .resource-zone .resourceImage, .resource-zone .resourceArticle {
+    .resource-zone .resourceImage {
       padding-left: 0.9375rem;
       padding-right: 0.9375rem;
       width: 58.33333%;
       float: left; }
+    .resource-zone .MarkdownImageLink, .resource-zone .MarkdownArticleLink, .resource-zone .resourceArticle {
+      overflow: hidden;
+      line-height: 100%; }
+    .resource-zone .resourceArticle {
+      font-size: 80%;
+      margin-bottom: .5em; }
     .resource-zone .MarkdownImageLink, .resource-zone .MarkdownArticleLink {
+      font-size: 50%;
+      height: 40px; }
+    .resource-zone .MarkdownImageLink {
       padding-left: 0.9375rem;
       padding-right: 0.9375rem;
       width: 41.66667%;
-      float: left;
-      font-size: 50%;
-      height: 40px;
-      overflow: hidden;
-      line-height: 100%; }
+      float: left; }
+    .resource-zone .resourceArticle, .resource-zone .MarkdownArticleLink {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem;
+      width: 100%;
+      float: left; }
 
   .preview-zone {
     /*@include tall(40);*/
