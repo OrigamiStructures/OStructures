@@ -54,4 +54,8 @@ class TopicsTable extends Table
 
         return $validator;
     }
+	
+	public function findTopicList() {
+		return $this->find('list');
+	}
 }

@@ -58,7 +58,7 @@ class ArticlesTable extends Table
 	 * @var string
 	 */
 	protected $article_link_detection_pattern = '/[^!]\[(.*)\]\(.*\)/';
-
+	
 	/**
 	 * Do the background processing to fluff the markdown article
 	 * 
@@ -82,15 +82,79 @@ class ArticlesTable extends Table
 
 			$entity = $this->manageImageAssociations($entity);
 			
-			debug('link the articles');
-			$entity = $this->manageArticleAssociations($entity);
+			// waiting to see if we need this
+//			debug('link the articles');
+//			$entity = $this->manageArticleAssociations($entity);
 			
-			debug('setup the topics');
+			$this->manageTopicAssociations($entity);
 		}
 		return $entity;
 	}
 	
+	
+	/**
+	 * Insure Article is associated with the Topics referenced in it's text body
+	 * 
+	 * Topics are turned into case-insensitive regex patterns. The patterns are 
+	 * forced to start at word boundaries, so PHP will not be found in CakePHP. 
+	 * But some topics can be plural and word boundaries are not forced at the 
+	 * end, so 'design patterns' in the text will be found by the singular 
+	 * topic entry 'design pattern'. Hence, singular Topics are the prefered.
+	 * 
+	 * @param Entity $entity
+	 * @return Entity
+	 */
+	private function manageTopicAssociations($entity) {
+		// get linked topics recorded in the data table
+		$topics = $this->Topics->find('list', [
+			'keyField' => 'id',
+			'valueField' => 'slug'
+		]);
+		$topics->matching('Articles', function ($q) use ($entity) {
+			return $q->where(['Articles.id' => $entity->id]);
+		});
+		$current_topics = $topics->toArray();
+				
+		// Get referenced topics from newly edited article
+		//		first make each topic into an regex capture-pattern
+		$all_topics = $this->Topics->find('topicList');
+		$patterns = $all_topics->map(function($value, $key) {
+			return "(\b$value)";
+		});
+		//		then OR all the regex capture patterns together
+		$patterns = implode('|', $patterns->toArray());
+		preg_match_all("/$patterns/i", $entity->text, $match);
+		//		finally get unique list of slugs for topics that were found
+		$match = new Collection($match[0]);
+		$topic_keys = array_unique(
+			$match->map(function($value, $key) {
+				return Slug::generate($value);
+			})
+			->toArray()
+		);
+						
+		// determine the differences
+		$remove = array_diff($current_topics, $topic_keys); // topics to unlink from the article
+		$add = array_diff($topic_keys, $current_topics); // topics to link to the article
+		
+		// remove unused links
+		foreach ($remove as $topic_id => $target) {
+			$unlink_topic = $this->Topics->get($topic_id);
+			$this->Topics->unlink($entity, [$unlink_topic]);
+		}
+		
+		// add newly required links
+		foreach ($add as $slug) {
+			$topic_entity = $this->Topics->find()->where(['slug' => $slug])->first();
+			$entity->topics[] = $topic_entity;
+			$entity->dirty('topics', true);
+		}
+		
+		return $entity;
+	}
+	
 	private function manageArticleAssociations($entity) {
+		return $entity; // we're going to wait and see if this feature is necessary
 		preg_match_all($this->article_link_detection_pattern, $entity->text, $match);
 		debug($match);
 	}
