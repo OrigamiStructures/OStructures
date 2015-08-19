@@ -207,4 +207,4 @@ Type::build('datetime')->useLocaleParser();
 
 Plugin::load('Cake3xMarkdown', ['autoload' => TRUE]);
 
-define('TOC_LINKBACK', "<p class=\"toc-anchor\"><a id=\"%s\" href=\"#%s\">Table of contents</a></p>\n\n%s");
+define('TOC_LINKBACK', "<small class=\"toc-anchor\"><a id=\"%s\" href=\"#%s\">Table of contents</a></small>\n\n%s");

@@ -3,5 +3,5 @@
 ?>
     
 <footer>
-    <p class="copyright"><?= "Copyright $year Origami Structures" ?></p>
+    <small><?= "Copyright $year Origami Structures" ?></small>
 </footer>
