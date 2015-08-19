@@ -128,5 +128,12 @@ class BlogArticlesController extends ArticlesController {
         $this->set(compact('articles'));
         $this->set('_serialize', ['articles']);
     }
+	
+	public function article($slug) {
+		// need to be cache aware
+		$query = $this->Articles->find()->where(['Aricles.slug' => $slug])->first();
+		$this->layout = 'min';
+		$this->render('main_page');
+	}
 
 }
