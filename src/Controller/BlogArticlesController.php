@@ -139,7 +139,9 @@ class BlogArticlesController extends ArticlesController {
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
-        $this->set(compact('article', 'recent'));
+		$toc = $article->toc();
+
+        $this->set(compact('article', 'recent', 'toc'));
         $this->set('_serialize', ['article']);
 	}
 
