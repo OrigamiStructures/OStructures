@@ -34,6 +34,12 @@ echo $this->element('Common/common_scripts');
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <?= $this->fetch('content') ?>
+    <div class="inner-wrap">
+        <title>Origami Structures: PHP Development and developer assistance</title>
+        <meta content="Evolving thoughts on PHP development, focused on CakePHP v3." name="description">
+        <?= $this->element('Common/header'); ?>
+        <?= $this->fetch('content') ?>
+        <?= $this->element('Common/footer'); ?>
+    </div>
 </body>
 </html>

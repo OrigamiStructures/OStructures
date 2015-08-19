@@ -6322,5 +6322,10 @@ th.hide-for-touch {
 @media not print {
   .show-for-print {
     display: none !important; } }
+footer {
+  background: black none repeat scroll 0 0;
+  height: 40px;
+  margin: 10px 0 0;
+  width: 100%; }
 
 /*# sourceMappingURL=app.css.map */
