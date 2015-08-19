@@ -2,6 +2,13 @@
 Copyright 2015 Origami Structures
 */
 /* 
+    Created on : Aug 19, 2015, 12:31:14 PM
+    Author     : jasont
+*/
+/*
+Copyright 2015 Origami Structures
+*/
+/* 
     Created on : Aug 14, 2015, 11:58:59 AM
     Author     : jasont
 */
@@ -37,4 +44,10 @@ author_initial {
 .author_block {
   font-size: 70%; }
 
-/*# sourceMappingURL=main-page.css.map */
+footer {
+  background: black none repeat scroll 0 0;
+  height: 40px;
+  margin: 10px 0 0;
+  width: 100%; }
+
+/*# sourceMappingURL=main.css.map */

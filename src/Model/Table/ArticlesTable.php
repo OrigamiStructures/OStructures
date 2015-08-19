@@ -11,6 +11,7 @@ use Cake\Event\Event;
 //use Cake\Utility\Inflector;
 use Sluggable\Utility\Slug;
 use Cake\Collection\Collection;
+use Cake\Cache\Cache;
 
 /**
  * Articles Model
@@ -349,5 +350,33 @@ class ArticlesTable extends Table
             ->allowEmpty('summary');
 
         return $validator;
+    }
+
+    public function findRecentArticles(query $query, array $options)
+    {
+        $result = Cache::read('recent', '_article_lists_');
+        if(isset($options['limit'])){
+            $limit = $options['limit'];
+        } else {
+            $limit = 10;
+        }
+        if(!$result){
+            $query->select([
+                'Articles.id',
+                'Articles.publish',
+                'Articles.title',
+                'Articles.published',
+                'Articles.slug',
+                'Articles.summary'
+                ]);
+            $query->where([
+                'Articles.publish' => 1
+            ]);
+            $query->order(['Articles.published' => 'DESC']);
+            $query->limit($limit);
+            $result = $query->toArray();
+            Cache::write('recent', $result, '_article_lists_');
+        }
+        return $result;
     }
 }

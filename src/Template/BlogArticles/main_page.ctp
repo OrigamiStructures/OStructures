@@ -20,7 +20,7 @@ $this->end();
     <div class="row">
         <div class="large-3 medium-4 columns">
             <div class="sidebar">
-                <?= $this->element('Common/sidebar', ['recent' => $recent]); ?>
+                <?= $this->element('Common/sidebar'); ?>
             </div>
         </div>
         <div class="large-9 medium-8 columns">
