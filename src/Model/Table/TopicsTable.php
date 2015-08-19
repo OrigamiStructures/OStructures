@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Cache\Cache;
 
 /**
  * Topics Model
@@ -55,7 +56,14 @@ class TopicsTable extends Table
         return $validator;
     }
 	
+	public function beforeSave(Event $event, Article $entity) {
+        if ($entity->isNew() || $entity->dirty('name')) {
+			Cache::delete('list', '_topic_');
+		}
+	}
+	
 	public function findTopicList() {
-		return $this->find('list');
+		$list = Cache::read('list', '_topic_');
+		return $list ? $list : $this->find('list');
 	}
 }
