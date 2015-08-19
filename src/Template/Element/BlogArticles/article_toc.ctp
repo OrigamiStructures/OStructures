@@ -1,4 +1,11 @@
-<?php use Sluggable\Utility\Slug; ?>
+<?php 
+use Sluggable\Utility\Slug; 
+
+if (!isset($toc)) {
+	return '';
+}
+
+?>
 <!-- START OF ARTICLE TOC -->
 <ul id="<?= Slug::generate('toc-:title', $article); ?>">
 	<?php
