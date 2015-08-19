@@ -133,7 +133,6 @@ class BlogArticlesController extends ArticlesController {
 		// need to be cache aware
 		$query = $this->Articles->find()->where(['Aricles.slug' => $slug])->first();
 		$this->layout = 'min';
-		$this->render('main_page');
 	}
 
 }
