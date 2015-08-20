@@ -15,5 +15,6 @@ list($slug, $return, $heading) = [
 	</section>
 	<section class="information">
 		<?= $this->element('BlogArticles/publication_info'); ?>
+		<?= $this->element('Authors/author_view', ['authors' => $article->authors]); ?>
 	</section>
 </article>
