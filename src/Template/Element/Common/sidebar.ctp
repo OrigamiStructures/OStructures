@@ -1,8 +1,8 @@
 <?php
 ?>
 
-<?= $this->Html->tag('h2', 'Sidebar nav'); ?>
-<ul id="recentArticleLinkList"></ul>
+<?= $this->Html->tag('h1', 'Recent Articles'); ?>
+<ul id="recentArticleLinkList">
 <?php foreach ($recent as $article) : ?>
 	<li>
 		<?= $this->Html->link($article->title, ['action' => 'article', $article->slug]) ?>

@@ -8,7 +8,7 @@ if (!isset($toc)) {
 ?>
 <!-- START OF ARTICLE TOC -->
 <section class="toc" id="<?= Slug::generate('toc-:title', $article); ?>">
-    <h1>Table of Contents</h1>
+    <h1>Article Table of Contents</h1>
     <ul>
         <?php
         $toc_array = is_object($toc) ? $toc->toArray() : [];
@@ -18,7 +18,7 @@ if (!isset($toc)) {
 
             // The first LI
             if ($index === 0) :
-                echo "\t<li><a href=\"#$slug\">$title</a>\n\t";
+                echo "\t<li><h2><a href=\"#$slug\">$title</a></h2>\n\t";
                 continue;
             endif;
 
@@ -55,7 +55,9 @@ if (!isset($toc)) {
                 echo "</li>\n</ul>\n\t";
                 $dif--;
             endwhile;
-        endif;	
+        endif;
+		$slug = Slug::generate('info-:title', $article);
+		echo "<ul class=\"info-link\"><li><a href=\"#$slug\">Publication details</a></li></ul>";
         ?>
 </section>
 <!-- END OF ARTICLE TOC -->
