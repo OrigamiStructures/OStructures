@@ -15,6 +15,7 @@ list($slug, $return, $heading) = [
 	</section>
 	<section id="<?= Slug::generate('info-:title', $article) ?>" class="info">
 		<?= sprintf(TOC_LINKBACK, $slug, $return, ''); ?>
+		<h1>Publication details</h1>
 		<?= $this->element('BlogArticles/publication_info'); ?>
 		<?= $this->element('Authors/author_view', ['authors' => $article->authors]); ?>
 	</section>

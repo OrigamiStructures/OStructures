@@ -24,7 +24,7 @@ article{
 	section.info, section.toc{
 		@include panel;
 	}
-	section.toc{
+	section.toc, section.info {
 		ul:first-of-type {
 			margin-bottom: .5rem;
 		}

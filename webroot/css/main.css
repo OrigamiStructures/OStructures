@@ -6396,11 +6396,11 @@ article section.info, article section.toc {
     margin-bottom: 0.625rem; }
     article section.info h1.subheader, article section.info h2.subheader, article section.info h3.subheader, article section.info h4.subheader, article section.info h5.subheader, article section.info h6.subheader, article section.toc h1.subheader, article section.toc h2.subheader, article section.toc h3.subheader, article section.toc h4.subheader, article section.toc h5.subheader, article section.toc h6.subheader {
       line-height: 1.4; }
-article section.toc ul:first-of-type {
+article section.toc ul:first-of-type, article section.info ul:first-of-type {
   margin-bottom: .5rem; }
-article section.toc h1 {
+article section.toc h1, article section.info h1 {
   font-size: 1.25rem; }
-article section.toc h2 {
+article section.toc h2, article section.info h2 {
   font-size: 1.1rem;
   margin-bottom: 0.1875rem;
   /*font-weight: bolder;*/ }
