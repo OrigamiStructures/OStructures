@@ -352,14 +352,27 @@ class ArticlesTable extends Table
         return $validator;
     }
 
+	/**
+	 * Find recent article data sufficient to do lists and summaries
+	 * 
+	 * $options keys:
+	 *	topic	a topic string (array?),	defaut: all
+	 *	limit	# of records to return,		default: 10
+	 *	page	for paginated resluts,		default: 1 (unimplemented)
+	 * 
+	 * @param \App\Model\Table\query $query
+	 * @param array $options
+	 * @return \App\Model\Table\query
+	 */
     public function findRecentArticles(query $query, array $options)
     {
-        $result = Cache::read('recent', '_article_lists_');
-        if(isset($options['limit'])){
-            $limit = $options['limit'];
-        } else {
-            $limit = 10;
-        }
+		$topic = isset($options['topic']) ? $options['topic'] : 'all';
+        $limit = isset($options['limit']) ? $options['limit'] : 10;
+		$page = isset($options['page']) ? $options['page'] : 1;
+		
+		$cache_key = "recent_{$topic}_$limit";
+        $result = Cache::read($cache_key, 'article_lists');
+		
         if(!$result){
             $query->select([
                 'Articles.id',
@@ -368,14 +381,19 @@ class ArticlesTable extends Table
                 'Articles.published',
                 'Articles.slug',
                 'Articles.summary'
-                ]);
-            $query->where([
-                'Articles.publish' => 1
-            ]);
-            $query->order(['Articles.published' => 'DESC']);
-            $query->limit($limit);
+                ])
+			->where(['Articles.publish' => 1])
+			->order(['Articles.published' => 'DESC'])
+			->limit($limit)
+//			->page($page) // this may not be the way to do paginated finds
+			;
+			if ($topic !== 'all') {
+//				$query->where(something with $topic);
+				// what is the where() clause for a topic match?
+				// $topic is your value to match.
+			}
             $result = $query->toArray();
-            Cache::write('recent', $result, '_article_lists_');
+            Cache::write($cache_key, $result, 'article_lists');
         }
         return $result;
     }
