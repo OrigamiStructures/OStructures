@@ -8,6 +8,7 @@ list($slug, $return, $heading) = [
 
 ?>
 <article>
+    <?= $this->Html->link('Edit', ['action' => 'edit', $article->id]); ?>
 	<?= $this->element('BlogArticles/article_toc'); ?>
 	<?= sprintf(TOC_LINKBACK, $slug, $return, $heading); ?>
     <?= $this->CakeMarkdown->transform($article);?>
