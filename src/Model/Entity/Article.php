@@ -31,11 +31,11 @@ class Article extends Entity implements MarkdownInterface, GeshiInterface {
     ];
 
 	public function markdownCacheConfig($options = NULL) {
-		return '_markdown_';
+		return 'article_markdown';
 	}
 
 	public function markdownCacheKey($options = NULL) {
-		return '_article' . $this->id . $this->modified->toUnixString( ) ;
+		return $this->id ;
 	}
 
 	public function markdownCaching($options = NULL) {

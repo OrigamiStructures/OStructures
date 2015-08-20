@@ -77,17 +77,23 @@ class ArticlesTable extends Table
 
 		if (!$entity->dirty('text') && $entity->dirty('title')) {
 			$this->buildToc($entity);
+			
+			Cache::clearGroup('recent_articles', 'article_lists');
+//			Cache::delete($entity->id, 'article_markdown'); // doesn't effect mardown section
+			Cache::delete($entity->id, 'toc_output');
 		}
         if ($entity->isNew() || $entity->dirty('text')) {
 			$this->manageTocAnchors($entity);
-
 			$entity = $this->manageImageAssociations($entity);
+			$this->manageTopicAssociations($entity);
+			
+			Cache::clearGroup('recent_articles', 'article_lists');
+			Cache::delete($entity->id, 'article_markdown');
+			Cache::delete($entity->id, 'toc_output');
 			
 			// waiting to see if we need this
 //			debug('link the articles');
 //			$entity = $this->manageArticleAssociations($entity);
-			
-			$this->manageTopicAssociations($entity);
 		}
 		return $entity;
 	}

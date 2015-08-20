@@ -1,10 +1,16 @@
+<!-- Element/BlogArticles/article_toc -->
 <?php 
-use Sluggable\Utility\Slug; 
+use Sluggable\Utility\Slug;
+use Cake\Cache\Cache;
 
 if (!isset($toc)) {
 	return '';
 }
-
+$output = Cache::read($article->id, 'toc_output');
+if ($output) :
+	echo "<!-- CACHED -->\n$output";
+else:
+	$this->start('toc');
 ?>
 <!-- START OF ARTICLE TOC -->
 <section class="toc" id="<?= Slug::generate('toc-:title', $article); ?>">
@@ -61,3 +67,8 @@ if (!isset($toc)) {
         ?>
 </section>
 <!-- END OF ARTICLE TOC -->
+<?php
+	$this->end();
+	Cache::write($article->id, $this->fetch('toc'), 'toc_output');
+	echo $this->fetch('toc');
+endif;
