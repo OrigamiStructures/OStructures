@@ -25,10 +25,33 @@ section.toc{
     h1{
         font-size: 1.25rem;
     }
+	h2{
+		font-size: 1.1rem;
+		margin-bottom: rem-calc(3);
+		/*font-weight: bolder;*/
+	}
 }
 .toc-anchor{
     text-align: right;
     float: right;
     border-bottom: thin solid #ddd;
     width: 100%;
+}
+
+pre {
+    margin-bottom: 1.25rem;
+	background-color: desaturate(lighten($dk_green, 78%), 50%);
+	padding: .5rem .5rem .5rem 1.5rem;
+	overflow-x: scroll;
+}
+
+.sidebar {
+	padding-top: 1.25rem;
+	margin-top: 3px;
+	
+	h1 {
+		font-size: 1.25rem;
+		margin-top: 0;
+		line-height: 1rem;
+	}
 }

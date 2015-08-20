@@ -119,7 +119,7 @@ $dk_green   : #0e3f11;
 
 // We use these as default colors throughout
 // $primary-color: #008CBA;
-$primary-color: $dk_blue;
+$primary-color: lighten($dk_blue, 10%);
 // $secondary-color: #e7e7e7;
 $secondary-color: red;
 // $alert-color: #f04124;
@@ -253,7 +253,7 @@ $header-font-color: $dk_blue;
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: $font-weight-normal;
-// $paragraph-font-size: 1rem;
+ $paragraph-font-size: 1.15rem;
 // $paragraph-line-height: 1.6;
 // $paragraph-margin-bottom: rem-calc(20);
 // $paragraph-aside-font-size: rem-calc(14);
@@ -285,6 +285,7 @@ $header-font-color: $dk_blue;
 
 // We use these to style lists
 // $list-font-family: $paragraph-font-family;
+$list-font-family: $header-font-family;
 // $list-font-size: $paragraph-font-size;
 // $list-line-height: $paragraph-line-height;
 // $list-margin-bottom: $paragraph-margin-bottom;

@@ -22,7 +22,6 @@ $this->end();
 		<?= $this->Form->end(); ?>
 	</div>
 	<div class="preview-zone">
-		<?= $this->element('BlogArticles/article_toc'); ?>
 		<?= $this->element('BlogArticles/article_view') ?>
 	</div>
 </div>
