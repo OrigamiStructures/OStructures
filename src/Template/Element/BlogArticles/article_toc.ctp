@@ -55,7 +55,9 @@ if (!isset($toc)) {
                 echo "</li>\n</ul>\n\t";
                 $dif--;
             endwhile;
-        endif;	
+        endif;
+		$slug = Slug::generate('info-:title', $article);
+		echo "<ul class=\"info-link\"><li><a href=\"#$slug\">Publication details</a></li></ul>";
         ?>
 </section>
 <!-- END OF ARTICLE TOC -->

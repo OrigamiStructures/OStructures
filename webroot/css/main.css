@@ -6377,7 +6377,7 @@ footer {
   padding-left: 10px;
   vertical-align: baseline; }
 
-section.toc {
+article section.info, article section.toc {
   border-style: solid;
   border-width: 1px;
   border-color: #d0d0d0;
@@ -6385,29 +6385,34 @@ section.toc {
   padding: 1.25rem;
   background: #eaeaea;
   color: #333333; }
-  section.toc > :first-child {
+  article section.info > :first-child, article section.toc > :first-child {
     margin-top: 0; }
-  section.toc > :last-child {
+  article section.info > :last-child, article section.toc > :last-child {
     margin-bottom: 0; }
-  section.toc h1, section.toc h2, section.toc h3, section.toc h4, section.toc h5, section.toc h6, section.toc p, section.toc li, section.toc dl {
+  article section.info h1, article section.info h2, article section.info h3, article section.info h4, article section.info h5, article section.info h6, article section.info p, article section.info li, article section.info dl, article section.toc h1, article section.toc h2, article section.toc h3, article section.toc h4, article section.toc h5, article section.toc h6, article section.toc p, article section.toc li, article section.toc dl {
     color: #333333; }
-  section.toc h1, section.toc h2, section.toc h3, section.toc h4, section.toc h5, section.toc h6 {
+  article section.info h1, article section.info h2, article section.info h3, article section.info h4, article section.info h5, article section.info h6, article section.toc h1, article section.toc h2, article section.toc h3, article section.toc h4, article section.toc h5, article section.toc h6 {
     line-height: 1;
     margin-bottom: 0.625rem; }
-    section.toc h1.subheader, section.toc h2.subheader, section.toc h3.subheader, section.toc h4.subheader, section.toc h5.subheader, section.toc h6.subheader {
+    article section.info h1.subheader, article section.info h2.subheader, article section.info h3.subheader, article section.info h4.subheader, article section.info h5.subheader, article section.info h6.subheader, article section.toc h1.subheader, article section.toc h2.subheader, article section.toc h3.subheader, article section.toc h4.subheader, article section.toc h5.subheader, article section.toc h6.subheader {
       line-height: 1.4; }
-  section.toc h1 {
-    font-size: 1.25rem; }
-  section.toc h2 {
-    font-size: 1.1rem;
-    margin-bottom: 0.1875rem;
-    /*font-weight: bolder;*/ }
-
-.toc-anchor {
+article section.toc ul:first-of-type {
+  margin-bottom: .5rem; }
+article section.toc h1 {
+  font-size: 1.25rem; }
+article section.toc h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.1875rem;
+  /*font-weight: bolder;*/ }
+article .toc-anchor {
   text-align: right;
   float: right;
   border-bottom: thin solid #ddd;
   width: 100%; }
+article section.info .toc-anchor {
+  border-bottom: none; }
+article .info-link {
+  font-size: 80%; }
 
 pre {
   margin-bottom: 1.25rem;
