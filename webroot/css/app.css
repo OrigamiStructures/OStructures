@@ -5254,7 +5254,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #1b3d58;
   font-family: "Titillium Web", sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.4;
   margin-bottom: 0.5rem;
   margin-top: 0.2rem;
@@ -5265,19 +5265,19 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 0; }
 
 h1 {
-  font-size: 2.125rem; }
+  font-size: 1.85rem; }
 
 h2 {
-  font-size: 1.6875rem; }
+  font-size: 1.5025rem; }
 
 h3 {
-  font-size: 1.375rem; }
+  font-size: 1.27375rem; }
 
 h4 {
-  font-size: 1.125rem; }
+  font-size: 1.0675rem; }
 
 h5 {
-  font-size: 1.125rem; }
+  font-size: 1.1025rem; }
 
 h6 {
   font-size: 1rem; }
@@ -5435,19 +5435,19 @@ blockquote p {
     line-height: 1.4; }
 
   h1 {
-    font-size: 2.75rem; }
+    font-size: 2.475rem; }
 
   h2 {
-    font-size: 2.3125rem; }
+    font-size: 2.1275rem; }
 
   h3 {
-    font-size: 1.6875rem; }
+    font-size: 1.58625rem; }
 
   h4 {
-    font-size: 1.4375rem; }
+    font-size: 1.38rem; }
 
   h5 {
-    font-size: 1.125rem; }
+    font-size: 1.1025rem; }
 
   h6 {
     font-size: 1rem; } }
@@ -5487,7 +5487,7 @@ blockquote p {
     line-height: 2.8125rem;
     margin: 0; }
   .tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4 {
-    font-size: 1.125rem; }
+    font-size: 1.1025rem; }
 
 .left-small {
   height: 2.8125rem;
