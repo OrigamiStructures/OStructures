@@ -47,7 +47,7 @@ class MarkdownHelper extends Helper {
 			if (!$output) {
 				$output = $this->CakeMarkdown->transform($source);
 				$output = $this->modifyImageDom($output, $source);
-				Cache::write($source->markdownCacheKey(), $output, $source->markdownCacheConfig());				
+				Cache::write($source->markdownCacheKey(),"\n<!-- CACHED ARTICLE MARKDOWN -->\n$output\n<!-- END ARTICLE MARKDOWN -->\n", $source->markdownCacheConfig());				
 			}
 		} else {
 			$output = $this->CakeMarkdown->transform($source);
@@ -106,7 +106,7 @@ class MarkdownHelper extends Helper {
 			}, 
 			$output);
 			
-		return "<!-- modified -->\n$output";
+		return $output;
 	}
 	
 }
