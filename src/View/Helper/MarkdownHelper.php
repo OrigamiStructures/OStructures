@@ -46,7 +46,7 @@ class MarkdownHelper extends Helper {
 			$output = Cache::read($source->markdownCacheKey($this), $source->markdownCacheConfig($this));
 			if (!$output) {
 				$output = $this->CakeMarkdown->transform($source);
-				$output = $this->modifyImageDom($output);
+				$output = $this->modifyImageDom($output, $source);
 				Cache::write($source->markdownCacheKey(), $output, $source->markdownCacheConfig());				
 			}
 		} else {
@@ -55,37 +55,58 @@ class MarkdownHelper extends Helper {
 		return $output;
 	}
 	
-	private function modifyImageDom($output) {
-		$collect = [];
-//		preg_match_all(
-//				'/(<p.*)(<img .*\/>)(.*\/p>)/',
-////				'/(<p>.*)(<img .*title\="(.*)" \/>)(.*<\/p>)/', 
-//				$output, $matches);
-//		debug($matches);
+	/**
+	 * Add microdata markup to images in transformed markdown
+	 * 
+	 * Markdown buids simple <img> tags. We want them marked up with microdata.
+	 *  
+	 * If the image is in a paragraph with other text it will be returned as a 
+	 * simple <img class="inline-img"> still inline to the paragraph.
+	 * 
+	 * If it is in an otherwise empty <p> it will be expanded to a figure 
+	 * with a caption and copyright. The <p> will be dumped.
+	 *	<figure>
+	 *		<img />
+	 *		<figcaption> </figcaption>
+	 *	</figure>
+	 * 
+	 * Markdown doesn't support captions, but they can be added to the title 
+	 * attribute delimited with ;; (for example title;;caption)
+	 * 
+	 * @param string $output
+	 * @return string
+	 */
+	private function modifyImageDom($output, $source) {
+		$copyright = '';
+		if ($source instanceof \Cake\ORM\Entity) {
+			$copyright = $this->_View->element('Common/copyright', ['entity' => $source, 'tag' => 'small']);
+		}
 		$output = preg_replace_callback(
-				'/(<p>.*)(<img .*title\=")(.*)(" \/>)(.*<\/p>)/',
-				function($matches){
-					list($full, $start_p, $start_img, $title, $end_img, $end_p) = $matches;
-					list($title, $caption) = explode(';;', "$title;;");
-					$start_img = str_replace('<img', '<img itemprop="image"', $start_img);
+			'/(<p>.*)(<img .*title\=")(.*)(" \/>)(.*<\/p>)/',
+			function($matches) use ($copyright) {
+				// name all the matched parts
+				list($full, $start_p, $start_img, $title, $end_img, $end_p) = $matches;
+				
+				// further processing of some parts
+				$class = strlen($start_p . $end_p) > 7 ? ' class="inline-img"' : '';
+				$start_img = str_replace('<img', "<img itemprop=\"image\"$class", $start_img);
+				list($title, $caption) = explode(';;', "$title;;");
+				
+				// construct a <p> with inline image or a full <figure>
+				if ($class !== '') {
+					return $start_p . "\n\t" . $start_img . $title . $end_img . "\n" . $end_p;
+				} else {
 					return sprintf(
-						"<figure itemprop=\"image\" itemscope itemtype=\"https://schema.org/ImageObject\">\n"
+						"<figure%s itemprop=\"image\" itemscope itemtype=\"https://schema.org/ImageObject\">\n"
 						. "\t%s%s%s\n" // the <img> tag
-						. "\t<figcaption itemprop=\"caption\">%s</figcaption>\n"
+						. "\t<figcaption itemprop=\"caption\"><p>%s</p>%s</figcaption>\n"
 						. "</figure>",
-						$start_img, $title, $end_img, $caption);
-				}, 
-				$output);
-//				debug($collect);
-//		debug($result);
+						$class, $start_img, $title, $end_img, $caption, $copyright);
+				}
+			}, 
+			$output);
+			
 		return "<!-- modified -->\n$output";
 	}
 	
-	/**
-	 * <p>This is a truely inline <img title="" alt="" src="/OStructures/img/images/image/11bc8bf5-2e33-42db-8963-a20473d99b0b/DSC03227.JPG"> image</p>
-	 */
-	
-	/**
-	 * <p><img title="" alt="" src="/OStructures/img/images/image/95234fb9-c4cc-4135-a4ca-82371c5d5520/DSC02260-4.jpg"></p>
-	 */
 }
