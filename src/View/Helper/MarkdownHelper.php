@@ -8,6 +8,12 @@ use Cake3xMarkdown\Model\Entity\Interfaces\GeshiInterface;
 use Cake\View\Helper;
 
 /**
+ * CakeMarkdown wrapper to do caching
+ * 59bf462d Wrap CakeMarkdown helper to implement new caching scheme
+ * https://github.com/OrigamiStructures/Cake3xMarkdown/issues/7 is an
+ * alternative plan that would make this helper unnecessary by allowing
+ * us to register an afterTransform() event.
+ * 
  * CakePHP Markdown
  * @author dondrake
  */
@@ -15,8 +21,23 @@ class MarkdownHelper extends Helper {
 	
 	public $helpers = ['Cake3xMarkdown.CakeMarkdown'];
 	
+	/**
+	 * Override the plugins caching to gain time for post transform processing
+	 * 
+	 * This ignores the mardownCaching setting in the Entity and assumes if
+	 * we see an object, we will cache. Not a lot of finess...
+	 * 
+	 * If we use this to transform any article field other than a display_text 
+	 * and we send the Entity object, things are going to fail. But the calls 
+	 * do accept parameters so we could point to other columns, other cache 
+	 * keys and other cache configs if need be. It will just require Ariticle 
+	 * Entity modifications and cnages to this method. 
+	 * 
+	 * @param MarkdownInterface $source
+	 * @return type
+	 * @throws \BadFunctionCallException
+	 */
 	public function transform($source){
-//		debug(get_declared_interfaces());die;
 		if (is_object($source)) {
 			if (!$source instanceof MarkdownInterface) {
 				throw new \BadFunctionCallException(
