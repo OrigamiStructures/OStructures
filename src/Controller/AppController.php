@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use App\View\Helper\Markdown;
 
 /**
  * Application Controller
@@ -27,7 +28,7 @@ use Cake\Event\Event;
  */
 class AppController extends Controller
 {
-	public $helpers = array('Cake3xMarkdown.CakeMarkdown', 'Geshi.Geshi', 'Time');
+	public $helpers = array('Markdown', 'Cake3xMarkdown.CakeMarkdown', 'Geshi.Geshi', 'Time');
 
     /**
      * Initialization hook method.

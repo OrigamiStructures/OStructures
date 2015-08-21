@@ -39,7 +39,7 @@ class Article extends Entity implements MarkdownInterface, GeshiInterface {
 	}
 
 	public function markdownCaching($options = NULL) {
-		return TRUE;
+		return FALSE;
 	}
 
 	public function markdownSource($options = NULL) {

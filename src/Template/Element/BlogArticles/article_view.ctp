@@ -11,7 +11,7 @@ list($slug, $return, $heading) = [
 	<?= $this->element('BlogArticles/article_toc'); ?>
 	<?= sprintf(TOC_LINKBACK, $slug, $return, $heading); ?>
     <section itemprop="articleBody" class="body">
-		<?= $this->CakeMarkdown->transform($article);?>
+		<?= $this->Markdown->transform($article);?>
 	</section>
 	<section id="<?= Slug::generate('info-:title', $article) ?>" class="info">
 		<?= sprintf(TOC_LINKBACK, $slug, $return, ''); ?>

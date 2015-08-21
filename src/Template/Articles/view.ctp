@@ -47,7 +47,7 @@ $this->Geshi->template('Template')->set_overall_style('padding: 1em 1.5em; backg
     <div class="row texts">
         <div class="columns large-9">
             <h6 class="subheader"><?= __('Text') ?></h6>
-            <?= $this->CakeMarkdown->transform($article) ?>
+            <?= $this->Markdown->transform($article) ?>
         </div>
     </div>
     <div class="row texts">
