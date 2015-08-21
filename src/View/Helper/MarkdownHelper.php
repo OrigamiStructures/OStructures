@@ -56,6 +56,36 @@ class MarkdownHelper extends Helper {
 	}
 	
 	private function modifyImageDom($output) {
+		$collect = [];
+//		preg_match_all(
+//				'/(<p.*)(<img .*\/>)(.*\/p>)/',
+////				'/(<p>.*)(<img .*title\="(.*)" \/>)(.*<\/p>)/', 
+//				$output, $matches);
+//		debug($matches);
+		$output = preg_replace_callback(
+				'/(<p>.*)(<img .*title\=")(.*)(" \/>)(.*<\/p>)/',
+				function($matches){
+					list($full, $start_p, $start_img, $title, $end_img, $end_p) = $matches;
+					list($title, $caption) = explode(';;', "$title;;");
+					$start_img = str_replace('<img', '<img itemprop="image"', $start_img);
+					return sprintf(
+						"<figure itemprop=\"image\" itemscope itemtype=\"https://schema.org/ImageObject\">\n"
+						. "\t%s%s%s\n" // the <img> tag
+						. "\t<figcaption itemprop=\"caption\">%s</figcaption>\n"
+						. "</figure>",
+						$start_img, $title, $end_img, $caption);
+				}, 
+				$output);
+//				debug($collect);
+//		debug($result);
 		return "<!-- modified -->\n$output";
 	}
+	
+	/**
+	 * <p>This is a truely inline <img title="" alt="" src="/OStructures/img/images/image/11bc8bf5-2e33-42db-8963-a20473d99b0b/DSC03227.JPG"> image</p>
+	 */
+	
+	/**
+	 * <p><img title="" alt="" src="/OStructures/img/images/image/95234fb9-c4cc-4135-a4ca-82371c5d5520/DSC02260-4.jpg"></p>
+	 */
 }
