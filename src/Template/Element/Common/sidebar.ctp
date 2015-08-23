@@ -5,7 +5,7 @@
 <ul id="recentArticleLinkList">
 <?php foreach ($recent as $article) : ?>
 	<li>
-		<?= $this->Html->link($article->title, ['action' => 'article', $article->slug]) ?>
+		<?= $this->Html->link($article->title, ['action' => 'view', $article->slug]) ?>
 	</li>
 <?php endforeach; ?>
 </ul>

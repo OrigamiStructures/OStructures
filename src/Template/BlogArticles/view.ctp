@@ -2,6 +2,7 @@
     <div class="row">
         <div class="large-3 medium-4 columns">
             <div class="sidebar">
+				<?= debug($topics->toArray()); ?>
                 <?= $this->element('Common/sidebar'); ?>
             </div>
         </div>

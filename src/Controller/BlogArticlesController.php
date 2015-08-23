@@ -12,9 +12,9 @@ use Cake\Log\Log;
 class BlogArticlesController extends ArticlesController {
 	
 	public function edit($id = null) {
-		$this->loadModel('Articles');
+		$this->layout = 'min';
         try {
-            $article = $this->Articles->get($id, [
+            $article = $this->{$this->modelClass}->get($id, [
                 'contain' => ['Images', 'Topics']
             ]);
         } catch (Exception $exc) {
@@ -23,8 +23,8 @@ class BlogArticlesController extends ArticlesController {
         }
         
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $article = $this->Articles->patchEntity($article, $this->request->data);
-            if ($this->Articles->save($article)) {
+            $article = $this->{$this->modelClass}->patchEntity($article, $this->request->data);
+            if ($this->{$this->modelClass}->save($article)) {
                 $this->Flash->success(__('The article has been saved.'));
 				if (!$this->request->data['continue']) {
 					return $this->redirect(['controller' => 'articles', 'action' => 'index']);
@@ -35,12 +35,12 @@ class BlogArticlesController extends ArticlesController {
         }
         
         try {
-            $article = $this->Articles->get($id, [
+            $article = $this->{$this->modelClass}->get($id, [
                 'contain' => ['Images', 'Topics']
             ]);
             $articleImages = new Collection($article->images);
-            $Images = $this->Articles->Images->find('all');
-            $Images->contain(['Articles']);
+            $Images = $this->{$this->modelClass}->Images->find('all');
+            $Images->contain([$this->modelClass]);
             $unlinkedImages = $this->unlinkedImages($Images);
             $linkedImages = $this->linkedImages($Images, $id);
             $otherArticles = $this->otherArticles($id);
@@ -91,9 +91,8 @@ class BlogArticlesController extends ArticlesController {
     }
 
     private function otherArticles($id) {
-        $this->loadModel('Articles');
         try {
-            $otherArticles = $this->Articles->find('all');
+            $otherArticles = $this->{$this->modelClass}->find('all');
             $otherArticles->where([
                 'id !=' => $id]);
         } catch (Exception $e) {
@@ -103,26 +102,18 @@ class BlogArticlesController extends ArticlesController {
     }
 	
 	public function add() {
-		$this->loadModel('Articles');
 		parent::add();
 	}
 
 	public function index() {
-		$this->loadModel('Articles');
-		parent::index();
-		$this->render('/Articles/index');
-	}
-    
-    public function mainPage() {
         $this->layout = 'min';
-        $this->loadModel('Articles');
         try {
-            $articles = $this->Articles->find('all');
+            $articles = $this->{$this->modelClass}->find('all');
             $articles->contain(['Images', 'Topics', 'Authors']);
             $articles->where([
                 'publish' => 1
             ]);
-            $recent = $this->Articles->find('recentArticles');
+            $recent = $this->{$this->modelClass}->find('recentArticles');
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
@@ -130,18 +121,21 @@ class BlogArticlesController extends ArticlesController {
         $this->set('_serialize', ['articles']);
     }
 	
-	public function article($slug) {
+	public function view($id = NULL) {
+		$slug = $id;
+		debug($this->modelClass);
         $this->layout = 'min';
-        $this->loadModel('Articles');
         try {
-            $article = $this->Articles->find()->where(['Articles.slug' => $slug])->contain(['Authors'])->first();
+            $article = $this->{$this->modelClass}->find()
+					->where(["{$this->modelClass}.slug" => $slug])->contain(['Authors', 'Topics'])->first();
 			$toc = $article->toc();
-            $recent = $this->Articles->find('recentArticles');
+            $recent = $this->{$this->modelClass}->find('recentArticles');
+			$topics = $this->{$this->modelClass}->Topics->find('topicList');
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
-
-        $this->set(compact('article', 'recent', 'toc'));
+		
+        $this->set(compact('article', 'recent', 'toc', 'topics'));
         $this->set('_serialize', ['article']);
 	}
 
