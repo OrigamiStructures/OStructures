@@ -1156,10 +1156,8 @@ div#content, div#content > div.row {
 .edit-zone {
   background: wheat; }
 
-.preview-zone {
-  background: lightblue; }
-  .preview-zone img {
-    max-width: 100%; }
+.preview-zone img {
+  max-width: 100%; }
 
 fieldset {
   padding: 0;

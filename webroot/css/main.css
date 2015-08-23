@@ -6416,9 +6416,14 @@ article .info-link {
 
 pre {
   margin-bottom: 1.25rem;
-  background-color: #ebf0eb;
   padding: .5rem .5rem .5rem 1.5rem;
   overflow-x: scroll; }
+
+pre, code {
+  background-color: #ebf0eb; }
+
+code {
+  border: none; }
 
 .sidebar {
   padding-top: 1.25rem;

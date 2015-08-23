@@ -55,9 +55,16 @@ article{
 
 pre {
     margin-bottom: 1.25rem;
-	background-color: desaturate(lighten($dk_green, 78%), 50%);
 	padding: .5rem .5rem .5rem 1.5rem;
 	overflow-x: scroll;
+}
+
+pre, code {
+	background-color: desaturate(lighten($dk_green, 78%), 50%);
+}
+
+code {
+	border: none;
 }
 
 .sidebar {
