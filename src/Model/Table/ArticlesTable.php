@@ -400,14 +400,14 @@ class ArticlesTable extends Table
 			;
 //			debug($query->sql);
 			if ($topics !== 'all') {
-				debug($topics);//die;
+//				debug($topics);//die;
 				$query->matching('Topics', function ($q) use ($topics) {
-					return $q->where(['Topics.id' => $topics]);
+					return $q->where(['Topics.id IN' => $topics]);
 				});
 				// what is the where() clause for a topic match?
 				// $topic is your value to match.
 			}
-			debug($query);
+//			debug($query);
 //			debug($query->params);
             $result = $query->toArray();
             Cache::write($cache_key, $result, 'article_lists');
