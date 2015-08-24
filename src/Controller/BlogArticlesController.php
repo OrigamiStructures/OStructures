@@ -13,7 +13,7 @@ class BlogArticlesController extends ArticlesController {
     
     
     public $paginate = [
-        'limit' => 2,
+        'limit' => 4,
         'order' => [
             'Articles.published' => 'desc'
         ]
