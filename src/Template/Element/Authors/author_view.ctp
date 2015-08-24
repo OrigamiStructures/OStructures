@@ -1,8 +1,17 @@
 <?php
-echo $this->Html->tag('div', NULL, ['class' => 'author_block', 'itemprop' => 'author', 'itemscope', 'itemtype' => "https://schema.org/Person"]);
+echo $this->Html->tag('section', NULL, ['class' => 'author_block', 'itemprop' => 'author', 'itemscope', 'itemtype' => "https://schema.org/Person"]);
 foreach ($authors as $key => $author) {
-    echo $this->Html->tag('author_initial', substr($author->name, 0, 1));
-    echo $this->Html->tag('div', $author->name, ['class' => 'author_name']);
-    echo $this->Markdown->transform($author->signature);
+    $icon_name = strtolower(preg_replace('/ /', '', $author->name));
+    $icon = "author_icon_$icon_name.jpg";
+    
+    echo '<div class="author row">';
+        echo $this->Html->image($icon, array('class' => 'small-1 columns'));
+        echo $this->Html->div('small-11 columns', NULL);
+            echo $this->Html->div('row', NULL);
+                echo $this->Html->para('author_name', $author->name);
+                echo $this->Markdown->transform($author->signature);
+            echo '</div>';    
+        echo '</div>';
+    echo '</div>';
 }
-echo '</div>';
+echo '</section>';

@@ -11,6 +11,10 @@ use Cake\Log\Log;
  */
 class BlogArticlesController extends ArticlesController {
 	
+	public function add() {
+		parent::add();
+	}
+
 	public function edit($id = null) {
 		$this->layout = 'min';
         try {
@@ -51,6 +55,37 @@ class BlogArticlesController extends ArticlesController {
 
 		$toc = $article->toc();
         $this->set(compact('article', 'articleImages', 'unlinkedImages', 'linkedImages', 'toc', 'otherArticles'));
+        $this->set('_serialize', ['article']);
+	}
+    
+	public function index() {
+        $this->layout = 'min';
+        try {
+            $articles = $this->{$this->modelClass}->find('all')
+                    ->contain(['Images', 'Topics', 'Authors'])
+                    ->where(['publish' => 1]);
+            $this->sidebarData();
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+        $this->set(compact('articles'));
+        $this->set('_serialize', ['articles']);
+    }
+	
+	public function view($id = NULL) {
+		$slug = $id;
+        $this->layout = 'min';
+        try {
+            $article = $this->{$this->modelClass}->find()
+                    ->where(["{$this->modelClass}.slug" => $slug])
+                    ->contain(['Authors', 'Topics'])
+                    ->first();
+			$toc = $article->toc();
+			$this->sidebarData();
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+        $this->set(compact('article','toc'));
         $this->set('_serialize', ['article']);
 	}
     
@@ -102,44 +137,16 @@ class BlogArticlesController extends ArticlesController {
         return $otherArticles;
     }
 	
-	public function add() {
-		parent::add();
-	}
-
-	public function index() {
-        $this->layout = 'min';
-        try {
-            $articles = $this->{$this->modelClass}->find('all');
-            $articles->contain(['Images', 'Topics', 'Authors']);
-            $articles->where([
-                'publish' => 1
-            ]);
-			$this->loadModel('Articles'); 
-            $recent = $this->Articles->find('recentArticles', $this->request->data);
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-        $this->set(compact('articles', 'recent'));
-        $this->set('_serialize', ['articles']);
+    /**
+     * Fetch data for the sidebar
+     * 
+     * This function MUST be called in a try block
+     */
+    private function sidebarData() {
+        $this->loadModel('Articles'); 
+        $recent = $this->Articles->find('recentArticles', $this->request->data);
+        $topics = $this->{$this->modelClass}->Topics->find('topicList');
+        $this->set(compact('recent', 'topics'));
     }
-	
-	public function view($id = NULL) {
-		$slug = $id;
-        $this->layout = 'min';
-        try {
-            $article = $this->{$this->modelClass}->find()
-					->where(["{$this->modelClass}.slug" => $slug])->contain(['Authors', 'Topics'])->first();
-			$toc = $article->toc();
-			
-			$this->loadModel('Articles'); 
-            $recent = $this->Articles->find('recentArticles', $this->request->data);
-			$topics = $this->{$this->modelClass}->Topics->find('topicList');
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-		
-        $this->set(compact('article', 'recent', 'toc', 'topics'));
-        $this->set('_serialize', ['article']);
-	}
 
 }

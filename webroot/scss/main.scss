@@ -16,7 +16,7 @@ footer {
     height: $topbar-height;
     margin: 10px 0 0;
     width: 100%;
-    padding-left: 10px;
+    //padding-left: 10px;
     vertical-align: baseline;
 }
 
@@ -104,4 +104,23 @@ section.toc, div.sidebar {
 		font-size: 1rem;
 	}
 
+}
+
+section.info{
+    p{
+        margin-bottom: 0;
+        font-size: 80%;
+    }
+    h1{
+        margin-bottom: 40%;
+    }
+    section.publication_details{
+        p.published, *.copyright{
+            @include grid-column(
+                $columns: 11,
+                $offset: 1
+                );
+            padding-left: 0;
+        }
+    }
 }

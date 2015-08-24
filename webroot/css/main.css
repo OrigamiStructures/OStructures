@@ -6366,15 +6366,11 @@ author_initial {
   margin-right: 10px;
   padding: 10px 20px; }
 
-.author_block {
-  font-size: 70%; }
-
 footer {
   background: black none repeat scroll 0 0;
   height: 2.8125rem;
   margin: 10px 0 0;
   width: 100%;
-  padding-left: 10px;
   vertical-align: baseline; }
 
 article section.info, article section.toc {
@@ -6448,5 +6444,18 @@ div.sidebar {
 
 section.toc ul, div.sidebar ul {
   font-size: 1rem; }
+
+section.info p {
+  margin-bottom: 0;
+  font-size: 80%; }
+section.info h1 {
+  margin-bottom: 40%; }
+section.info section.publication_details p.published, section.info section.publication_details *.copyright {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  width: 91.66667%;
+  float: left;
+  margin-left: 8.33333% !important;
+  padding-left: 0; }
 
 /*# sourceMappingURL=main.css.map */
