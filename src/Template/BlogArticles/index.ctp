@@ -23,7 +23,7 @@ $this->end();
                 <?= $this->element('Common/sidebar'); ?>
             </div>
         </div>
-        <div class="large-9 medium-8 columns">
+        <div class="large-9 medium-8 columns" itemscope itemtype="http://schema.org/ItemList">
             <?php
                 foreach ($articles as $key => $article) {
                     echo $this->element('BlogArticles/article_summary', ['article' => $article]);
@@ -31,4 +31,8 @@ $this->end();
             ?>
         </div>
     </div>
+</section>
+<section class="paginator">
+    <?= $this->Paginator->prev(); ?>
+    <?= $this->Paginator->next(); ?>
 </section>

@@ -28,7 +28,7 @@ use App\View\Helper\Markdown;
  */
 class AppController extends Controller
 {
-	public $helpers = array('Markdown', 'Cake3xMarkdown.CakeMarkdown', 'Geshi.Geshi', 'Time');
+	public $helpers = array('Markdown', 'Cake3xMarkdown.CakeMarkdown', 'Geshi.Geshi', 'Time', 'Paginator');
 
     /**
      * Initialization hook method.
