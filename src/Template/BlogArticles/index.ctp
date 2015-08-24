@@ -29,10 +29,10 @@ $this->end();
                     echo $this->element('BlogArticles/article_summary', ['article' => $article]);
                 }
             ?>
+            <ul class="pagination">
+                <?= $this->Paginator->prev(); ?>
+                <?= $this->Paginator->next(); ?>
+            </ul>
         </div>
     </div>
-</section>
-<section class="paginator">
-    <?= $this->Paginator->prev(); ?>
-    <?= $this->Paginator->next(); ?>
 </section>
