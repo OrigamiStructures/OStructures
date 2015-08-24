@@ -80,6 +80,7 @@ class ArticlesTable extends Table
 			
 			Cache::clearGroup('recent_articles', 'article_lists');
 //			Cache::delete($entity->id, 'article_markdown'); // doesn't effect mardown section
+			Cache::delete($entity->id, 'article_summary');
 			Cache::delete($entity->id, 'toc_output');
 		}
         if ($entity->isNew() || $entity->dirty('text')) {
@@ -89,6 +90,7 @@ class ArticlesTable extends Table
 			
 			Cache::clearGroup('recent_articles', 'article_lists');
 			Cache::delete($entity->id, 'article_markdown');
+			Cache::delete($entity->id, 'article_summary');
 			Cache::delete($entity->id, 'toc_output');
 			
 			// waiting to see if we need this
