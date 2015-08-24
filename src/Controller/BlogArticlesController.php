@@ -114,7 +114,8 @@ class BlogArticlesController extends ArticlesController {
             $articles->where([
                 'publish' => 1
             ]);
-            $recent = $this->{$this->modelClass}->find('recentArticles');
+			$this->loadModel('Articles'); 
+            $recent = $this->Articles->find('recentArticles', $this->request->data);
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
