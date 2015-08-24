@@ -6428,12 +6428,25 @@ code {
   font-size: 1rem;
   color: #008; }
 
-.sidebar {
+div.sidebar {
   padding-top: 1.25rem;
   margin-top: 3px; }
-  .sidebar h1 {
+  div.sidebar h1 {
     font-size: 1.25rem;
     margin-top: 0;
     line-height: 1rem; }
+  div.sidebar fieldset {
+    padding: .4rem;
+    padding-top: 0.125rem; }
+    div.sidebar fieldset div.submit > input {
+      margin: .5rem 0 0;
+      background-color: #e7e7e7;
+      color: #27587f;
+      font-size: 100%; }
+  div.sidebar select {
+    margin: 0; }
+
+section.toc ul, div.sidebar ul {
+  font-size: 1rem; }
 
 /*# sourceMappingURL=main.css.map */

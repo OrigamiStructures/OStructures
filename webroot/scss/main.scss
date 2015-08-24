@@ -70,7 +70,7 @@ code {
 	color: #008;
 }
 
-.sidebar {
+div.sidebar {
 	padding-top: 1.25rem;
 	margin-top: 3px;
 	
@@ -79,4 +79,29 @@ code {
 		margin-top: 0;
 		line-height: 1rem;
 	}
+	
+	fieldset {
+		padding: .4rem;
+		padding-top: rem-calc(2);
+		
+		div.submit > input {
+			margin: .5rem 0 0;
+			background-color: #e7e7e7;
+			color: #27587f;
+			font-size: 100%;
+			
+		}
+	}
+	
+	select {
+		margin: 0;
+	}
+}
+
+section.toc, div.sidebar {
+	
+	ul {
+		font-size: 1rem;
+	}
+
 }

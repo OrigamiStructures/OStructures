@@ -372,7 +372,12 @@ class ArticlesTable extends Table
 	 */
     public function findRecentArticles(query $query, array $options)
     {
-		$topic = isset($options['topic']) ? $options['topic'] : 'all';
+//		debug($query->sql);
+//	debug($options);
+	$topics = isset($options['topics']) && $options['topics']['_ids'][0] !== '' ? 
+			$options['topics']['_ids'] : 
+			'all';
+		$topic = is_array($topics) ? implode('_', $topics) : $topics;
         $limit = isset($options['limit']) ? $options['limit'] : 10;
 		$page = isset($options['page']) ? $options['page'] : 1;
 		
@@ -393,14 +398,21 @@ class ArticlesTable extends Table
 			->limit($limit)
 //			->page($page) // this may not be the way to do paginated finds
 			;
-			if ($topic !== 'all') {
-//				$query->where(something with $topic);
+//			debug($query->sql);
+			if ($topics !== 'all') {
+				debug($topics);//die;
+				$query->matching('Topics', function ($q) use ($topics) {
+					return $q->where(['Topics.id' => $topics]);
+				});
 				// what is the where() clause for a topic match?
 				// $topic is your value to match.
 			}
+			debug($query);
+//			debug($query->params);
             $result = $query->toArray();
             Cache::write($cache_key, $result, 'article_lists');
         }
         return $result;
     }
+	
 }

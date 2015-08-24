@@ -78,7 +78,8 @@ class BlogArticlesController extends ArticlesController {
         return $Images->filter(function($image, $key) use ($id, &$test_array){
             $test_array[$image->id] = [];
             $imageId = $image->id;
-            $articles = New Collection($image->articles);
+//			debug($image->toArray());
+            $articles = New Collection($image->blog_articles);
             $articles = $articles->each(function($value, $key) use (&$test_array, $imageId){
                 $test_array[$imageId][$value->id] = $value->id;
             });
@@ -123,13 +124,14 @@ class BlogArticlesController extends ArticlesController {
 	
 	public function view($id = NULL) {
 		$slug = $id;
-		debug($this->modelClass);
         $this->layout = 'min';
         try {
             $article = $this->{$this->modelClass}->find()
 					->where(["{$this->modelClass}.slug" => $slug])->contain(['Authors', 'Topics'])->first();
 			$toc = $article->toc();
-            $recent = $this->{$this->modelClass}->find('recentArticles');
+			
+			$this->loadModel('Articles'); 
+            $recent = $this->Articles->find('recentArticles', $this->request->data);
 			$topics = $this->{$this->modelClass}->Topics->find('topicList');
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();

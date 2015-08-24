@@ -64,6 +64,6 @@ class TopicsTable extends Table
 	
 	public function findTopicList() {
 		$list = Cache::read('list', '_topic_');
-		return $list ? $list : $this->find('list');
+		return $list ? $list : $this->find('list')->order('name');
 	}
 }
