@@ -6423,7 +6423,10 @@ pre, code {
   background-color: #ebf0eb; }
 
 code {
-  border: none; }
+  border: none;
+  font-family: Courier,monospace;
+  font-size: 1rem;
+  color: #008; }
 
 .sidebar {
   padding-top: 1.25rem;
