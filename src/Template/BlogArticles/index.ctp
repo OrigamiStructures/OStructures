@@ -32,3 +32,7 @@ $this->end();
         </div>
     </div>
 </section>
+<section class="paginator">
+    <?= $this->Paginator->prev(); ?>
+    <?= $this->Paginator->next(); ?>
+</section>

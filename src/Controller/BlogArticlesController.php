@@ -10,6 +10,19 @@ use Cake\Log\Log;
  * @author dondrake
  */
 class BlogArticlesController extends ArticlesController {
+    
+    
+    public $paginate = [
+        'limit' => 2,
+        'order' => [
+            'Articles.published' => 'desc'
+        ]
+    ];
+    
+    public function initialize() {
+        parent::initialize();
+        $this->loadComponent('Paginator');
+    }
 	
 	public function add() {
 		parent::add();
@@ -61,13 +74,14 @@ class BlogArticlesController extends ArticlesController {
 	public function index() {
         $this->layout = 'min';
         try {
-            $articles = $this->{$this->modelClass}->find('all')
-                    ->contain(['Images', 'Topics', 'Authors'])
+            $query = $this->{$this->modelClass}->find('all')
+                    ->contain([])
                     ->where(['publish' => 1]);
             $this->sidebarData();
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
+        $articles = $this->paginate($query);
         $this->set(compact('articles'));
         $this->set('_serialize', ['articles']);
     }
