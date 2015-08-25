@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\ArticlesController;
 use Cake\Collection\Collection;
+use App\Model\Entity\BlogArticle;
 use Cake\Log\Log;
 
 /**
@@ -25,7 +26,9 @@ class BlogArticlesController extends ArticlesController {
     }
 	
 	public function add() {
-		parent::add();
+		$article = new BlogArticle(['publish' => true]);
+		$this->BlogArticles->save($article);
+		$this->redirect('/blog_articles/edit/' . $article->id );
 	}
 
 	public function edit($id = null) {

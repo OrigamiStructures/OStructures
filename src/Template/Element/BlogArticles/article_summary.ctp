@@ -21,6 +21,10 @@ use Cake\Cache\Cache;
 				</p>
             <section itemprop="description">
                 <?= $this->Markdown->transform($article->summary);?>
+				<h5 class="more"><a itemprop="url" href="<?=$this->request->webroot;?>article/<?=$article->slug; ?>">
+					... more
+                </a></h5>
+
             </section>
         </article>
 <?php

@@ -74,6 +74,9 @@ class ArticlesTable extends Table
 	 * @param Article $entity
 	 */
 	public function beforeSave(Event $event, Article $entity) {
+		if ($entity->dirty('created')) {
+			return $entity;
+		}
 
 		if (!$entity->dirty('text') && ($entity->dirty('title') || $entity->dirty('summary'))) {
 			$this->buildToc($entity);
@@ -396,7 +399,7 @@ class ArticlesTable extends Table
                 'Articles.summary'
                 ])
 			->where(['Articles.publish' => 1])
-			->order(['Articles.published' => 'DESC'])
+			->order(['Articles.published' => 'ASC'])
 			->limit($limit)
 //			->page($page) // this may not be the way to do paginated finds
 			;

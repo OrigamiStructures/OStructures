@@ -6462,5 +6462,10 @@ article.summary {
   border-left: medium solid #eaecee;
   border-top: 1rem solid #e0ece1;
   padding-left: 1rem; }
+  article.summary section[itemprop="description"] p:last-of-type {
+    margin-bottom: 0.05rem; }
+  article.summary section[itemprop="description"] h5.more {
+    margin-bottom: 1rem;
+    margin-left: 3rem; }
 
 /*# sourceMappingURL=main.css.map */

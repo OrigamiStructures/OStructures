@@ -129,4 +129,14 @@ article.summary {
     border-left: medium solid desaturate(lighten($dk-blue, 70%), 40%);
     border-top: 1rem solid desaturate(lighten($dk-green, 75%), 40%);
     padding-left: 1rem;
+	
+	section[itemprop="description"] {
+		p:last-of-type {
+			margin-bottom: 0.05rem;
+		}
+		h5.more {
+			margin-bottom: 1rem;
+			margin-left: 3rem;
+		}
+	}
 }
