@@ -6347,7 +6347,7 @@ h2.article-title {
 
 .homepage-hero {
   background: #074e68 url("../img/heroProgrammingBackground.jpg") repeat scroll 0 0;
-  height: 650px;
+  height: 350px;
   padding: 100px 20px 0;
   position: relative;
   text-align: left; }
@@ -6457,5 +6457,10 @@ section.info section.publication_details p.published, section.info section.publi
   float: left;
   margin-left: 8.33333% !important;
   padding-left: 0; }
+
+article.summary {
+  border-left: medium solid #eaecee;
+  border-top: 1rem solid #e0ece1;
+  padding-left: 1rem; }
 
 /*# sourceMappingURL=main.css.map */
