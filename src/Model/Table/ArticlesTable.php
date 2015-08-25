@@ -75,7 +75,7 @@ class ArticlesTable extends Table
 	 */
 	public function beforeSave(Event $event, Article $entity) {
 
-		if (!$entity->dirty('text') && $entity->dirty('title')) {
+		if (!$entity->dirty('text') && ($entity->dirty('title') || $entity->dirty('summary'))) {
 			$this->buildToc($entity);
 			
 			Cache::clearGroup('recent_articles', 'article_lists');
