@@ -42,7 +42,7 @@ class ImagesTable extends Table
 				'dir' => 'image_dir',   // The name of the field to store the folder
 				'thumbnailSizes' => [ // Declare your thumbnails
 					'small' => ['w' => 200, 'h' => 200, 'crop' => false],   // Define the size and prefix of your thumbnails
-					'medium' => ['w' => 640, 'h' => 480, 'crop' => true],     // Crop will crop the image as well as resize it
+					'medium' => ['w' => 640, 'h' => 480, 'crop' => false],     // Crop will crop the image as well as resize it
 				],
 				'thumbnailMethod' => 'imagick'  // Options are Imagick, Gd or Gmagick
 			]
