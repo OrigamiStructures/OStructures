@@ -41,8 +41,8 @@ class ImagesTable extends Table
 				'root' => WWW_ROOT . 'img', // Customise the root upload folder here, or omit to use the default
 				'dir' => 'image_dir',   // The name of the field to store the folder
 				'thumbnailSizes' => [ // Declare your thumbnails
-					'square' => ['w' => 200, 'h' => 200],   // Define the size and prefix of your thumbnails
-					'portrait' => ['w' => 100, 'h' => 300, 'crop' => true],     // Crop will crop the image as well as resize it
+					'small' => ['w' => 200, 'h' => 200, 'crop' => false],   // Define the size and prefix of your thumbnails
+					'medium' => ['w' => 640, 'h' => 480, 'crop' => true],     // Crop will crop the image as well as resize it
 				],
 				'thumbnailMethod' => 'imagick'  // Options are Imagick, Gd or Gmagick
 			]
@@ -113,7 +113,7 @@ class ImagesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['article_id'], 'Articles'));
+//        $rules->add($rules->existsIn(['article_id'], 'Articles'));
         return $rules;
     }
 	
