@@ -13,7 +13,7 @@ use Cake\Cache\Cache;
 				<?= $this->Html->link($article->title, $article_path, ['itemprop' => 'url' ]); ?>
             </h1>
 				<p>
-					<?= strtolower($this->request->env('HTTP_HOST')) === 'dev.ostructures.com' ? 
+					<?= preg_match('/^dev\./', strtolower($this->request->env('HTTP_HOST'))) ? 
 						$this->Html->link('Edit', ['action' => 'edit', $article->id]) . ' | ' : ''; ?>
 					Last Updated: 
 					<span  itemprop="datePublished"><?= $this->Time->format($article->modified, 'yyyy-MM-dd') ?></span>
