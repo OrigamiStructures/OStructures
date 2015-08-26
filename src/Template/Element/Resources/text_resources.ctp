@@ -1,8 +1,9 @@
 <?php
 //debug($images);
 foreach ($articles as $article) :
-    $webrootConstant = "http://localhost/OStructures" . DS . "blogArticle" . DS . "view_article" . DS;
-    $markdownArticleLink = "[{$article->title}]({$webrootConstant}{$article->slug} \"{$article->title}\")";
+//    $webrootConstant = "http://localhost/OStructures" . DS . "blogArticle" . DS . "view_article" . DS;
+    $path =  DS . 'article' . DS . $article->slug;
+    $markdownArticleLink = "[{$article->title}]($path \"{$article->title}\")";
 ?>
     
     <div class="row">

@@ -6,24 +6,23 @@ use Cake\Cache\Cache;
         echo $output;
     } else {
         $this->start('summary_output');
+		$article_path = ['action' => 'view', $article->slug];
 ?>
 <article class="summary" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/TechArticle">
             <h1 itemprop="headline">
-                <a itemprop="url" href="<?=$this->request->webroot;?>article/<?=$article->slug; ?>">
-                    <?= $article->title; ?>
-                </a>
+				<?= $this->Html->link($article->title, $article_path, ['itemprop' => 'url' ]); ?>
             </h1>
 				<p>
-					<?= ($this->request->env('HTTP_HOST')) === 'localhost' ? 
+					<?= strtolower($this->request->env('HTTP_HOST')) === 'dev.ostructures.com' ? 
 						$this->Html->link('Edit', ['action' => 'edit', $article->id]) . ' | ' : ''; ?>
 					Last Updated: 
 					<span  itemprop="datePublished"><?= $this->Time->format($article->modified, 'yyyy-MM-dd') ?></span>
 				</p>
             <section itemprop="description">
                 <?= $this->Markdown->transform($article->summary);?>
-				<h5 class="more"><a itemprop="url" href="<?=$this->request->webroot;?>article/<?=$article->slug; ?>">
-					... more
-                </a></h5>
+				<h5 class="more">
+					<?= $this->Html->link('...more', $article_path, ['itemprop' => 'url' ]); ?>
+                </h5>
 
             </section>
         </article>

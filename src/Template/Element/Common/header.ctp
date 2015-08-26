@@ -2,7 +2,7 @@
     <ul class="title-area">
         <li class="name">
             <h1>
-                <a href=<?= "{$this->request->webroot}"?> >
+                <a href=<?= ""?> >
                     <?=$this->Html->image("crane_black_whiteOutline_transparent_40_40.png");?>
                     <span class="logo-type">Origami Structures</span>
                 </a>
