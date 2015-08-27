@@ -16,7 +16,7 @@ class ArticleHelper extends Helper {
 	
 	public $helpers = ['Html'];
 
-	public function editLink() {
+	public function editLink($article) {
 		return preg_match('/^d(ev)*\./', strtolower($this->request->env('HTTP_HOST'))) ? 
 			$this->Html->link('Edit', ['action' => 'edit', $article->id]) . ' || ' :
 			'';
