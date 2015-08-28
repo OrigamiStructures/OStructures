@@ -63,7 +63,8 @@ button {
         @include grid-column(12);
         backround-color: taupe;
         .resourceImage{
-            @include grid-column(7);
+            @include grid-column(4);
+			padding: 0 .1rem;
         }
 		
         .MarkdownImageLink, .MarkdownArticleLink, .resourceArticle {
@@ -83,7 +84,8 @@ button {
         }
 		
         .MarkdownImageLink{
-            @include grid-column(5);
+            @include grid-column(8);
+			padding: 0 .1rem;
         }
 		
 		.resourceArticle, .MarkdownArticleLink {
