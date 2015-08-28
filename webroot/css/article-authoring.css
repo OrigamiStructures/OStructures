@@ -1219,6 +1219,8 @@ button {
       padding-right: 0.9375rem;
       width: 100%;
       float: left; }
+    .resource-zone .accordion .accordion-navigation > a, .resource-zone .accordion dd > a {
+      padding: .2rem 1rem; }
 
   .preview-zone {
     /*@include tall(40);*/

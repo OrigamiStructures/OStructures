@@ -89,7 +89,11 @@ button {
 		.resourceArticle, .MarkdownArticleLink {
 			@include grid-column(12);
 		}
-    }
+		
+		.accordion .accordion-navigation > a, .accordion dd > a {
+			padding: .2rem 1rem;
+		}
+	}
 
     .preview-zone{
         /*@include tall(40);*/
