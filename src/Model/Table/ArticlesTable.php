@@ -399,7 +399,7 @@ class ArticlesTable extends Table
                 'Articles.summary'
                 ])
 			->where(['Articles.publish' => 1])
-			->order(['Articles.published' => 'ASC'])
+			->order(['Articles.modified' => 'DESC'])
 			->limit($limit)
 //			->page($page) // this may not be the way to do paginated finds
 			;
