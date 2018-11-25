@@ -15,9 +15,10 @@ $this->end();
 			'otherArticles' => $otherArticles]); ?>
 	</div>
 	<div class="edit-zone">
+		<a id="maximize" bind="click.maximize">Expand</a>
 		<?= $this->Form->create($article); ?>
 		<?= $this->element('BlogArticles/edit_fieldset') ?>
-		<?= $this->Form->input('continue', ['label' => 'Preview and continue editing', 'type' => 'checkbox']); ?>
+		<?= $this->Form->input('continue', ['label' => 'Preview and continue editing', 'type' => 'checkbox', 'default' => TRUE]); ?>
 		<?= $this->Form->button(__('Submit'), ['class' => 'button expand']); ?>
 		<?= $this->Form->end(); ?>
 	</div>
