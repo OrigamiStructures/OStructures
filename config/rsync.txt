@@ -1,0 +1,7 @@
+## SSH into server
+
+ssh cjtem@origamistructures.com
+
+cd ~/g.origamistructures.com
+
+git pull
