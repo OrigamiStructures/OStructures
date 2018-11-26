@@ -1,7 +1,8 @@
 <?php
 use Cake\Cache\Cache;
 
-    $output = Cache::read($article->id, 'article_summary');
+    $output = FALSE;
+//    $output = Cache::read($article->id, 'article_summary');
     if($output){
         echo $output;
     } else {
@@ -27,7 +28,7 @@ use Cake\Cache\Cache;
         </article>
 <?php
         $this->end();
-        Cache::write($article->id, $this->fetch('summary_output'), 'article_summary');
+//        Cache::write($article->id, $this->fetch('summary_output'), 'article_summary');
         echo $this->fetch('summary_output');
         $this->assign('summary_output', '');
     }

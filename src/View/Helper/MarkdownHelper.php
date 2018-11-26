@@ -43,14 +43,15 @@ class MarkdownHelper extends Helper {
 				throw new \BadFunctionCallException(
 						'Markdown::transform() argument must be an object that implements MardownInterface or a string');
 			}
-			$output = Cache::read($source->markdownCacheKey($this), $source->markdownCacheConfig($this));
+			$output = FALSE;
+//			$output = Cache::read($source->markdownCacheKey($this), $source->markdownCacheConfig($this));
 			if (!$output) {
 				$output = $this->CakeMarkdown->transform($source);
 				$output = $this->modifyImageDom($output, $source);
-				Cache::write(
-						$source->markdownCacheKey(),
-						"\n<!-- CACHED ARTICLE MARKDOWN -->\n$output\n<!-- END ARTICLE MARKDOWN -->\n",
-						$source->markdownCacheConfig());				
+//				Cache::write(
+//						$source->markdownCacheKey(),
+//						"\n<!-- CACHED ARTICLE MARKDOWN -->\n$output\n<!-- END ARTICLE MARKDOWN -->\n",
+//						$source->markdownCacheConfig());				
 			}
 		} else {
 			// a string was sent for processing. we're not caching those right now
