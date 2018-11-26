@@ -387,7 +387,8 @@ class ArticlesTable extends Table
 		$page = isset($options['page']) ? $options['page'] : 1;
 		
 		$cache_key = "recent_{$topic}_$limit";
-        $result = Cache::read($cache_key, 'article_lists');
+        $result = FALSE;
+//        $result = Cache::read($cache_key, 'article_lists');
 		
         if(!$result){
             $query->select([
@@ -415,7 +416,7 @@ class ArticlesTable extends Table
 //			debug($query);
 //			debug($query->params);
             $result = $query->toArray();
-            Cache::write($cache_key, $result, 'article_lists');
+//            Cache::write($cache_key, $result, 'article_lists');
         }
         return $result;
     }

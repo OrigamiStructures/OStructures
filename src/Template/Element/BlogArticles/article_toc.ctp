@@ -6,7 +6,8 @@ use Cake\Cache\Cache;
 if (!isset($toc)) {
 	return '';
 }
-$output = Cache::read($article->id, 'toc_output');
+//$output = Cache::read($article->id, 'toc_output');
+$output = FALSE;
 if ($output) :
 	echo "<!-- CACHED -->\n$output";
 else:
@@ -69,6 +70,6 @@ else:
 <!-- END OF ARTICLE TOC -->
 <?php
 	$this->end();
-	Cache::write($article->id, $this->fetch('toc'), 'toc_output');
+//	Cache::write($article->id, $this->fetch('toc'), 'toc_output');
 	echo $this->fetch('toc');
 endif;
