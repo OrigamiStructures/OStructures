@@ -7,6 +7,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Cake\Cache\Cache;
+use Cake\Event\Event;
 
 /**
  * Topics Model
@@ -56,7 +57,7 @@ class TopicsTable extends Table
         return $validator;
     }
 	
-	public function beforeSave(Event $event, Article $entity) {
+	public function beforeSave(Event $event, $entity) {
         if ($entity->isNew() || $entity->dirty('name')) {
 			Cache::delete('list', '_topic_');
 		}

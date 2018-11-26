@@ -79,7 +79,8 @@ class BlogArticlesController extends ArticlesController {
         try {
             $query = $this->{$this->modelClass}->find('all')
                     ->contain([])
-                    ->where(['publish' => 1]);
+                    ->where(['publish' => 1])
+					->order(['modified' => 'DESC']);
             $this->sidebarData();
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
