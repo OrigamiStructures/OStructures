@@ -47,7 +47,7 @@ class BlogArticlesController extends ArticlesController {
             if ($this->{$this->modelClass}->save($article)) {
                 $this->Flash->success(__('The article has been saved.'));
 				if (!$this->request->data['continue']) {
-					return $this->redirect(['controller' => 'BlogArticles', 'action' => 'index']);
+					return $this->redirect(['controller' => 'BlogArticles', 'action' => 'view', $article->slug]);
 				}				
             } else {
                 $this->Flash->error(__('The article could not be saved. Please, try again.'));
