@@ -45,14 +45,23 @@ class TopicsController extends AppController
      */
     public function add()
     {
+//		$this->Topics->updateReferences(4);die;
         $topic = $this->Topics->newEntity();
         if ($this->request->is('post')) {
             $topic = $this->Topics->patchEntity($topic, $this->request->data);
-            if ($this->Topics->save($topic)) {
-                $this->Flash->success(__('The topic has been saved.'));
+			
+            if ($this->Topics->save($topic) && 
+					$this->Topics->updateReferences($topic->id, DONT_PURGE, $this->Flash)) {
+//				$msg = __('The topic has been saved and '
+//						. 'article references to it updated.');
+//                $this->Flash->success($msg);
                 return $this->redirect(['action' => 'index']);
+				
             } else {
-                $this->Flash->error(__('The topic could not be saved. Please, try again.'));
+//				$msg = __('The topic could not be saved or the '
+//						. 'references to it could not be updated. '
+//						. 'Please review the results and try again.');
+//                $this->Flash->error();
             }
         }
         $articles = $this->Topics->Articles->find('list', ['limit' => 200]);
@@ -74,11 +83,17 @@ class TopicsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $topic = $this->Topics->patchEntity($topic, $this->request->data);
-            if ($this->Topics->save($topic)) {
-                $this->Flash->success(__('The topic has been saved.'));
+            if ($this->Topics->save($topic) && 
+					$this->Topics->updateReferences($topic->id, PURGE_FIRST, $this->Flash)) {
+//				$msg = __('The topic has been saved and '
+//						. 'article references to it updated.');
+//                $this->Flash->success($msg);
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The topic could not be saved. Please, try again.'));
+//                $msg = __('The topic could not be saved or the '
+//						. 'references to it could not be updated. '
+//						. 'Please review the results and try again.');
+//                $this->Flash->error();
             }
         }
         $articles = $this->Topics->Articles->find('list', ['limit' => 200]);
@@ -98,6 +113,7 @@ class TopicsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $topic = $this->Topics->get($id);
         if ($this->Topics->delete($topic)) {
+			$this->Topics->purgeReferences($id);
             $this->Flash->success(__('The topic has been deleted.'));
         } else {
             $this->Flash->error(__('The topic could not be deleted. Please, try again.'));
