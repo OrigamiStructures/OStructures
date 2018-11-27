@@ -5247,8 +5247,8 @@ p {
   font-family: inherit;
   font-size: 1.15rem;
   font-weight: normal;
-  line-height: 1.6;
-  margin-bottom: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: 0.875rem;
   text-rendering: optimizeLegibility; }
   p.lead {
     font-size: 1.36875rem;
@@ -5336,9 +5336,9 @@ ol,
 dl {
   font-family: "Titillium Web", sans-serif;
   font-size: 1.15rem;
-  line-height: 1.6;
+  line-height: 1.4;
   list-style-position: outside;
-  margin-bottom: 1.25rem; }
+  margin-bottom: 0.875rem; }
 
 ul {
   margin-left: 1.1rem; }
@@ -5399,7 +5399,7 @@ abbr {
 
 /* Blockquotes */
 blockquote {
-  margin: 0 0 1.25rem;
+  margin: 0 0 0.875rem;
   padding: 0.5625rem 1.25rem 0 1.1875rem;
   border-left: 1px solid #DDDDDD; }
   blockquote cite {
@@ -5414,7 +5414,7 @@ blockquote {
 
 blockquote,
 blockquote p {
-  line-height: 1.6;
+  line-height: 1.4;
   color: #3b86c2; }
 
 /* Microformats */
@@ -6414,7 +6414,8 @@ article .info-link {
 pre {
   margin-bottom: 1.25rem;
   padding: .5rem .5rem .5rem 1.5rem;
-  overflow-x: scroll; }
+  overflow-x: scroll;
+  line-height: 1.2; }
 
 pre, code {
   background-color: #ebf0eb; }
