@@ -366,6 +366,8 @@ class ArticlesTable extends Table
 	/**
 	 * Find recent article data sufficient to do lists and summaries
 	 * 
+	 * Filter them by the provided topics if available
+	 * 
 	 * $options keys:
 	 *	topic	a topic string (array?),	defaut: all
 	 *	limit	# of records to return,		default: 10
@@ -416,9 +418,50 @@ class ArticlesTable extends Table
 //			debug($query);
 //			debug($query->params);
             $result = $query->toArray();
+			// all topics must be present in article?
+			$result = $this->matchAllTopics($result, $options['Filter_Style'], $options['topics']['_ids']);
 //            Cache::write($cache_key, $result, 'article_lists');
         }
         return $result;
     }
+	
+	public function matchAllTopics($articles, $style, $topics) {
+		if ($style !== 'all') {
+			return $articles;
+		}
+		if ($topics[0] === '') {
+			return $articles;
+		}
+		$articlesToScan = new Collection($articles);
+		$processedArticles = $articlesToScan->reduce(function($accum, $article){
+			$accum['topicSets'][$article->id] = [];
+			$accum['articles'][$article->id] = $article;
+			return $accum;
+		}, ['articles' => [], 'topicSets' => []]);
+		
+		$indexedArticles = $processedArticles['articles'];
+		$topicSets = $processedArticles['topicSets'];
+		
+		$articleIds = array_keys($indexedArticles);
+		$topicCount = count($topics);
+		
+		$this->hasMany('ArticlesTopics');
+		$joins = $this->ArticlesTopics->find('all')
+				->where(['article_id IN' => $articleIds])
+				->where(['topic_id IN' => $topics]);
+		
+		$joins = new Collection($joins);
+		$result = $joins->reduce(function($accum, $join){
+			$accum[$join->article_id][] = $join->topic_id;
+			return $accum;
+		}, $topicSets);
+		
+		foreach($result as $id => $topicsSeen) {
+			if (count($topicsSeen) !== $topicCount) {
+				unset($indexedArticles[$id]);
+			}
+		}
+		return $indexedArticles;
+	}
 	
 }
