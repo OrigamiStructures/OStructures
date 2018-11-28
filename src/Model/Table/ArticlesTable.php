@@ -419,7 +419,9 @@ class ArticlesTable extends Table
 //			debug($query->params);
             $result = $query->toArray();
 			// all topics must be present in article?
-			$result = $this->matchAllTopics($result, $options['Filter_Style'], $options['topics']['_ids']);
+			if (key_exists('Filter_Style', $options) && key_exists('topics', $options)) {
+				$result = $this->matchAllTopics($result, $options['Filter_Style'], $options['topics']['_ids']);
+			}
 //            Cache::write($cache_key, $result, 'article_lists');
         }
         return $result;
