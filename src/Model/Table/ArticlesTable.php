@@ -425,6 +425,16 @@ class ArticlesTable extends Table
         return $result;
     }
 	
+	/**
+	 * Only allow articles that have all the chosen filter topics
+	 * 
+	 * I wonder if there is a pure sql way of doing this
+	 * 
+	 * @param array $articles
+	 * @param string $style 'any' or 'all'
+	 * @param array $topics
+	 * @return array
+	 */
 	public function matchAllTopics($articles, $style, $topics) {
 		if ($style !== 'all') {
 			return $articles;
@@ -432,6 +442,8 @@ class ArticlesTable extends Table
 		if ($topics[0] === '') {
 			return $articles;
 		}
+		
+		// build some data structures to make life easier
 		$articlesToScan = new Collection($articles);
 		$processedArticles = $articlesToScan->reduce(function($accum, $article){
 			$accum['topicSets'][$article->id] = [];
@@ -439,12 +451,13 @@ class ArticlesTable extends Table
 			return $accum;
 		}, ['articles' => [], 'topicSets' => []]);
 		
+		// these are our variables
 		$indexedArticles = $processedArticles['articles'];
 		$topicSets = $processedArticles['topicSets'];
-		
 		$articleIds = array_keys($indexedArticles);
 		$topicCount = count($topics);
 		
+		// we'll work from the join table data
 		$this->hasMany('ArticlesTopics');
 		$joins = $this->ArticlesTopics->find('all')
 				->where(['article_id IN' => $articleIds])
@@ -456,6 +469,7 @@ class ArticlesTable extends Table
 			return $accum;
 		}, $topicSets);
 		
+		// now we can see which article has the right number of topics
 		foreach($result as $id => $topicsSeen) {
 			if (count($topicsSeen) !== $topicCount) {
 				unset($indexedArticles[$id]);
