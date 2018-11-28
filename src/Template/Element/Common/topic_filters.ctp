@@ -11,7 +11,7 @@ if (isset($topics)) :
 			])
 			. $this->Form->submit('Filter', ['class' => 'button tiny radius secondary']),
 			['legend' => 'Filter by topic']) . "\n";
-	echo $this->end();
+	echo $this->Form->end();
 endif;
 ?>
 <!-- End Common/topic_filters -->
