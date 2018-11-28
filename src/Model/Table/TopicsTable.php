@@ -131,7 +131,7 @@ class TopicsTable extends Table
 		// count how many save successfully
 		$count = 0;
 		foreach($joinEntities as $joinEntity) {
-			$count = $this->ArticlesTopics->save($joinEntity) ? $count++ : $count;
+			$count = $this->ArticlesTopics->save($joinEntity) ? $count + 1 : $count;
 		}
 		
 		$topic = $topic->toArray()[0];
