@@ -17,7 +17,6 @@ namespace App\Controller;
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
-use Cake\Filesystem\File;
 
 /**
  * Static content controller
@@ -63,15 +62,4 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
-	
-    public function apigen($page)
-    {
-		$file = new File(WWW_ROOT . 'apigen/' . $page);
-		$doc = $file->read();
-		$file->close();
-
-        $this->set(compact('doc'));
-		
-    }
-	
 }
