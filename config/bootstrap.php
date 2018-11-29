@@ -190,6 +190,7 @@ Plugin::load('Sluggable');
 // Debug Kit should not be installed on a production system
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
+	Plugin::load('OSDebug', ['bootstrap' => true, 'routes' => true]);
 }
 
 /**
