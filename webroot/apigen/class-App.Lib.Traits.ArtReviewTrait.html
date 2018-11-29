@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Trait App\Lib\Traits\ArtReviewTrait | StudioManagerScratch</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">StudioManagerScratch</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-App.Lib.Traits.html" title="Summary of App\Lib\Traits"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-App.html">
+							App<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Cache.html">
+							Cache						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Console.html">
+							Console						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Controller.html">
+							Controller<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Controller.Component.html">
+							Component						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Database.html">
+							Database<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Database.Type.html">
+							Type						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Exception.html">
+							Exception						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Form.html">
+							Form						</a>
+							</li>
+					<li class="active">
+						<a href="namespace-App.Lib.html">
+							Lib<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-App.Lib.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.html">
+							Model<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Behavior.html">
+							Behavior						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.html">
+							Entity<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Entity.EditionSubs.html">
+							EditionSubs						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.Lib.html">
+							Lib						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Table.html">
+							Table						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Shell.html">
+							Shell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.SiteMetrics.html">
+							SiteMetrics						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.html">
+							View<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Cell.html">
+							Cell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.Helper.html">
+							Helper<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Helper.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+
+
+			<h3>Traits</h3>
+			<ul>
+				<li class="active"><a href="class-App.Lib.Traits.ArtReviewTrait.html">ArtReviewTrait</a></li>
+				<li><a href="class-App.Lib.Traits.DispositionFilterTrait.html">DispositionFilterTrait</a></li>
+				<li><a href="class-App.Lib.Traits.EditionStackCache.html">EditionStackCache</a></li>
+				<li><a href="class-App.Lib.Traits.PieceFilterTrait.html">PieceFilterTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Trait ArtReviewTrait</h1>
+
+
+	<div class="description">
+	<p>ArtReviewTrait handles logic common to viewing Artwork, Editions, and Formats</p>
+
+<p>Detecting 'flat' Artwork, that which has a single Edition or a
+single Edition with a single Format, is part of an effort to aid
+the user's swift navigation to the most detailed level of display.
+To avoid time lost to redundant code  as the system redirects the
+request to the proper display context, this trait was created.</p>
+
+<p>06/18 This is pending further analysis: Added Helper loading features to reduce coupling of Artwork
+create/review/refine Templates and Elements. In the original
+incarnation, the views all self-constructed beginning from Artworks/review.
+Logic in each template or element decided the variables to pass on, the
+Helpers to load, and the next elements to render. This made editing difficult
+because there was no way (short of expert knowledge) to tell if a change
+would effect some downstream process. The reason for this strategy was to insure all Artwork rendering followed a
+common DOM pattern (to simplify css and ajax calls). While I did accomplish
+that goal, it created a coupling problem. So, I'm going to back the common
+Helper loading into this Trait and other more specific loading into actions. Part of this is accomplished by having a Artworks, Editions, and Formats
+Controllers extend a new Parent class which loads a new parent View class for
+rendering.</p>
+	</div>
+
+
+
+
+
+
+
+	<div>
+		<h3>Direct Known Users</h3>
+		<p class="elementList">
+			<code><a href="class-App.Controller.ArtworksController.html">App\Controller\ArtworksController</a></code>, 
+			<code><a href="class-App.Controller.EditionsController.html">App\Controller\EditionsController</a></code>, 
+			<code><a href="class-App.Controller.FormatsController.html">App\Controller\FormatsController</a></code>
+		</p>
+	</div>
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Lib.html">Lib</a>\<a href="namespace-App.Lib.Traits.html">Traits</a><br>
+		
+
+				<b>Author:</b>
+				dondrake<br>
+			<b>Located at</b> <a href="source-class-App.Lib.Traits.ArtReviewTrait.html#11-182" title="Go to source code">Lib/Traits/ArtReviewTrait.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="_try_flatness_redirect" id="__try_flatness_redirect">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#__try_flatness_redirect">#</a>
+			<code><a href="source-class-App.Lib.Traits.ArtReviewTrait.html#40-78" title="Go to source code">_try_flatness_redirect</a>( <span> <var>$artwork_id</var></span>, <span> <var>$edition_id</var> = <span class="php-keyword1">FALSE</span></span> )</code>
+
+			<div class="description short">
+				<p>Is the Artwork single-edition or single-edition + single-format</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is the Artwork single-edition or single-edition + single-format</p>
+
+<p>Depending on the flatness and the controller that called we
+may want to redirect to a different controller to give the
+most detailed view (without requiring navigation)</p>
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="_drop_flatness_cache" id="__drop_flatness_cache">
+
+			<td class="attributes"><code>
+				 protected 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#__drop_flatness_cache">#</a>
+			<code><a href="source-class-App.Lib.Traits.ArtReviewTrait.html#92-101" title="Go to source code">_drop_flatness_cache</a>( <span>string <var>$artwork_id</var></span>, <span>false|string <var>$edition_id</var> = <span class="php-keyword1">FALSE</span></span> )</code>
+
+			<div class="description short">
+				<p>Clear a single flatness cache entry</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Clear a single flatness cache entry</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$artwork_id</var></dt>
+						<dd></dd>
+						<dt><var>$edition_id</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		StudioManagerScratch API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

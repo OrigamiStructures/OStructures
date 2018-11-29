@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class App\SiteMetrics\CollectTimerMetrics | StudioManagerScratch</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">StudioManagerScratch</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-App.SiteMetrics.html" title="Summary of App\SiteMetrics"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-App.html">
+							App<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Cache.html">
+							Cache						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Console.html">
+							Console						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Controller.html">
+							Controller<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Controller.Component.html">
+							Component						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Database.html">
+							Database<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Database.Type.html">
+							Type						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Exception.html">
+							Exception						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Form.html">
+							Form						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Lib.html">
+							Lib<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Lib.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.html">
+							Model<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Behavior.html">
+							Behavior						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.html">
+							Entity<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Entity.EditionSubs.html">
+							EditionSubs						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.Lib.html">
+							Lib						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Table.html">
+							Table						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Shell.html">
+							Shell						</a>
+							</li>
+					<li class="active">
+						<a href="namespace-App.SiteMetrics.html">
+							SiteMetrics						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.html">
+							View<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Cell.html">
+							Cell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.Helper.html">
+							Helper<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Helper.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-App.SiteMetrics.CollectTimerMetrics.html">CollectTimerMetrics</a></li>
+				<li><a href="class-App.SiteMetrics.ProcessLogs.html">ProcessLogs</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class CollectTimerMetrics</h1>
+
+
+	<div class="description">
+	<p>CollectMetrics</p>
+
+<p>This class follows the singleton pattern</p>
+
+<p>Logs one or several timers per line. Timers are stored in serialized arrays.
+The first two indexes establish the required structure for the array.
+The first index will guide selection of a class to decode the log line.
+The second index is a key to uniquely identitfy the data managed during
+the timed process.</p>
+
+<pre>ArtStack =&gt; [
+    <span class="php-num">439</span> =&gt; [
+        <span class="php-quote">'read'</span> =&gt; [
+                <span class="php-quote">'start'</span> =&gt; (float) <span class="php-num">1542697261.8773</span>,
+                <span class="php-quote">'end'</span> =&gt; (float) <span class="php-num">1542697261.8774</span>,
+                <span class="php-quote">'duration'</span> =&gt; (float) <span class="php-num">0.00014996528625488</span>
+            ],
+        <span class="php-quote">'build'</span> =&gt; [
+                <span class="php-quote">'start'</span> =&gt; (float) <span class="php-num">1542697261.8775</span>,
+                <span class="php-quote">'end'</span> =&gt; (float) <span class="php-num">1542697261.9196</span>,
+                <span class="php-quote">'duration'</span> =&gt; (float) <span class="php-num">0.042110919952393</span>
+            ],
+        write<span class="php-quote">' =&gt; [
+                '</span>start<span class="php-quote">' =&gt; (float) 1542697261.9197,
+                '</span><span class="php-keyword2">end</span><span class="php-quote">' =&gt; (float) 1542697261.9208,
+                '</span>duration<span class="php-quote">' =&gt; (float) 0.001101016998291
+        ]
+    ]
+];</span></pre>
+
+<p>In this case the second key is an Artwork id. This id will allow timed
+events on this same data to be compared. Without an identifier, other
+data sets that may be radically larger or smaller could be compared.
+Either strategy may provide useful information.</p>
+
+<p>The keys 'read', 'build', and 'write' were provided as the $index param
+for ->start($index, $path) and ->end($index, $path)</p>
+
+<pre><span class="php-var">$t</span>-&gt;<span class="php-keyword2">end</span>(<span class="php-quote">'write'</span>, <span class="php-quote">'ArtStack.439'</span>);</pre>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.SiteMetrics.html">SiteMetrics</a><br>
+		
+
+				<b>Author:</b>
+				dondrake<br>
+			<b>Located at</b> <a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#8-183" title="Go to source code">SiteMetrics/CollectTimerMetrics.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="instance" id="_instance">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-App.SiteMetrics.CollectTimerMetrics.html">App\SiteMetrics\CollectTimerMetrics</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_instance">#</a>
+			<code><a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#95-105" title="Go to source code">instance</a>( )</code>
+
+			<div class="description short">
+				<p>The public access point for a reference to this singleton</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The public access point for a reference to this singleton</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-App.SiteMetrics.CollectTimerMetrics.html">App\SiteMetrics\CollectTimerMetrics</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="startLogEntry" id="_startLogEntry">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_startLogEntry">#</a>
+			<code><a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#107-130" title="Go to source code">startLogEntry</a>( <span>string <var>$path</var></span> )</code>
+
+			<div class="description short">
+				<p>Create an new array structure to contain one log lines data</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Create an new array structure to contain one log lines data</p>
+
+<p>$path will be in the form 'strategy.id'. The strategy will be used
+to select the class that will decode and analize the data in this line.
+The id will be used to identify other log lines that worked on this
+same data set so that timer comparisons will be apples-to-apples.</p>
+
+<p>$path is returned to the calling code because timer and log calls
+will require the same string so the data can be inserted in the
+correct line. This system allows the accumulation of multiple sets
+of log-line data at the same time; each with a different $path</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$path</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						string<br>The path is returned because subisquent calls require it
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="start" id="_start">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_start">#</a>
+			<code><a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#132-143" title="Go to source code">start</a>( <span>string <var>$index</var></span>, <span>string <var>$path</var></span> )</code>
+
+			<div class="description short">
+				<p>Start a new timer named $index in log-line $path</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Start a new timer named $index in log-line $path</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$index</var></dt>
+						<dd></dd>
+						<dt><var>$path</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="end" id="_end">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_end">#</a>
+			<code><a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#145-158" title="Go to source code">end</a>( <span>string <var>$index</var></span>, <span>string <var>$path</var></span> )</code>
+
+			<div class="description short">
+				<p>End the timer named $index, store its end and duration in log-line $path</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>End the timer named $index, store its end and duration in log-line $path</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$index</var></dt>
+						<dd></dd>
+						<dt><var>$path</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="logTimers" id="_logTimers">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_logTimers">#</a>
+			<code><a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#160-174" title="Go to source code">logTimers</a>( <span>string <var>$path</var></span> )</code>
+
+			<div class="description short">
+				<p>Write log-line $path to the configured log file</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Write log-line $path to the configured log file</p>
+
+<p>The line will start with a string similar to
+"2018-11-20 05:21:05 Info: " followed by serialized array data. The
+array data will begin with "a:" and end with "}}" followed by a newline.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$path</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__debugInfo" id="___debugInfo">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___debugInfo">#</a>
+			<code><a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#176-181" title="Go to source code">__debugInfo</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="_timer" id="$_timer">
+			<td class="attributes"><code>
+				protected  
+				OSDTimer
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#57-62" title="Go to source code"><var>$_timer</var></a>
+
+				<div class="description short">
+					<p>The timer object</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>The timer object</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$_timer" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="_instance" id="$_instance">
+			<td class="attributes"><code>
+				protected static 
+				
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#64-69" title="Go to source code"><var>$_instance</var></a>
+
+				<div class="description short">
+					<p>The singleton instance of this class</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>The singleton instance of this class</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$_instance" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="_timerSwitch" id="$_timerSwitch">
+			<td class="attributes"><code>
+				protected  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#71-76" title="Go to source code"><var>$_timerSwitch</var></a>
+
+				<div class="description short">
+					<p>True/False setting from app.php turning timer metrics logging on/off</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>True/False setting from app.php turning timer metrics logging on/off</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$_timerSwitch" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="_logEntry" id="$_logEntry">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.SiteMetrics.CollectTimerMetrics.html#78-83" title="Go to source code"><var>$_logEntry</var></a>
+
+				<div class="description short">
+					<p>The collector array for developing log-line data</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>The collector array for developing log-line data</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$_logEntry" class="anchor">#</a>
+					<code>[]</code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		StudioManagerScratch API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

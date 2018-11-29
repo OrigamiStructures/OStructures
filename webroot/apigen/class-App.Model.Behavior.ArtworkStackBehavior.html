@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class App\Model\Behavior\ArtworkStackBehavior | StudioManagerScratch</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">StudioManagerScratch</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-App.Model.Behavior.html" title="Summary of App\Model\Behavior"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-App.html">
+							App<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Cache.html">
+							Cache						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Console.html">
+							Console						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Controller.html">
+							Controller<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Controller.Component.html">
+							Component						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Database.html">
+							Database<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Database.Type.html">
+							Type						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Exception.html">
+							Exception						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Form.html">
+							Form						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Lib.html">
+							Lib<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Lib.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li class="active">
+						<a href="namespace-App.Model.html">
+							Model<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-App.Model.Behavior.html">
+							Behavior						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.html">
+							Entity<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Entity.EditionSubs.html">
+							EditionSubs						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.Lib.html">
+							Lib						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Table.html">
+							Table						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Shell.html">
+							Shell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.SiteMetrics.html">
+							SiteMetrics						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.html">
+							View<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Cell.html">
+							Cell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.Helper.html">
+							Helper<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Helper.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-App.Model.Behavior.ArtworkStackBehavior.html">ArtworkStackBehavior</a></li>
+				<li><a href="class-App.Model.Behavior.DateQueryBehavior.html">DateQueryBehavior</a></li>
+				<li><a href="class-App.Model.Behavior.deleteImage.html">deleteImage</a></li>
+				<li><a href="class-App.Model.Behavior.FamilyBehavior.html">FamilyBehavior</a></li>
+				<li><a href="class-App.Model.Behavior.IntegerQueryBehavior.html">IntegerQueryBehavior</a></li>
+				<li><a href="class-App.Model.Behavior.StringQueryBehavior.html">StringQueryBehavior</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class ArtworkStackBehavior</h1>
+
+
+	<div class="description">
+	<p>CakePHP ArtworkStackBehavior</p>
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+Cake\ORM\Behavior
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>App\Model\Behavior\ArtworkStackBehavior</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Model.html">Model</a>\<a href="namespace-App.Model.Behavior.html">Behavior</a><br>
+		
+
+				<b>Author:</b>
+				jasont<br>
+			<b>Located at</b> <a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#25-249" title="Go to source code">Model/Behavior/ArtworkStackBehavior.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#50-52" title="Go to source code">__construct</a>( <span>Cake\ORM\Table <var>$table</var></span>, <span>array <var>$config</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="addToSeries" id="_addToSeries">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_addToSeries">#</a>
+			<code><a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#54-59" title="Go to source code">addToSeries</a>( <span> <var>$series_id</var> = <span class="php-keyword1">NULL</span></span>, <span> <var>$artwork_id</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="initPieces" id="_initPieces">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_initPieces">#</a>
+			<code><a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#61-84" title="Go to source code">initPieces</a>( <span>array <var>$data</var></span> )</code>
+
+			<div class="description short">
+				<p>Adjust the Pieces in TRD to match the user's request</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Adjust the Pieces in TRD to match the user's request</p>
+
+<p>Called from beforeMarshal in ArtworksTable
+Create and Refine processes have radically different rules for
+treatment of Pieces. As do the various Edition types. Here we target
+the handler for each Edition in the Artwork stack and call that
+handler to set up the save data for the Pieces for the Edition.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$data</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="createPieces" id="_createPieces">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_createPieces">#</a>
+			<code><a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#86-122" title="Go to source code">createPieces</a>( <span>array <var>$edition</var></span> )</code>
+
+			<div class="description short">
+				<p>Callable: Logic for creation of pieces for new Editions</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Callable: Logic for creation of pieces for new Editions</p>
+
+<p>Direct creation or refinment of a Format for an existing Edition
+does not require Piece creation. Those calls are bounced. Later
+a better, more comprehensive Piece handling plan will be required.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$edition</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="refinePieces" id="_refinePieces">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_refinePieces">#</a>
+			<code><a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#124-135" title="Go to source code">refinePieces</a>( <span>array <var>$edition</var></span> )</code>
+
+			<div class="description short">
+				<p>Logic for allowed editing of Pieces for Editions</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Logic for allowed editing of Pieces for Editions</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$edition</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="initImages" id="_initImages">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_initImages">#</a>
+			<code><a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#138-158" title="Go to source code">initImages</a>( <span>array <var>$data</var></span> )</code>
+
+			<div class="description short">
+				<p>Adjust the Image nodes on TRD to match the user's intention</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Adjust the Image nodes on TRD to match the user's intention</p>
+
+<p>beforeMarshal, the Image nodes need to be normalized for proper save.
+This isolates the nodes from Artworks stack that have an Image node and
+passes them into the method that resolve the data.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$data</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="evaluateImage" id="_evaluateImage">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_evaluateImage">#</a>
+			<code><a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#160-187" title="Go to source code">evaluateImage</a>( <span>array <var>$record</var></span> )</code>
+
+			<div class="description short">
+				<p>Resolve the TRD Image data for proper save</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Resolve the TRD Image data for proper save</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$record</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="initIDs" id="_initIDs">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_initIDs">#</a>
+			<code><a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#189-204" title="Go to source code">initIDs</a>( <span>array <var>$data</var></span> )</code>
+
+			<div class="description short">
+				<p>Set artist ownership for new records</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Set artist ownership for new records</p>
+
+<p>All levels except Artwork might be created in multiples at some future
+point, so to keep the map operating identically at all levels, the
+array has an artifical zero-th level added before being passed to
+the recursive map. On return, the level is removed.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$data</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="mapIDs" id="_mapIDs">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_mapIDs">#</a>
+			<code><a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#206-247" title="Go to source code">mapIDs</a>( <span>array <var>$record</var></span> )</code>
+
+			<div class="description short">
+				<p>Map a user_id to new records so they link properly</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Map a user_id to new records so they link properly</p>
+
+<p>If a node's id is empty, it is being created. These new records need
+the current artist_id set (all tables use this value). This data-point
+is never set in the forms so it always needs to be added. Records that
+have an ID are considered pre-existing and are passed through
+untouched. This interation doesn't go key-by-key, it goes
+model-layer by model-layer</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$record</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="SystemState" id="$SystemState">
+			<td class="attributes"><code>
+				protected  
+				
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#31" title="Go to source code"><var>$SystemState</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$SystemState" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="Artwork" id="$Artwork">
+			<td class="attributes"><code>
+				public  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#32" title="Go to source code"><var>$Artwork</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$Artwork" class="anchor">#</a>
+					<code><span class="php-keyword1">FALSE</span></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="Edition" id="$Edition">
+			<td class="attributes"><code>
+				public  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#33" title="Go to source code"><var>$Edition</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$Edition" class="anchor">#</a>
+					<code><span class="php-keyword1">FALSE</span></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="Format" id="$Format">
+			<td class="attributes"><code>
+				public  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#34" title="Go to source code"><var>$Format</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$Format" class="anchor">#</a>
+					<code><span class="php-keyword1">FALSE</span></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="Piece" id="$Piece">
+			<td class="attributes"><code>
+				public  
+				boolean
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#35" title="Go to source code"><var>$Piece</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$Piece" class="anchor">#</a>
+					<code><span class="php-keyword1">FALSE</span></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="_created" id="$_created">
+			<td class="attributes"><code>
+				protected  
+				
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#37" title="Go to source code"><var>$_created</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$_created" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="_images_to_delete" id="$_images_to_delete">
+			<td class="attributes"><code>
+				protected  
+				
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#39" title="Go to source code"><var>$_images_to_delete</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$_images_to_delete" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="stack_members" id="$stack_members">
+			<td class="attributes"><code>
+				public  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Behavior.ArtworkStackBehavior.html#41-48" title="Go to source code"><var>$stack_members</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$stack_members" class="anchor">#</a>
+					<code>[
+    <span class="php-quote">'Artwork'</span>, <span class="php-comment">// Edition</span>
+<span class="php-comment">//      'Series', // Editions</span>
+    <span class="php-quote">'Edition'</span>, <span class="php-comment">// Format, Piece</span>
+<span class="php-comment">//      'Subscription', // Format</span>
+    <span class="php-quote">'Format'</span>, <span class="php-comment">// Piece</span>
+    <span class="php-quote">'Piece'</span>, <span class="php-comment">//</span>
+]</code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		StudioManagerScratch API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class App\Controller\Component\LayersComponent | StudioManagerScratch</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">StudioManagerScratch</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-App.Controller.Component.html" title="Summary of App\Controller\Component"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-App.html">
+							App<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Cache.html">
+							Cache						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Console.html">
+							Console						</a>
+							</li>
+					<li class="active">
+						<a href="namespace-App.Controller.html">
+							Controller<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-App.Controller.Component.html">
+							Component						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Database.html">
+							Database<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Database.Type.html">
+							Type						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Exception.html">
+							Exception						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Form.html">
+							Form						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Lib.html">
+							Lib<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Lib.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.html">
+							Model<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Behavior.html">
+							Behavior						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.html">
+							Entity<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Entity.EditionSubs.html">
+							EditionSubs						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.Lib.html">
+							Lib						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Table.html">
+							Table						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Shell.html">
+							Shell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.SiteMetrics.html">
+							SiteMetrics						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.html">
+							View<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Cell.html">
+							Cell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.Helper.html">
+							Helper<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Helper.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-App.Controller.Component.ArtworkStackComponent.html">ArtworkStackComponent</a></li>
+				<li><a href="class-App.Controller.Component.DispositionManagerComponent.html">DispositionManagerComponent</a></li>
+				<li><a href="class-App.Controller.Component.EditionStackComponent.html">EditionStackComponent</a></li>
+				<li class="active"><a href="class-App.Controller.Component.LayersComponent.html">LayersComponent</a></li>
+				<li><a href="class-App.Controller.Component.PieceAllocationComponent.html">PieceAllocationComponent</a></li>
+				<li><a href="class-App.Controller.Component.PieceAssignmentComponent.html">PieceAssignmentComponent</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class LayersComponent</h1>
+
+
+	<div class="description">
+	<p>CakePHP LayerElementComponent</p>
+
+<p>All controller actions served by this component render Artworks through
+a mix-and-match collection of elements. The elements are grouped into
+four layers: Decoration, Artwork, Edition, and Format. The Decoration
+layer allows different forms to wrap the page to provide functionality
+beyond simple display.</p>
+
+<p>The general goal to keep css simple and consistent by rigidly maintaining
+the DOM pattern. To this end, there are elements that loop through the
+provided entities at each layer and, based on instructions provided by
+this component, select an element to render the entity content.</p>
+
+<p>This technique should allow a small number of elements to be mixed to
+create a wide variety of purpose built views. At the same time, this
+component provides a central location to consider and compare all the
+possible view outcomes and to understand the logic of element selection.</p>
+
+<p>Simple arrays are returned rather than associative maps for simplicity.
+To keep use in the templates and elements easy to understand, a set of
+constants has been created in bootstrap.php to stand in for the indexes:
+define('WRAPPER_LAYER', 0);
+define('ARTWORK_LAYER', 1);
+define('EDITION_LAYER', 2);
+define('FORMAT_LAYER', 3);</p>
+
+<p>The results are passed to the View in $elements. Fetching the identity
+of the required layer will look like this:</p>
+
+<p>&lt;</p>
+
+<p>pre>
+// for a simple string return
+echo $this->element($element[ARTWORK_LAYER]);
+// for a closure requiring an entity argument
+// and assuming $artwork is the current entity
+$edition_element = $element<a href="$artwork">EDITION_LAYER</a>;</p>
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+Cake\Controller\Component
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>App\Controller\Component\LayersComponent</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Controller.html">Controller</a>\<a href="namespace-App.Controller.Component.html">Component</a><br>
+		
+
+				<b>Author:</b>
+				dondrake<br>
+			<b>Located at</b> <a href="source-class-App.Controller.Component.LayersComponent.html#11-210" title="Go to source code">Controller/Component/LayersComponent.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="initialize" id="_initialize">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_initialize">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#52-56" title="Go to source code">initialize</a>( <span>array <var>$config</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setElements" id="_setElements">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setElements">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#58-80" title="Go to source code">setElements</a>( )</code>
+
+			<div class="description short">
+				<p>The single call point for all served actions</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The single call point for all served actions</p>
+
+<p>Based on the current controller/action, will return
+an array of closures that return the name of the
+element to use at each layer.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="artworksReview" id="_artworksReview">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_artworksReview">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#82-92" title="Go to source code">artworksReview</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="artworksRefine" id="_artworksRefine">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_artworksRefine">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#94-108" title="Go to source code">artworksRefine</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="artworksCreate" id="_artworksCreate">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_artworksCreate">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#110-117" title="Go to source code">artworksCreate</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="artworksCreateUnique" id="_artworksCreateUnique">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_artworksCreateUnique">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#119-126" title="Go to source code">artworksCreateUnique</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="editionsReview" id="_editionsReview">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_editionsReview">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#128-138" title="Go to source code">editionsReview</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="editionsRefine" id="_editionsRefine">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_editionsRefine">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#140-148" title="Go to source code">editionsRefine</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="editionsCreate" id="_editionsCreate">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_editionsCreate">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#150-157" title="Go to source code">editionsCreate</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="editionsAssign" id="_editionsAssign">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_editionsAssign">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#159-166" title="Go to source code">editionsAssign</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="formatsReview" id="_formatsReview">
+
+			<td class="attributes"><code>
+				 protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_formatsReview">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#168-182" title="Go to source code">formatsReview</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+					<h4>Todo</h4>
+					<div class="list">
+							Should the parent elements watch for focus too? How much detail?<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="formatsRefine" id="_formatsRefine">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_formatsRefine">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#184-191" title="Go to source code">formatsRefine</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="formatsCreate" id="_formatsCreate">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_formatsCreate">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#193-200" title="Go to source code">formatsCreate</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="piecesRenumber" id="_piecesRenumber">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_piecesRenumber">#</a>
+			<code><a href="source-class-App.Controller.Component.LayersComponent.html#202-209" title="Go to source code">piecesRenumber</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		StudioManagerScratch API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class App\Controller\Component\ArtworkStackComponent | StudioManagerScratch</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">StudioManagerScratch</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-App.Controller.Component.html" title="Summary of App\Controller\Component"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-App.html">
+							App<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Cache.html">
+							Cache						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Console.html">
+							Console						</a>
+							</li>
+					<li class="active">
+						<a href="namespace-App.Controller.html">
+							Controller<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-App.Controller.Component.html">
+							Component						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Database.html">
+							Database<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Database.Type.html">
+							Type						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Exception.html">
+							Exception						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Form.html">
+							Form						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Lib.html">
+							Lib<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Lib.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.html">
+							Model<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Behavior.html">
+							Behavior						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.html">
+							Entity<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Entity.EditionSubs.html">
+							EditionSubs						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.Lib.html">
+							Lib						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Table.html">
+							Table						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Shell.html">
+							Shell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.SiteMetrics.html">
+							SiteMetrics						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.html">
+							View<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Cell.html">
+							Cell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.Helper.html">
+							Helper<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Helper.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-App.Controller.Component.ArtworkStackComponent.html">ArtworkStackComponent</a></li>
+				<li><a href="class-App.Controller.Component.DispositionManagerComponent.html">DispositionManagerComponent</a></li>
+				<li><a href="class-App.Controller.Component.EditionStackComponent.html">EditionStackComponent</a></li>
+				<li><a href="class-App.Controller.Component.LayersComponent.html">LayersComponent</a></li>
+				<li><a href="class-App.Controller.Component.PieceAllocationComponent.html">PieceAllocationComponent</a></li>
+				<li><a href="class-App.Controller.Component.PieceAssignmentComponent.html">PieceAssignmentComponent</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class ArtworkStackComponent</h1>
+
+
+	<div class="description">
+	<p>ArtworkStackComponent provides a unified interface for the three layers, Artwork, Edition, and Format</p>
+
+<p>The creation and refinement of Artworks is a process that may effect 1, 2 or 3
+the layers. So, depending on context, we may be in any of 3 controllers.
+This component provides the basic services that allow them all to behave
+in the same way. Queries are always performed from the top of the stack
+even if we are working on a Format. Saves are always done from the top also.
+All the views and elements are designed to cascade through all the layers.</p>
+
+<p>Refinement of editions that involves quantity changes trigger the application
+of a special rule set to manage piece records. This task is passed off to
+a separate component.</p>
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+Cake\Controller\Component
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>App\Controller\Component\ArtworkStackComponent</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Controller.html">Controller</a>\<a href="namespace-App.Controller.Component.html">Component</a><br>
+		
+
+				<b>Author:</b>
+				dondrake<br>
+				<b>Todo:</b>
+				<p>Exceptions in this or calling code should clear the art stack cache, probably
+        a special Exception class should be written that takes care of the cache.</p><br>
+			<b>Located at</b> <a href="source-class-App.Controller.Component.ArtworkStackComponent.html#16-364" title="Go to source code">Controller/Component/ArtworkStackComponent.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="initialize" id="_initialize">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_initialize">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#53-57" title="Go to source code">initialize</a>( <span>array <var>$config</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__get" id="___get">
+
+			<td class="attributes"><code>
+				 public 
+				Table
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___get">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#59-76" title="Go to source code">__get</a>( <span>string <var>$name</var></span> )</code>
+
+			<div class="description short">
+				<p>Get a named Table instance</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get a named Table instance</p>
+
+<p>Lazy load Tables in the Artwork Stack</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$name</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						Table
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="refinementTransaction" id="_refinementTransaction">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_refinementTransaction">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#78-102" title="Go to source code">refinementTransaction</a>( <span>Entity <var>$artwork</var></span>, <span>array <var>$deletions</var></span> )</code>
+
+			<div class="description short">
+				<p>Wrap both refinement save and deletions in a single transaction</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Wrap both refinement save and deletions in a single transaction</p>
+
+<p>Creation is a simple Table->save() but refinement may involve deletion
+of piece records. This method provides refinement for all layers of the stack.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$artwork</var></dt>
+						<dd></dd>
+						<dt><var>$deletions</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="stackQuery" id="_stackQuery">
+
+			<td class="attributes"><code>
+				 public 
+				Entity
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_stackQuery">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#104-158" title="Go to source code">stackQuery</a>( )</code>
+
+			<div class="description short">
+				<p>Call from anywhere in the ArtworkStack to get the proper result</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Call from anywhere in the ArtworkStack to get the proper result</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						Entity
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="focusedStack" id="_focusedStack">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_focusedStack">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#160-193" title="Go to source code">focusedStack</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+					<h4>Throws</h4>
+					<div class="list">
+						BadMethodCallException
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="allocatePieces" id="_allocatePieces">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_allocatePieces">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#195-198" title="Go to source code">allocatePieces</a>( <span> <var>$artwork</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="refinePieces" id="_refinePieces">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_refinePieces">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#200-227" title="Go to source code">refinePieces</a>( <span>entity <var>$artwork</var></span>, <span>integer <var>$edition_id</var></span> )</code>
+
+			<div class="description short">
+				<p>Check and handle edition->quantity change during refine() requests</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Check and handle edition->quantity change during refine() requests</p>
+
+<p>Both artworks and editions refine() methods may see changes to
+the edition size. The is the method that detects if quantity
+was edited. All edition types pass through this check. The
+handling will be parsed out to specialized code in the
+PieceAllocationComponent if there was an edit of this value.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$artwork</var></dt>
+						<dd>The full artwork stack</dd>
+						<dt><var>$edition_id</var></dt>
+						<dd>ID of the edition that was up for editing</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterEntities" id="_filterEntities">
+
+			<td class="attributes"><code>
+				 protected 
+				Entity
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterEntities">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#230-265" title="Go to source code">filterEntities</a>( <span>Entity <var>$artwork</var></span> )</code>
+
+			<div class="description short">
+				<p>Use URL query arguments to filter the Entity</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Use URL query arguments to filter the Entity</p>
+
+<p>'review' views target specifics memebers of the an Artwork stack. The
+URL arguments indicate which Edition and possibly which Format the
+artist wants to see. The query gets everything because that is also the
+source of data for the menus. This process reduces the Entity stack
+so the view will only have the required information.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$artwork</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						Entity
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="pruneEntities" id="_pruneEntities">
+
+			<td class="attributes"><code>
+				 protected 
+				Entity
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_pruneEntities">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#267-289" title="Go to source code">pruneEntities</a>( <span>Entity <var>$artwork</var></span> )</code>
+
+			<div class="description short">
+				<p>Prepare the entity for 'creation' of some layer</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Prepare the entity for 'creation' of some layer</p>
+
+<p>stackQuery pulls the whole, known artwork stack and passes it here if
+there is a Create request. In this case, we must insert empty Entities
+on the appropriate layers. These are deduced by Controller context.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$artwork</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						Entity
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="layerChoiceLists" id="_layerChoiceLists">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_layerChoiceLists">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#291-335" title="Go to source code">layerChoiceLists</a>( )</code>
+
+			<div class="description short">
+				<p>Prepare appropriate choice lists for all artwork stack tables</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Prepare appropriate choice lists for all artwork stack tables</p>
+
+<p>NEEDS TO BE 'STATE' AWARE TO GENERATE PROPERLY FILTERED AND
+CONSTRUCTED LISTS FOR 'CREATION' VS 'SELECTION' PROCESSES
+These are processes that assemble choice-list arrays
+for form construction</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="creationStack" id="_creationStack">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-App.Model.Entity.Artwork.html">App\Model\Entity\Artwork</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_creationStack">#</a>
+			<code><a href="source-class-App.Controller.Component.ArtworkStackComponent.html#337-362" title="Go to source code">creationStack</a>( <span>array <var>$data</var> = []</span> )</code>
+
+			<div class="description short">
+				<p>Make an entity to support Artwork stack layer creation</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Make an entity to support Artwork stack layer creation</p>
+
+<p>Creation may happen at any level and in those cases the upstream
+IDs (or other data) may be required. For later 'patching' and
+proper linking of new records, this allows any layer data to be
+passed in.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$data</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-App.Model.Entity.Artwork.html">App\Model\Entity\Artwork</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="components" id="$components">
+			<td class="attributes"><code>
+				public  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Controller.Component.ArtworkStackComponent.html#37" title="Go to source code"><var>$components</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$components" class="anchor">#</a>
+					<code>[<span class="php-quote">'Paginator'</span>]</code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="SystemState" id="$SystemState">
+			<td class="attributes"><code>
+				public  
+				
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Controller.Component.ArtworkStackComponent.html#39" title="Go to source code"><var>$SystemState</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$SystemState" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="full_containment" id="$full_containment">
+			<td class="attributes"><code>
+				public  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Controller.Component.ArtworkStackComponent.html#41-47" title="Go to source code"><var>$full_containment</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$full_containment" class="anchor">#</a>
+					<code>[
+    <span class="php-quote">'Users'</span>, <span class="php-quote">'Images'</span>, <span class="php-comment">/*'Editions.Users',*/</span> <span class="php-quote">'Editions'</span> =&gt; [
+        <span class="php-quote">'Series'</span>, <span class="php-quote">'Pieces'</span> =&gt; [<span class="php-quote">'Dispositions'</span>], <span class="php-comment">/*'Formats.Users',*/</span> <span class="php-quote">'Formats'</span> =&gt; [
+            <span class="php-quote">'Images'</span>, <span class="php-quote">'Pieces'</span> =&gt; [<span class="php-quote">'Dispositions'</span>], <span class="php-comment">/*'Subscriptions'*/</span>
+            ]
+        ]
+    ]</code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		StudioManagerScratch API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

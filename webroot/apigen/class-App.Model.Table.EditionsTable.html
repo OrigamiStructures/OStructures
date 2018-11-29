@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class App\Model\Table\EditionsTable | StudioManagerScratch</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">StudioManagerScratch</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-App.Model.Table.html" title="Summary of App\Model\Table"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-App.html">
+							App<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Cache.html">
+							Cache						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Console.html">
+							Console						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Controller.html">
+							Controller<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Controller.Component.html">
+							Component						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Database.html">
+							Database<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Database.Type.html">
+							Type						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Exception.html">
+							Exception						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Form.html">
+							Form						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Lib.html">
+							Lib<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Lib.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li class="active">
+						<a href="namespace-App.Model.html">
+							Model<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Behavior.html">
+							Behavior						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.html">
+							Entity<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Entity.EditionSubs.html">
+							EditionSubs						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.Lib.html">
+							Lib						</a>
+							</li>
+					<li class="active">
+						<a href="namespace-App.Model.Table.html">
+							Table						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Shell.html">
+							Shell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.SiteMetrics.html">
+							SiteMetrics						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.html">
+							View<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Cell.html">
+							Cell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.Helper.html">
+							Helper<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Helper.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-App.Model.Table.AddressesTable.html">AddressesTable</a></li>
+				<li><a href="class-App.Model.Table.AppTable.html">AppTable</a></li>
+				<li><a href="class-App.Model.Table.ArtistsTable.html">ArtistsTable</a></li>
+				<li><a href="class-App.Model.Table.ArtStacksTable.html">ArtStacksTable</a></li>
+				<li><a href="class-App.Model.Table.ArtworksTable.html">ArtworksTable</a></li>
+				<li><a href="class-App.Model.Table.ContactsTable.html">ContactsTable</a></li>
+				<li><a href="class-App.Model.Table.CSTableLocator.html">CSTableLocator</a></li>
+				<li><a href="class-App.Model.Table.DesignsTable.html">DesignsTable</a></li>
+				<li><a href="class-App.Model.Table.DispositionsTable.html">DispositionsTable</a></li>
+				<li class="active"><a href="class-App.Model.Table.EditionsTable.html">EditionsTable</a></li>
+				<li><a href="class-App.Model.Table.FormatsTable.html">FormatsTable</a></li>
+				<li><a href="class-App.Model.Table.GroupsMembersTable.html">GroupsMembersTable</a></li>
+				<li><a href="class-App.Model.Table.GroupsTable.html">GroupsTable</a></li>
+				<li><a href="class-App.Model.Table.ImagesTable.html">ImagesTable</a></li>
+				<li><a href="class-App.Model.Table.LocationsTable.html">LocationsTable</a></li>
+				<li><a href="class-App.Model.Table.MembersTable.html">MembersTable</a></li>
+				<li><a href="class-App.Model.Table.MenusTable.html">MenusTable</a></li>
+				<li><a href="class-App.Model.Table.PiecesTable.html">PiecesTable</a></li>
+				<li><a href="class-App.Model.Table.ProxyMembersTable.html">ProxyMembersTable</a></li>
+				<li><a href="class-App.Model.Table.SeriesTable.html">SeriesTable</a></li>
+				<li><a href="class-App.Model.Table.SubscriptionsTable.html">SubscriptionsTable</a></li>
+				<li><a href="class-App.Model.Table.UsersTable.html">UsersTable</a></li>
+				<li><a href="class-App.Model.Table.UserStacksTable.html">UserStacksTable</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class EditionsTable</h1>
+
+
+	<div class="description">
+	<p>Editions Model</p>
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+Cake\ORM\Table
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-App.Model.Table.AppTable.html"><span>App\Model\Table\AppTable</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>App\Model\Table\EditionsTable</span></b>			
+			
+			 uses 
+					<a href="class-App.Lib.Traits.EditionStackCache.html"><span>App\Lib\Traits\EditionStackCache</span></a>
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Model.html">Model</a>\<a href="namespace-App.Model.Table.html">Table</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-App.Model.Table.EditionsTable.html#16-249" title="Go to source code">Model/Table/EditionsTable.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="initialize" id="_initialize">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_initialize">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#53-64" title="Go to source code">initialize</a>( <span>array <var>$config</var></span> )</code>
+
+			<div class="description short">
+				<p>Initialize method</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Initialize method</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$config</var></dt>
+						<dd>The configuration for the Table.</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="_initializeProperties" id="__initializeProperties">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#__initializeProperties">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#66-70" title="Go to source code">_initializeProperties</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="_initializeBehaviors" id="__initializeBehaviors">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#__initializeBehaviors">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#72-80" title="Go to source code">_initializeBehaviors</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="_initializeAssociations" id="__initializeAssociations">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#__initializeAssociations">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#82-100" title="Go to source code">_initializeAssociations</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="validationDefault" id="_validationDefault">
+
+			<td class="attributes"><code>
+				 public 
+				Cake\Validation\Validator
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_validationDefault">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#102-125" title="Go to source code">validationDefault</a>( <span>Cake\Validation\Validator <var>$validator</var></span> )</code>
+
+			<div class="description short">
+				<p>Default validation rules.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Default validation rules.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$validator</var></dt>
+						<dd>Validator instance.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						Cake\Validation\Validator
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="buildRules" id="_buildRules">
+
+			<td class="attributes"><code>
+				 public 
+				Cake\ORM\RulesChecker
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_buildRules">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#127-140" title="Go to source code">buildRules</a>( <span>Cake\ORM\RulesChecker <var>$rules</var></span> )</code>
+
+			<div class="description short">
+				<p>Returns a rules checker object that will be used for validating
+application integrity.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Returns a rules checker object that will be used for validating
+application integrity.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$rules</var></dt>
+						<dd>The rules object to be modified.</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						Cake\ORM\RulesChecker
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="afterSave" id="_afterSave">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_afterSave">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#142-152" title="Go to source code">afterSave</a>( <span>type <var>$event</var></span>, <span>type <var>$entity</var></span>, <span>type <var>$options</var></span> )</code>
+
+			<div class="description short">
+				<p>After save, clear any effected edition stackQuery cache</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>After save, clear any effected edition stackQuery cache</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$event</var></dt>
+						<dd></dd>
+						<dt><var>$entity</var></dt>
+						<dd></dd>
+						<dt><var>$options</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="findChoiceList" id="_findChoiceList">
+
+			<td class="attributes"><code>
+				 public 
+				query
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_findChoiceList">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#157-167" title="Go to source code">findChoiceList</a>( <span>Cake\ORM\Query <var>$query</var></span>, <span>string <var>$options</var></span> )</code>
+
+			<div class="description short">
+				<p>Get the current select list</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the current select list</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$query</var></dt>
+						<dd></dd>
+						<dt><var>$options</var></dt>
+						<dd>$artist_id</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						query<br>result object
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="choiceList" id="_choiceList">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_choiceList">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#169-174" title="Go to source code">choiceList</a>( <span> <var>$id</var></span>, <span> <var>$index_name</var></span>, <span> <var>$options</var> = []</span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="findEditions" id="_findEditions">
+
+			<td class="attributes"><code>
+				 public 
+				Cake\ORM\Query
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_findEditions">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#178-187" title="Go to source code">findEditions</a>( <span>Cake\ORM\Query <var>$query</var></span>, <span>array <var>$options</var></span> )</code>
+
+			<div class="description short">
+				<p>Find editions by id</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Find editions by id</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$query</var></dt>
+						<dd></dd>
+						<dt><var>$options</var></dt>
+						<dd>Pass args on $options['values'] = [ ]</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						Cake\ORM\Query
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="findInArtworks" id="_findInArtworks">
+
+			<td class="attributes"><code>
+				 public 
+				Cake\ORM\Query
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_findInArtworks">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#189-198" title="Go to source code">findInArtworks</a>( <span>Cake\ORM\Query <var>$query</var></span>, <span>array <var>$options</var></span> )</code>
+
+			<div class="description short">
+				<p>Find editions in an artwork</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Find editions in an artwork</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$query</var></dt>
+						<dd></dd>
+						<dt><var>$options</var></dt>
+						<dd>see IntegerQueryBehavior</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						Cake\ORM\Query
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="typeList" id="_typeList">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_typeList">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#200-206" title="Go to source code">typeList</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="minimumSize" id="_minimumSize">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_minimumSize">#</a>
+			<code><a href="source-class-App.Model.Table.EditionsTable.html#208-247" title="Go to source code">minimumSize</a>( <span>integer|Entity <var>$edition</var></span> )</code>
+
+			<div class="description short">
+				<p>Get the minimum alowed size for an edition</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the minimum alowed size for an edition</p>
+
+<p>Given an edition entity or the ID of an edition, return the piece number
+which is the highest numbered disposed piece in the edition or, if it's
+an open edition, the number of disposed pieces in the edition.
+This number will represent the minimum size for the edition.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$edition</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						integer<br>The minimum size
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods inherited from <a href="class-App.Model.Table.AppTable.html#methods">App\Model\Table\AppTable</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-App.Model.Table.AppTable.html#___construct">__construct()</a></code>
+			</p>
+		</div>
+
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods used from <a href="class-App.Lib.Traits.EditionStackCache.html#methods">App\Lib\Traits\EditionStackCache</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-App.Lib.Traits.EditionStackCache.html#_clearCache">clearCache()</a></code>, 
+				<code><a href="class-App.Lib.Traits.EditionStackCache.html#_readCache">readCache()</a></code>, 
+				<code><a href="class-App.Lib.Traits.EditionStackCache.html#_writeCache">writeCache()</a></code>
+			</p>
+		</div>
+
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="types" id="$types">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Table.EditionsTable.html#30-50" title="Go to source code"><var>$types</var></a>
+
+				<div class="description short">
+					<p>The allowable types of editions</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>The allowable types of editions</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$types" class="anchor">#</a>
+					<code>[
+    <span class="php-quote">'Edition'</span> =&gt; [
+        EDITION_LIMITED =&gt; <span class="php-quote">'Limited (numbered)'</span>,
+        EDITION_OPEN =&gt; <span class="php-quote">'Open (un-numbered)'</span>,
+    ],
+    <span class="php-quote">'Portfolio'</span> =&gt; [
+        PORTFOLIO_LIMITED =&gt; <span class="php-quote">'Limited (numbered)'</span>,
+        PORTFOLIO_OPEN =&gt; <span class="php-quote">'Open (un-numbered)'</span>,
+    ],
+    <span class="php-quote">'Publication'</span> =&gt; [
+        PUBLICATION_LIMITED =&gt; <span class="php-quote">'Limited (numbered)'</span>,
+        PUBLICATION_OPEN =&gt; <span class="php-quote">'Open (un-numbered)'</span>,
+    ],
+    EDITION_UNIQUE =&gt; <span class="php-quote">'Unique Work'</span>,
+    EDITION_RIGHTS =&gt; <span class="php-quote">'Rights'</span>,
+]</code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h3>Properties inherited from <a href="class-App.Model.Table.AppTable.html#properties">App\Model\Table\AppTable</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-App.Model.Table.AppTable.html#$SystemState"><var>$SystemState</var></a></code>
+			</p>
+		</div>
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h3>Properties used from <a href="class-App.Lib.Traits.EditionStackCache.html#properties">App\Lib\Traits\EditionStackCache</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-App.Lib.Traits.EditionStackCache.html#$configuration"><var>$configuration</var></a></code>
+			</p>
+		</div>
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h3>Magic properties</h3></div>
+			<table class="summary table table-bordered table-striped properties" id="magicProperties">
+		<tr data-order="Users" id="m$Users">
+			<td class="attributes"><code>
+				public  
+				Cake\ORM\Association\BelongsTo
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Table.EditionsTable.html#19" title="Go to source code"><var>$Users</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+		</tr>
+		<tr data-order="Artworks" id="m$Artworks">
+			<td class="attributes"><code>
+				public  
+				Cake\ORM\Association\BelongsTo
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Table.EditionsTable.html#20" title="Go to source code"><var>$Artworks</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+		</tr>
+		<tr data-order="Series" id="m$Series">
+			<td class="attributes"><code>
+				public  
+				Cake\ORM\Association\BelongsTo
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Table.EditionsTable.html#21" title="Go to source code"><var>$Series</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+		</tr>
+		<tr data-order="Formats" id="m$Formats">
+			<td class="attributes"><code>
+				public  
+				Cake\ORM\Association\HasMany
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Table.EditionsTable.html#22" title="Go to source code"><var>$Formats</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+		</tr>
+		<tr data-order="Pieces" id="m$Pieces">
+			<td class="attributes"><code>
+				public  
+				Cake\ORM\Association\HasMany
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Table.EditionsTable.html#23" title="Go to source code"><var>$Pieces</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		StudioManagerScratch API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

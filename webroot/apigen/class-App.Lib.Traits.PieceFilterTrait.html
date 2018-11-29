@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Trait App\Lib\Traits\PieceFilterTrait | StudioManagerScratch</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">StudioManagerScratch</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-App.Lib.Traits.html" title="Summary of App\Lib\Traits"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-App.html">
+							App<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Cache.html">
+							Cache						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Console.html">
+							Console						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Controller.html">
+							Controller<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Controller.Component.html">
+							Component						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Database.html">
+							Database<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Database.Type.html">
+							Type						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Exception.html">
+							Exception						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Form.html">
+							Form						</a>
+							</li>
+					<li class="active">
+						<a href="namespace-App.Lib.html">
+							Lib<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-App.Lib.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.html">
+							Model<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Behavior.html">
+							Behavior						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.html">
+							Entity<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Entity.EditionSubs.html">
+							EditionSubs						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.Lib.html">
+							Lib						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Table.html">
+							Table						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Shell.html">
+							Shell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.SiteMetrics.html">
+							SiteMetrics						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.html">
+							View<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Cell.html">
+							Cell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.Helper.html">
+							Helper<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Helper.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-App.Lib.Traits.ArtReviewTrait.html">ArtReviewTrait</a></li>
+				<li><a href="class-App.Lib.Traits.DispositionFilterTrait.html">DispositionFilterTrait</a></li>
+				<li><a href="class-App.Lib.Traits.EditionStackCache.html">EditionStackCache</a></li>
+				<li class="active"><a href="class-App.Lib.Traits.PieceFilterTrait.html">PieceFilterTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Trait PieceFilterTrait</h1>
+
+
+	<div class="description">
+	<p>PieceFilterTrait provides yes/no tests for Piece Entities</p>
+
+<p>These filters can be used by iterators that are working on piece collections.
+These simple tests will return pieces that satisfy the filter method name
+(eg: ::filterUncollected() will return the piece if it has no dispositions of
+type = 'collected'). The rejected pieces will be available in an array on
+$this->rejects(), indexed by the piece->id. Each rejected piece will have
+the reason(s) for its rejection recorded in piece->rejection_reason with a \n
+between each reason if there is more than one.</p>
+
+<p>The filters work as the callable argument for a Filter (or other) Iterators.
+They expect Entity $piece and $key (the orinating array's index for the entry).</p>
+
+<pre><span class="php-var">$collection</span> = <span class="php-keyword1">new</span> Collection(<span class="php-var">$edition</span>-&gt;pieces);
+<span class="php-var">$fluid</span> = <span class="php-var">$collection</span>-&gt;filter([<span class="php-var">$this</span>, <span class="php-quote">'filterFluid'</span>])-&gt;toArray();
+<span class="php-var">$not_fluid</span> = <span class="php-var">$this</span>-&gt;rejects();</pre>
+
+<p>Many of the filters are simple state-checks (eg: if($piece->isAssigned()){} )</p>
+
+<p>A more complex variety of filter will create a disposition iterator for the
+piece and pass/fail the piece based on disposition examination.</p>
+
+<p>More advanced filters require start and end dates be set so deeper analysis
+of time based dispositions can be done.</p>
+
+<p>Some filters will combine other simpler filters to implement complex piece
+selection rules.</p>
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+<b><span>App\Lib\Traits\PieceFilterTrait</span></b>			
+			
+			 uses 
+					<a href="class-App.Lib.Traits.DispositionFilterTrait.html"><span>App\Lib\Traits\DispositionFilterTrait</span></a>
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+	<div>
+		<h3>Direct Known Users</h3>
+		<p class="elementList">
+			<code><a href="class-App.Lib.PieceFilter.html">App\Lib\PieceFilter</a></code>
+		</p>
+	</div>
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Lib.html">Lib</a>\<a href="namespace-App.Lib.Traits.html">Traits</a><br>
+		
+
+				<b>Author:</b>
+				dondrake<br>
+			<b>Located at</b> <a href="source-class-App.Lib.Traits.PieceFilterTrait.html#10-384" title="Go to source code">Lib/Traits/PieceFilterTrait.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="_reject" id="__reject">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#__reject">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#55-66" title="Go to source code">_reject</a>( <span>object <var>$piece</var></span>, <span>integer <var>$key</var></span>, <span>boolean <var>$reason</var></span> )</code>
+
+			<div class="description short">
+				<p>Process and store the pieces that fail individual tests</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Process and store the pieces that fail individual tests</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+						<dt><var>$reason</var></dt>
+						<dd>$result</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="rejects" id="_rejects">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_rejects">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#68-82" title="Go to source code">rejects</a>( <span>boolean <var>$reset</var> = <span class="php-keyword1">FALSE</span></span> )</code>
+
+			<div class="description short">
+				<p>Get the rejected pieces</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the rejected pieces</p>
+
+<p>Each rejected includes at least one reason for its rejection
+at piece->rejection_reason</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$reset</var></dt>
+						<dd>Reset the results array</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterCollected" id="_filterCollected">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterCollected">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#84-98" title="Go to source code">filterCollected</a>( <span>entity <var>$piece</var></span>, <span>string <var>$key</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+			<div class="description short">
+				<p>Is the piece collected</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is the piece collected</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterNotCollected" id="_filterNotCollected">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterNotCollected">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#100-115" title="Go to source code">filterNotCollected</a>( <span>entity <var>$piece</var></span>, <span>string <var>$key</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+			<div class="description short">
+				<p>Is the piece un-collected</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is the piece un-collected</p>
+
+<p>It may have other dispositions, but it's not collected</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterAssigned" id="_filterAssigned">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterAssigned">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#117-130" title="Go to source code">filterAssigned</a>( <span>entity <var>$piece</var></span>, <span>string <var>$key</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+			<div class="description short">
+				<p>Is the piece assigned to a format</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is the piece assigned to a format</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterUnassigned" id="_filterUnassigned">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterUnassigned">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#132-147" title="Go to source code">filterUnassigned</a>( <span>entity <var>$piece</var></span>, <span>string <var>$key</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+			<div class="description short">
+				<p>Is the piece unassigned.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is the piece unassigned.</p>
+
+<p>These pieces are still 'virtual', belonging only to the edition</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterFluid" id="_filterFluid">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterFluid">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#149-166" title="Go to source code">filterFluid</a>( <span>entity <var>$piece</var></span>, <span>string <var>$key</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+			<div class="description short">
+				<p>Is the peice free of all dispositions?</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is the peice free of all dispositions?</p>
+
+<p>This characteristic would make the piece reassignable, even if it
+is currently assigned to a format</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterNotFluid" id="_filterNotFluid">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterNotFluid">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#168-181" title="Go to source code">filterNotFluid</a>( <span>entity <var>$piece</var></span>, <span>string <var>$key</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+			<div class="description short">
+				<p>Does the piece have some disposition</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Does the piece have some disposition</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterNotUnavailable" id="_filterNotUnavailable">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterNotUnavailable">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#183-220" title="Go to source code">filterNotUnavailable</a>( <span>entity <var>$piece</var></span>, <span>string <var>$key</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+			<div class="description short">
+				<p>Is the piece free of Unavailable type dispositions?</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is the piece free of Unavailable type dispositions?</p>
+
+<p>A single 'Unavailable' type disposition removes the piece from circulation</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						BadMethodCallException
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterDispositions" id="_filterDispositions">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterDispositions">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#222-243" title="Go to source code">filterDispositions</a>( <span>entity <var>$piece</var></span>, <span>string <var>$key</var></span> )</code>
+
+			<div class="description short">
+				<p>Do all existing dispositions allow the piece to proceed?</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Do all existing dispositions allow the piece to proceed?</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterAvailableOnDate" id="_filterAvailableOnDate">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterAvailableOnDate">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#245-293" title="Go to source code">filterAvailableOnDate</a>( <span>entity <var>$piece</var></span>, <span>string <var>$key</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+			<div class="description short">
+				<p>Is the piece free of future disposition obligations as of $this->_start_date?</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is the piece free of future disposition obligations as of $this->_start_date?</p>
+
+<p>This does not account for disposition type.
+It strictly filters according to date.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						BadMethodCallException
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="filterFutureDispositions" id="_filterFutureDispositions">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_filterFutureDispositions">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#295-315" title="Go to source code">filterFutureDispositions</a>( <span>type <var>$entity</var></span>, <span>type <var>$piece</var>,…</span> )</code>
+
+			<div class="description short">
+				<p>Is Disposition unavailable</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is Disposition unavailable</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$entity</var></dt>
+						<dd></dd>
+						<dt><var>$piece</var>,…</dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						BadMethodCallException
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="forSaleOnDate" id="_forSaleOnDate">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_forSaleOnDate">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#317-349" title="Go to source code">forSaleOnDate</a>( <span>entity <var>$piece</var></span>, <span>string <var>$key</var></span> )</code>
+
+			<div class="description short">
+				<p>Is the piece free to be sold on $this->start_date</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is the piece free to be sold on $this->start_date</p>
+
+<p>If the piece has any dispostion obligations in the future, it will
+be disqualified from the sale set</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd></dd>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="forLoanInDateRange" id="_forLoanInDateRange">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_forLoanInDateRange">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#351-353" title="Go to source code">forLoanInDateRange</a>( <span> <var>$piece</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="inStudioOnDate" id="_inStudioOnDate">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_inStudioOnDate">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#355-357" title="Go to source code">inStudioOnDate</a>( <span> <var>$piece</var></span>, <span> <var>$key</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="inRange" id="_inRange">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_inRange">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#359-370" title="Go to source code">inRange</a>( <span>object <var>$piece</var></span>, <span>array <var>$range</var></span> )</code>
+
+			<div class="description short">
+				<p>Is piece-number in the range?</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is piece-number in the range?</p>
+
+<p>Range must have the values as the keys because
+isset() is 4.3x faster than in_array()</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd>The piece entity</dd>
+						<dt><var>$range</var></dt>
+						<dd>Array of allowable numbers [x=>x, y=>y]</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="notInRange" id="_notInRange">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_notInRange">#</a>
+			<code><a href="source-class-App.Lib.Traits.PieceFilterTrait.html#372-383" title="Go to source code">notInRange</a>( <span>App\Lib\Traits\object <var>$piece</var></span>, <span>array <var>$range</var></span> )</code>
+
+			<div class="description short">
+				<p>Is piece-number excluded from the range?</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is piece-number excluded from the range?</p>
+
+<p>Range must have the values as the keys because
+isset() is 4.3x faster than in_array()</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$piece</var></dt>
+						<dd>The piece entity</dd>
+						<dt><var>$range</var></dt>
+						<dd>Array of allowable numbers [x=>x, y=>y]</dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods used from <a href="class-App.Lib.Traits.DispositionFilterTrait.html#methods">App\Lib\Traits\DispositionFilterTrait</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-App.Lib.Traits.DispositionFilterTrait.html#_filterAvailable">filterAvailable()</a></code>, 
+				<code><a href="class-App.Lib.Traits.DispositionFilterTrait.html#_filterNotFutureEvent">filterNotFutureEvent()</a></code>, 
+				<code><a href="class-App.Lib.Traits.DispositionFilterTrait.html#_filterUnavailable">filterUnavailable()</a></code>
+			</p>
+		</div>
+
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="_rejected" id="$_rejected">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Lib.Traits.PieceFilterTrait.html#48-53" title="Go to source code"><var>$_rejected</var></a>
+
+				<div class="description short">
+					<p>Rejected pieces collection array</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>Rejected pieces collection array</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$_rejected" class="anchor">#</a>
+					<code>[]</code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		StudioManagerScratch API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
