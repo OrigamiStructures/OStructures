@@ -20,12 +20,27 @@ footer {
 }
 
 article{
+	ul {
+		list-style-type: square;
+		ul {
+			list-style-type: disc;
+		}
+	}
 	section.info, section.toc{
 		@include panel;
 	}
 	section.toc, section.info {
 		ul:first-of-type {
 			margin-bottom: .5rem;
+		}
+		ul {
+			list-style-type: none;
+			ul {
+				list-style-type: square;
+				ul {
+					list-style-type: disc;
+				}
+			}
 		}
 		h1{
 			font-size: 1.25rem;

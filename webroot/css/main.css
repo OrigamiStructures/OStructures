@@ -6374,6 +6374,10 @@ footer {
   width: 100%;
   vertical-align: baseline; }
 
+article ul {
+  list-style-type: square; }
+  article ul ul {
+    list-style-type: disc; }
 article section.info, article section.toc {
   border-style: solid;
   border-width: 1px;
@@ -6395,6 +6399,12 @@ article section.info, article section.toc {
       line-height: 1.4; }
 article section.toc ul:first-of-type, article section.info ul:first-of-type {
   margin-bottom: .5rem; }
+article section.toc ul, article section.info ul {
+  list-style-type: none; }
+  article section.toc ul ul, article section.info ul ul {
+    list-style-type: square; }
+    article section.toc ul ul ul, article section.info ul ul ul {
+      list-style-type: disc; }
 article section.toc h1, article section.info h1 {
   font-size: 1.25rem; }
 article section.toc h2, article section.info h2 {
