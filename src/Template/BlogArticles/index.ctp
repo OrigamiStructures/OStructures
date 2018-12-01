@@ -24,6 +24,10 @@ $this->end();
             </div>
         </div>
         <div class="large-9 medium-8 columns" itemscope itemtype="http://schema.org/ItemList">
+            <ul class="pagination">
+                <?= $this->Paginator->prev(); ?>
+                <?= $this->Paginator->next(); ?>
+            </ul>
             <?php
                 foreach ($articles as $key => $article) {
                     echo $this->element('BlogArticles/article_summary', ['article' => $article]);
