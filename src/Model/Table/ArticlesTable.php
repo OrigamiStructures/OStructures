@@ -381,7 +381,7 @@ class ArticlesTable extends Table
     {
 //		debug($query->sql);
 //	debug($options);
-	$topics = isset($options['topics']) && $options['topics']['_ids'][0] !== '' ? 
+	$topics = isset($options['topics']['[_ids']) && $options['topics']['_ids'][0] !== '' ? 
 			$options['topics']['_ids'] : 
 			'all';
 		$topic = is_array($topics) ? implode('_', $topics) : $topics;
@@ -441,7 +441,7 @@ class ArticlesTable extends Table
 		if ($style !== 'all') {
 			return $articles;
 		}
-		if ($topics[0] === '') {
+		if (isset($topics[0]) && $topics[0] === '') {
 			return $articles;
 		}
 		
