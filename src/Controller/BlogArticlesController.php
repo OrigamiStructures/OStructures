@@ -64,6 +64,7 @@ class BlogArticlesController extends ArticlesController {
             $unlinkedImages = $this->unlinkedImages($Images);
             $linkedImages = $this->linkedImages($Images, $id);
             $otherArticles = $this->otherArticles($id);
+			$this->sidebarData();
         } catch (Exception $exc) {
             $article = $articleImages = $unlinkedImages = $linkedImages = array();
             echo $exc->getTraceAsString();
@@ -161,7 +162,8 @@ class BlogArticlesController extends ArticlesController {
      * This function MUST be called in a try block
      */
     private function sidebarData() {
-        $this->loadModel('Articles'); 
+        $this->loadModel('Articles');
+		// This custom finder responds to current Topic filters
         $recent = $this->Articles->find('recentArticles', $this->request->data);
         $topics = $this->{$this->modelClass}->Topics->find('topicList');
         $this->set(compact('recent', 'topics'));

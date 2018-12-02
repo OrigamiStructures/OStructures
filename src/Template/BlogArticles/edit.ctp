@@ -12,7 +12,8 @@ $this->end();
 			'articleImages' => $articleImages,
 			'linkedImages' => $linkedImages,
 			'unlinkedImages' => $unlinkedImages,
-			'otherArticles' => $otherArticles]); ?>
+			'otherArticles' => $otherArticles,
+			'portalArticles' => $recent]); ?>
 	</div>
 	<div class="edit-zone">
 		<a id="maximize" bind="click.maximize">Expand</a>

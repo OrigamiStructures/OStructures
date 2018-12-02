@@ -1,7 +1,11 @@
 <!-- Common/topic_filters -->
 <?php
 if (isset($topics)) :
-	echo $this->Form->create();
+	$submitFilterButton = '';
+	if ($this->request->action !== 'edit') {
+		echo $this->Form->create();
+		$submitFilterButton = $this->Form->submit('Filter', ['class' => 'button tiny radius secondary']);
+	}
 	$topics = $topics->toArray();
 	echo $this->Form->fieldset(
 			$this->Form->input('topics._ids', ['options' => $topics, 'label' => FALSE, 'empty' => 'All'])
@@ -9,9 +13,11 @@ if (isset($topics)) :
 				['value' => 'all', 'text' => ' Must have all topics', 'checked' => TRUE],
 				['value' => 'any', 'text' => ' Can have any of the topcis']
 			])
-			. $this->Form->submit('Filter', ['class' => 'button tiny radius secondary']),
+			. $submitFilterButton,
 			['legend' => 'Filter by topic']) . "\n";
-	echo $this->Form->end();
+	if ($this->request->action !== 'edit') {
+		echo $this->Form->end();
+	}	
 endif;
 ?>
 <!-- End Common/topic_filters -->

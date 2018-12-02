@@ -7,7 +7,6 @@ foreach ($articles as $article) :
 ?>
     
     <div class="row">
-		<?= $this->Html->para('resourceArticle', $article->title); ?>
 		<?= $this->Html->para('MarkdownArticleLink', $markdownArticleLink); ?>
     </div>
 

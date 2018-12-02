@@ -23,4 +23,10 @@
       <?= $this->element('Resources/text_resources', ['articles' => $otherArticles]); ?>
     </div>
   </li>
+  <li class="accordion-navigation">
+    <a href="#panel5d">Portals</a>
+    <div id="panel5d" class="content active">
+      <?= $this->element('Resources/portal_resources', ['articles' => $recent]); ?>
+    </div>
+  </li>
 </ul>
