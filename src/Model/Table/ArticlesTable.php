@@ -381,7 +381,7 @@ class ArticlesTable extends Table
     {
 //		debug($query->sql);
 //	debug($options);
-	$topics = isset($options['topics']['[_ids']) && $options['topics']['_ids'][0] !== '' ? 
+	$topics = (isset($options['topics']['_ids']) && $options['topics']['_ids'][0] !== '') ? 
 			$options['topics']['_ids'] : 
 			'all';
 		$topic = is_array($topics) ? implode('_', $topics) : $topics;
@@ -403,7 +403,7 @@ class ArticlesTable extends Table
                 ])
 			->where(['Articles.publish' => 1])
 			->order(['Articles.modified' => 'DESC'])
-			->limit($limit)
+//			->limit($limit)
 //			->page($page) // this may not be the way to do paginated finds
 			;
 //			debug($query->sql);
@@ -414,6 +414,8 @@ class ArticlesTable extends Table
 				});
 				// what is the where() clause for a topic match?
 				// $topic is your value to match.
+			} else {
+				$query->limit($limit);
 			}
 //			debug($query);
 //			debug($query->params);
