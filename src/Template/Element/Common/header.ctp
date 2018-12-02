@@ -10,7 +10,10 @@
         </li>
     </ul>
     <section class="topbar-section">
-        <ul class="right">
+        <ul class="right inline-list">
+            <li class="has-form">
+                <a class="small button" href="/blog_articles/add">New</a>
+            </li>
             <li class="has-form">
                 <a class="small button" href="mailto:help@origiamistructures.com">I need help!</a>
             </li>
