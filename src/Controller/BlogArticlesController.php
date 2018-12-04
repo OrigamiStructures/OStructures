@@ -5,6 +5,7 @@ use App\Controller\ArticlesController;
 use Cake\Collection\Collection;
 use App\Model\Entity\BlogArticle;
 use Cake\Log\Log;
+use App\Lib\GitRepo;
 
 /**
  * CakePHP BlogArticle
@@ -45,6 +46,7 @@ class BlogArticlesController extends ArticlesController {
         if ($this->request->is(['patch', 'post', 'put'])) {
             $article = $this->{$this->modelClass}->patchEntity($article, $this->request->data);
             if ($this->{$this->modelClass}->save($article)) {
+				GitRepo::write($article);
                 $this->Flash->success(__('The article has been saved.'));
 				if (!$this->request->data['continue']) {
 					return $this->redirect(['controller' => 'BlogArticles', 'action' => 'view', $article->slug]);
