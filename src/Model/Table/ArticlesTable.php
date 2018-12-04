@@ -12,6 +12,7 @@ use Cake\Event\Event;
 use Sluggable\Utility\Slug;
 use Cake\Collection\Collection;
 use Cake\Cache\Cache;
+use Cake\Utility\Hash;
 
 /**
  * Articles Model
@@ -381,9 +382,9 @@ class ArticlesTable extends Table
     {
 //		debug($query->sql);
 //	debug($options);
-	$topics = (isset($options['topics']['_ids']) && $options['topics']['_ids'][0] !== '') ? 
-			$options['topics']['_ids'] : 
-			'all';
+	$topics = (!empty(Hash::extract($options, 'topics.ids.0'))) ? 
+				$options['topics']['_ids'] : 
+				'all';
 		$topic = is_array($topics) ? implode('_', $topics) : $topics;
         $limit = isset($options['limit']) ? $options['limit'] : 10;
 		$page = isset($options['page']) ? $options['page'] : 1;
