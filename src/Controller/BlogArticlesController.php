@@ -6,6 +6,7 @@ use Cake\Collection\Collection;
 use App\Model\Entity\BlogArticle;
 use Cake\Log\Log;
 use App\Lib\GitRepo;
+use Cake\Utility\Hash;
 
 /**
  * CakePHP BlogArticle
@@ -165,8 +166,9 @@ class BlogArticlesController extends ArticlesController {
      */
     private function sidebarData() {
         $this->loadModel('Articles');
-		// This custom finder responds to current Topic filters
-        $recent = $this->Articles->find('recentArticles', $this->request->data);
+			
+		$recent = $this->Articles->find('recentArticles', $this->request->data);
+        
         $topics = $this->{$this->modelClass}->Topics->find('topicList');
         $this->set(compact('recent', 'topics'));
     }

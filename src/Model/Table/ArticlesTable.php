@@ -380,53 +380,34 @@ class ArticlesTable extends Table
 	 */
     public function findRecentArticles(query $query, array $options)
     {
-//		debug($query->sql);
-//	debug($options);
-	$topics = (!empty(Hash::extract($options, 'topics.ids.0'))) ? 
-				$options['topics']['_ids'] : 
-				'all';
-		$topic = is_array($topics) ? implode('_', $topics) : $topics;
         $limit = isset($options['limit']) ? $options['limit'] : 10;
 		$page = isset($options['page']) ? $options['page'] : 1;
 		
-		$cache_key = "recent_{$topic}_$limit";
-        $result = FALSE;
-//        $result = Cache::read($cache_key, 'article_lists');
+		$query->select([
+			'Articles.id',
+			'Articles.publish',
+			'Articles.title',
+			'Articles.slug',
+			])
+		->where(['Articles.publish' => 1]);
 		
-        if(!$result){
-            $query->select([
-                'Articles.id',
-                'Articles.publish',
-                'Articles.title',
-                'Articles.published',
-                'Articles.slug',
-                'Articles.summary'
-                ])
-			->where(['Articles.publish' => 1])
-			->order(['Articles.modified' => 'DESC'])
-//			->limit($limit)
-//			->page($page) // this may not be the way to do paginated finds
-			;
-//			debug($query->sql);
-			if ($topics !== 'all') {
-//				debug($topics);//die;
-				$query->matching('Topics', function ($q) use ($topics) {
-					return $q->where(['Topics.id IN' => $topics]);
-				});
-				// what is the where() clause for a topic match?
-				// $topic is your value to match.
-			} else {
-				$query->limit($limit);
-			}
-//			debug($query);
-//			debug($query->params);
-            $result = $query->toArray();
-			// all topics must be present in article?
-			if (key_exists('Filter_Style', $options) && key_exists('topics', $options)) {
-				$result = $this->matchAllTopics($result, $options['Filter_Style'], $options['topics']['_ids']);
-			}
-//            Cache::write($cache_key, $result, 'article_lists');
-        }
+		if (!empty(Hash::get($options, 'topics._ids'))) {
+			$topics = Hash::extract($options, 'topics._ids');
+			$query->matching('Topics', function ($q) use ($topics) {
+				return $q->where(['Topics.id IN' => $topics]);
+			});
+		} else {
+			$query->limit($limit)
+			->select([
+				'Articles.published',
+			])
+			->order(['Articles.modified' => 'DESC']);
+		}
+		$result = $query->toArray();
+		if (key_exists('Filter_Style', $options) && key_exists('topics', $options)) {
+			$result = $this->matchAllTopics(
+					$result, $options['Filter_Style'], $options['topics']['_ids']);
+		}
         return $result;
     }
 	
