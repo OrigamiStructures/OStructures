@@ -37,7 +37,7 @@ class BlogArticlesController extends ArticlesController {
 		$this->layout = 'min';
         try {
             $article = $this->{$this->modelClass}->get($id, [
-                'contain' => ['Images', 'Topics']
+                'contain' => ['Images', 'Topics', 'Authors']
             ]);
         } catch (Exception $exc) {
             $article = [];
@@ -45,21 +45,59 @@ class BlogArticlesController extends ArticlesController {
         }
         
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $article = $this->{$this->modelClass}->patchEntity($article, $this->request->data);
-            if ($this->{$this->modelClass}->save($article)) {
+
+			/*
+			 * Can't figure out how to get the authors data to 
+			 * patch into the entity properly. So, I'm gonna jam 
+			 * it in manually. First an early attemp to patch:
+			 */
+			// adjust author id values
+			// input name attributes can't be configured exactly right
+//			if (is_array($this->request->data['authors'])) {
+//				$authors = [];
+//				foreach ($this->request->data['authors'] as $author_id) {
+//					$authors[]= ['author_id' => $author_id];
+//				}
+//				$this->request->data['authors'] = $authors;
+//			}
+			/*
+			 * Now the big hammer
+			 */
+			if (is_array($this->request->data['authors'])) {
+				$chosen_authors = Hash::extract($this->request->data, 'authors.{n}');
+//				osd($chosen_authors);
+				$authors = [];
+				foreach ($article->authors as $author) {
+					$authors[]= $author->id;
+				}
+				foreach (array_diff($chosen_authors, $authors) as $new_auth) {
+					$entity = new \App\Model\Entity\Author(['id' => $new_auth]);
+					array_push($article->authors, $entity);
+				}
+				$article->dirty('authors', true);
+			}
+			
+            $article = $this->{$this->modelClass}
+					->patchEntity($article, $this->request->data, ['associated' => ['Authors']]);
+			
+			if ($this->{$this->modelClass}->save($article)) {
 				GitRepo::write($article);
                 $this->Flash->success(__('The article has been saved.'));
 				if (!$this->request->data['continue']) {
-					return $this->redirect(['controller' => 'BlogArticles', 'action' => 'view', $article->slug]);
+					return $this->redirect([
+						'controller' => 'BlogArticles', 
+						'action' => 'view', 
+						$article->slug]);
 				}				
             } else {
-                $this->Flash->error(__('The article could not be saved. Please, try again.'));
+                $this->Flash->error(__('The article could not be saved. '
+						. 'Please, try again.'));
             }
         }
         
         try {
             $article = $this->{$this->modelClass}->get($id, [
-                'contain' => ['Images', 'Topics']
+                'contain' => ['Images', 'Topics', 'Authors']
             ]);
             $articleImages = new Collection($article->images);
             $Images = $this->{$this->modelClass}->Images->find('all');
@@ -68,13 +106,24 @@ class BlogArticlesController extends ArticlesController {
             $linkedImages = $this->linkedImages($Images, $id);
             $otherArticles = $this->otherArticles($id);
 			$this->sidebarData();
+		
+			// make the options list for author select input
+			$authors = $this->{$this->modelClass}->Authors->find('list');
+			// make the val option for author select (to show current stored values)
+			$auth = new Collection($article->authors);
+			$author_val = $auth->reduce(function($accumulated, $author) {
+				$accumulated[] = $author->id;
+				return $accumulated;
+			}, []);
+		
         } catch (Exception $exc) {
             $article = $articleImages = $unlinkedImages = $linkedImages = array();
             echo $exc->getTraceAsString();
         }
 
 		$toc = $article->toc();
-        $this->set(compact('article', 'articleImages', 'unlinkedImages', 'linkedImages', 'toc', 'otherArticles'));
+		
+        $this->set(compact('article', 'articleImages', 'unlinkedImages', 'linkedImages', 'toc', 'otherArticles', 'authors', 'author_val'));
         $this->set('_serialize', ['article']);
 	}
     
