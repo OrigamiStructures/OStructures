@@ -9,3 +9,4 @@ nbproject
 config/app.php
 /plugins/composer.*
 /.idea
+/plugins/OSDebug
