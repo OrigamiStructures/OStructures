@@ -172,9 +172,11 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-App.Lib.DispositionFilter.html">DispositionFilter</a></li>
+				<li><a href="class-App.Lib.DispositionTypeMap.html">DispositionTypeMap</a></li>
 				<li><a href="class-App.Lib.EditionHelperFactory.html">EditionHelperFactory</a></li>
 				<li><a href="class-App.Lib.EditionTypeMap.html">EditionTypeMap</a></li>
 				<li><a href="class-App.Lib.Layer.html">Layer</a></li>
+				<li><a href="class-App.Lib.LayerFilterParms.html">LayerFilterParms</a></li>
 				<li><a href="class-App.Lib.PieceFilter.html">PieceFilter</a></li>
 				<li><a href="class-App.Lib.Range.html">Range</a></li>
 				<li><a href="class-App.Lib.RenumberMessaging.html">RenumberMessaging</a></li>
@@ -202,6 +204,12 @@
 	<h1>Class RenumberRequestHeap</h1>
 
 
+	<div class="description">
+	<p>The heap implementation to store sorted RenumberRequest objects</p>
+
+<p>The objects are stored in ascending order on the sum of
+their oldNum + newNum</p>
+	</div>
 
 	<dl class="tree well">
 		<dd style="padding-left:0px">
@@ -236,7 +244,7 @@ SplHeap
 		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Lib.html">Lib</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-App.Lib.RenumberRequestHeap.html#351-367" title="Go to source code">Lib/RenumberRequests.php</a>
+			<b>Located at</b> <a href="source-class-App.Lib.RenumberRequestHeap.html#412-434" title="Go to source code">Lib/RenumberRequests.php</a>
 		<br>
 	</div>
 
@@ -256,7 +264,7 @@ SplHeap
 
 			<td class="name"><div>
 			<a class="anchor" href="#_compare">#</a>
-			<code><a href="source-class-App.Lib.RenumberRequestHeap.html#353-365" title="Go to source code">compare</a>( <span> <var>$request1</var></span>, <span> <var>$request2</var></span> )</code>
+			<code><a href="source-class-App.Lib.RenumberRequestHeap.html#420-432" title="Go to source code">compare</a>( <span> <var>$request1</var></span>, <span> <var>$request2</var></span> )</code>
 
 			<div class="description short">
 				<p>Sorting is based on the sum of the old and new number

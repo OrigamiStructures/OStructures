@@ -178,17 +178,21 @@
 				<li><a href="class-App.Model.Entity.Contact.html">Contact</a></li>
 				<li><a href="class-App.Model.Entity.Design.html">Design</a></li>
 				<li><a href="class-App.Model.Entity.Disposition.html">Disposition</a></li>
+				<li><a href="class-App.Model.Entity.DispositionsPiece.html">DispositionsPiece</a></li>
 				<li><a href="class-App.Model.Entity.Edition.html">Edition</a></li>
 				<li><a href="class-App.Model.Entity.Format.html">Format</a></li>
 				<li><a href="class-App.Model.Entity.Group.html">Group</a></li>
 				<li><a href="class-App.Model.Entity.GroupsMember.html">GroupsMember</a></li>
+				<li><a href="class-App.Model.Entity.HasMember.html">HasMember</a></li>
 				<li><a href="class-App.Model.Entity.Image.html">Image</a></li>
 				<li><a href="class-App.Model.Entity.Location.html">Location</a></li>
 				<li><a href="class-App.Model.Entity.Member.html">Member</a></li>
+				<li><a href="class-App.Model.Entity.MemberOf.html">MemberOf</a></li>
 				<li><a href="class-App.Model.Entity.MemberStack.html">MemberStack</a></li>
 				<li><a href="class-App.Model.Entity.Menu.html">Menu</a></li>
 				<li><a href="class-App.Model.Entity.Piece.html">Piece</a></li>
 				<li><a href="class-App.Model.Entity.ProxyMember.html">ProxyMember</a></li>
+				<li><a href="class-App.Model.Entity.RolodexCard.html">RolodexCard</a></li>
 				<li><a href="class-App.Model.Entity.Series.html">Series</a></li>
 				<li><a href="class-App.Model.Entity.StackEntity.html">StackEntity</a></li>
 				<li><a href="class-App.Model.Entity.Subscription.html">Subscription</a></li>
@@ -250,7 +254,7 @@ Cake\ORM\Entity
 		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Model.html">Model</a>\<a href="namespace-App.Model.Entity.html">Entity</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-App.Model.Entity.ArtStack.html#8-50" title="Go to source code">Model/Entity/ArtStack.php</a>
+			<b>Located at</b> <a href="source-class-App.Model.Entity.ArtStack.html#7-50" title="Go to source code">Model/Entity/ArtStack.php</a>
 		<br>
 	</div>
 
@@ -353,15 +357,17 @@ Cake\ORM\Entity
 	        <div class="panel-heading"><h3>Methods inherited from <a href="class-App.Model.Entity.StackEntity.html#methods">App\Model\Entity\StackEntity</a></h3></div>
 			<p class="elementList">
 				<code><a href="class-App.Model.Entity.StackEntity.html#_IDs">IDs()</a></code>, 
-				<code><a href="class-App.Model.Entity.StackEntity.html#__getLayerProperty">_getLayerProperty()</a></code>, 
 				<code><a href="class-App.Model.Entity.StackEntity.html#_count">count()</a></code>, 
 				<code><a href="class-App.Model.Entity.StackEntity.html#_distinct">distinct()</a></code>, 
 				<code><a href="class-App.Model.Entity.StackEntity.html#_exists">exists()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_hasNo">hasNo()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_isEmpty">isEmpty()</a></code>, 
 				<code><a href="class-App.Model.Entity.StackEntity.html#_linkedTo">linkedTo()</a></code>, 
 				<code><a href="class-App.Model.Entity.StackEntity.html#_load">load()</a></code>, 
 				<code><a href="class-App.Model.Entity.StackEntity.html#_primaryEntity">primaryEntity()</a></code>, 
 				<code><a href="class-App.Model.Entity.StackEntity.html#_primaryId">primaryId()</a></code>, 
-				<code><a href="class-App.Model.Entity.StackEntity.html#_primaryLayer">primaryLayer()</a></code>
+				<code><a href="class-App.Model.Entity.StackEntity.html#_primaryLayer">primaryLayer()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_set">set()</a></code>
 			</p>
 		</div>
 
@@ -444,7 +450,7 @@ Cake\ORM\Entity
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Entity.ArtStack.html#11" title="Go to source code"><var>$artwork</var></a>
+					<a href="source-class-App.Model.Entity.ArtStack.html#10" title="Go to source code"><var>$artwork</var></a>
 
 				<div class="description short">
 					

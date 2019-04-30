@@ -172,9 +172,11 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-App.Lib.DispositionFilter.html">DispositionFilter</a></li>
+				<li><a href="class-App.Lib.DispositionTypeMap.html">DispositionTypeMap</a></li>
 				<li><a href="class-App.Lib.EditionHelperFactory.html">EditionHelperFactory</a></li>
 				<li><a href="class-App.Lib.EditionTypeMap.html">EditionTypeMap</a></li>
 				<li><a href="class-App.Lib.Layer.html">Layer</a></li>
+				<li><a href="class-App.Lib.LayerFilterParms.html">LayerFilterParms</a></li>
 				<li><a href="class-App.Lib.PieceFilter.html">PieceFilter</a></li>
 				<li class="active"><a href="class-App.Lib.Range.html">Range</a></li>
 				<li><a href="class-App.Lib.RenumberMessaging.html">RenumberMessaging</a></li>
@@ -262,7 +264,7 @@ do the pieces exist; do the editions or series members exist; etc.
 Validation should start with a minimal object (Edition Entity?) so the
 numbering style and basic range could be used to check the basic syntax
 before getting into issues of piece availability</p><br>
-			<b>Located at</b> <a href="source-class-App.Lib.Range.html#8-235" title="Go to source code">Lib/Range.php</a>
+			<b>Located at</b> <a href="source-class-App.Lib.Range.html#8-237" title="Go to source code">Lib/Range.php</a>
 		<br>
 	</div>
 
@@ -311,7 +313,7 @@ before getting into issues of piece availability</p><br>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_arrayToString">#</a>
-			<code><a href="source-class-App.Lib.Range.html#92-168" title="Go to source code">arrayToString</a>( <span>array <var>$data</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$path</var> = <span class="php-quote">''</span></span> )</code>
+			<code><a href="source-class-App.Lib.Range.html#92-169" title="Go to source code">arrayToString</a>( <span>array <var>$data</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$path</var> = <span class="php-quote">''</span></span> )</code>
 
 			<div class="description short">
 				<p>Build a range string from an element in an array</p>
@@ -366,7 +368,7 @@ array(array('id'=>7), array('id'=>13) $path='{n}.id' range='7, 13'</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_stringToArray">#</a>
-			<code><a href="source-class-App.Lib.Range.html#170-216" title="Go to source code">stringToArray</a>( <span>string <var>$range</var></span>, <span>string <var>$type</var> = <span class="php-quote">'array'</span></span> )</code>
+			<code><a href="source-class-App.Lib.Range.html#171-218" title="Go to source code">stringToArray</a>( <span>string <var>$range</var></span>, <span>string <var>$type</var> = <span class="php-quote">'array'</span></span> )</code>
 
 			<div class="description short">
 				<p>Turn a range string into an array with the sequence values</p>
@@ -411,7 +413,7 @@ Default: assoc</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_patternValidation">#</a>
-			<code><a href="source-class-App.Lib.Range.html#218-233" title="Go to source code">patternValidation</a>( <span>mixed <var>$value</var></span>, <span>array <var>$context</var>,…</span> )</code>
+			<code><a href="source-class-App.Lib.Range.html#220-235" title="Go to source code">patternValidation</a>( <span>mixed <var>$value</var></span>, <span>array <var>$context</var>,…</span> )</code>
 
 			<div class="description short">
 				<p>Insure the string range describing numbered pieces to move is valid</p>

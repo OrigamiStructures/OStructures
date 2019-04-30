@@ -190,6 +190,7 @@
 				<li><a href="class-App.Controller.MenusController.html">MenusController</a></li>
 				<li><a href="class-App.Controller.PagesController.html">PagesController</a></li>
 				<li class="active"><a href="class-App.Controller.PiecesController.html">PiecesController</a></li>
+				<li><a href="class-App.Controller.RolodexCardsController.html">RolodexCardsController</a></li>
 				<li><a href="class-App.Controller.SearchController.html">SearchController</a></li>
 				<li><a href="class-App.Controller.SeriesController.html">SeriesController</a></li>
 				<li><a href="class-App.Controller.SubscriptionsController.html">SubscriptionsController</a></li>
@@ -250,7 +251,7 @@ Cake\Controller\Controller
 		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Controller.html">Controller</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-App.Controller.PiecesController.html#17-363" title="Go to source code">Controller/PiecesController.php</a>
+			<b>Located at</b> <a href="source-class-App.Controller.PiecesController.html#17-366" title="Go to source code">Controller/PiecesController.php</a>
 		<br>
 	</div>
 
@@ -554,7 +555,7 @@ _renumer cache has evolving request data (up to 90 minutes old)</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#__renumber">#</a>
-			<code><a href="source-class-App.Controller.PiecesController.html#296-337" title="Go to source code">_renumber</a>( <span>array <var>$post_data</var></span>, <span>array <var>$pieces</var></span> )</code>
+			<code><a href="source-class-App.Controller.PiecesController.html#296-340" title="Go to source code">_renumber</a>( <span>array <var>$post_data</var></span>, <span>array <var>$pieces</var></span> )</code>
 
 			<div class="description short">
 				<p>Prepare a summary of the request piece renumbering pattern</p>
@@ -583,6 +584,11 @@ and wait for approval or re-submission of changes</p>
 
 
 
+					<h4>Todo</h4>
+					<div class="list">
+							<p>Don't pass $post_data directly to db... is this validated
+     or destined for a save use?</p><br>
+					</div>
 
 
 			</div>
@@ -599,7 +605,7 @@ and wait for approval or re-submission of changes</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#__clear_renumber_caches">#</a>
-			<code><a href="source-class-App.Controller.PiecesController.html#339-351" title="Go to source code">_clear_renumber_caches</a>( )</code>
+			<code><a href="source-class-App.Controller.PiecesController.html#342-354" title="Go to source code">_clear_renumber_caches</a>( )</code>
 
 			<div class="description short">
 				<p>Clear all renumbering caches for an edition</p>
@@ -630,7 +636,7 @@ and wait for approval or re-submission of changes</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#__renumber_cache_prefix">#</a>
-			<code><a href="source-class-App.Controller.PiecesController.html#353-362" title="Go to source code">_renumber_cache_prefix</a>( )</code>
+			<code><a href="source-class-App.Controller.PiecesController.html#356-365" title="Go to source code">_renumber_cache_prefix</a>( )</code>
 
 			<div class="description short">
 				<p>Centralized generator for the renumbering cach prefix</p>

@@ -172,9 +172,11 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-App.Lib.DispositionFilter.html">DispositionFilter</a></li>
+				<li><a href="class-App.Lib.DispositionTypeMap.html">DispositionTypeMap</a></li>
 				<li><a href="class-App.Lib.EditionHelperFactory.html">EditionHelperFactory</a></li>
 				<li><a href="class-App.Lib.EditionTypeMap.html">EditionTypeMap</a></li>
 				<li><a href="class-App.Lib.Layer.html">Layer</a></li>
+				<li><a href="class-App.Lib.LayerFilterParms.html">LayerFilterParms</a></li>
 				<li><a href="class-App.Lib.PieceFilter.html">PieceFilter</a></li>
 				<li><a href="class-App.Lib.Range.html">Range</a></li>
 				<li><a href="class-App.Lib.RenumberMessaging.html">RenumberMessaging</a></li>
@@ -208,6 +210,13 @@
 <p>One move pair is handled by each object instance.
 This object contains all the information about the request, the old/new
 numbers and any error information about the requested change.</p>
+
+<p>This class does not perform logic to implement rules, it only records the
+state of the individual request. RequestNumbers does the rule logic and
+prods this object to set the correct state.</p>
+
+<p>This class has one logic method, message(), which synthesizes its internal
+state into an array of messages that describes that state.</p>
 	</div>
 
 
@@ -226,7 +235,7 @@ numbers and any error information about the requested change.</p>
 
 				<b>Author:</b>
 				dondrake<br>
-			<b>Located at</b> <a href="source-class-App.Lib.RenumberRequest.html#6-181" title="Go to source code">Lib/RenumberRequest.php</a>
+			<b>Located at</b> <a href="source-class-App.Lib.RenumberRequest.html#6-224" title="Go to source code">Lib/RenumberRequest.php</a>
 		<br>
 	</div>
 
@@ -246,7 +255,7 @@ numbers and any error information about the requested change.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-App.Lib.RenumberRequest.html#61-71" title="Go to source code">__construct</a>( <span>string <var>$old</var></span>, <span>string <var>$new</var></span> )</code>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#68-82" title="Go to source code">__construct</a>( <span>string <var>$old</var></span>, <span>string <var>$new</var></span> )</code>
 
 			<div class="description short">
 				<p>Create and object that can provide values and messages related to renumbering pieces</p>
@@ -271,6 +280,93 @@ numbers and any error information about the requested change.</p>
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="newNum" id="_newNum">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_newNum">#</a>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#84-86" title="Go to source code">newNum</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="oldNum" id="_oldNum">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_oldNum">#</a>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#88-90" title="Go to source code">oldNum</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="hasSummary" id="_hasSummary">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_hasSummary">#</a>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#92-94" title="Go to source code">hasSummary</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="__get" id="___get">
 
 			<td class="attributes"><code>
@@ -282,7 +378,7 @@ numbers and any error information about the requested change.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___get">#</a>
-			<code><a href="source-class-App.Lib.RenumberRequest.html#73-91" title="Go to source code">__get</a>( <span>string <var>$name</var></span> )</code>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#96-115" title="Go to source code">__get</a>( <span>string <var>$name</var></span> )</code>
 
 			<div class="description short">
 				<p>Give limited access to internal properties</p>
@@ -323,7 +419,7 @@ unlimited access to property reporting</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_duplicate">#</a>
-			<code><a href="source-class-App.Lib.RenumberRequest.html#93-106" title="Go to source code">duplicate</a>( <span>integer <var>$count</var></span> )</code>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#117-130" title="Go to source code">duplicate</a>( <span>integer <var>$count</var></span> )</code>
 
 			<div class="description short">
 				<p>Set the property indicating a duplicate new-number error</p>
@@ -349,7 +445,7 @@ any other value will enable duplication error messaging</p>
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="bad_number" id="_bad_number">
+		<tr data-order="badNumber" id="_badNumber">
 
 			<td class="attributes"><code>
 				 public 
@@ -359,8 +455,8 @@ any other value will enable duplication error messaging</p>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_bad_number">#</a>
-			<code><a href="source-class-App.Lib.RenumberRequest.html#108-118" title="Go to source code">bad_number</a>( <span>boolean <var>$error_indication</var></span> )</code>
+			<a class="anchor" href="#_badNumber">#</a>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#132-144" title="Go to source code">badNumber</a>( <span>null|boolean <var>$error_indication</var></span>, <span>boolean <var>$error_indication</var>,…</span> )</code>
 
 			<div class="description short">
 				<p>Is the new symbol/number valid or invalid</p>
@@ -369,13 +465,16 @@ any other value will enable duplication error messaging</p>
 			<div class="description detailed hidden">
 				<p>Is the new symbol/number valid or invalid</p>
 
-<p>TRUE = error, invalid new number
+<p>NULL = no new number provided
+TRUE = error, invalid new number
 FALSE = valid symbol</p>
 
 
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$error_indication</var></dt>
+						<dd></dd>
+						<dt><var>$error_indication</var>,…</dt>
 						<dd></dd>
 					</dl></div>
 
@@ -386,7 +485,7 @@ FALSE = valid symbol</p>
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="vague_receiver" id="_vague_receiver">
+		<tr data-order="vagueReceiver" id="_vagueReceiver">
 
 			<td class="attributes"><code>
 				 public 
@@ -396,37 +495,8 @@ FALSE = valid symbol</p>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_vague_receiver">#</a>
-			<code><a href="source-class-App.Lib.RenumberRequest.html#120-122" title="Go to source code">vague_receiver</a>( <span> <var>$error_indication</var></span> )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="vague_provider" id="_vague_provider">
-
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_vague_provider">#</a>
-			<code><a href="source-class-App.Lib.RenumberRequest.html#124-127" title="Go to source code">vague_provider</a>( <span> <var>$error_indication</var></span> )</code>
+			<a class="anchor" href="#_vagueReceiver">#</a>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#146-148" title="Go to source code">vagueReceiver</a>( <span> <var>$error_indication</var></span> )</code>
 
 			<div class="description short">
 				
@@ -455,7 +525,7 @@ FALSE = valid symbol</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_message">#</a>
-			<code><a href="source-class-App.Lib.RenumberRequest.html#129-164" title="Go to source code">message</a>( )</code>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#155-196" title="Go to source code">message</a>( )</code>
 
 			<div class="description short">
 				<p>Return an array of error messages for this request</p>
@@ -494,7 +564,7 @@ FALSE = valid symbol</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_implied">#</a>
-			<code><a href="source-class-App.Lib.RenumberRequest.html#166-180" title="Go to source code">implied</a>( <span> <var>$boolean</var></span> )</code>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#198-212" title="Go to source code">implied</a>( <span> <var>$boolean</var></span> )</code>
 
 			<div class="description short">
 				<p>Set this object as an auto-created one</p>
@@ -509,7 +579,7 @@ FALSE = valid symbol</p>
 
 <p>that case then the object creation would chain this
 method like:
-$request = (new RenumberRequest($old, $new, $id))->implied();</p>
+$request = (new RenumberRequest($old, $new))->implied();</p>
 
 
 
@@ -517,6 +587,35 @@ $request = (new RenumberRequest($old, $new, $id))->implied();</p>
 					<div class="list">
 						<code><a href="class-App.Lib.RenumberRequest.html">App\Lib\RenumberRequest</a></code>
 					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__debugInfo" id="___debugInfo">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___debugInfo">#</a>
+			<code><a href="source-class-App.Lib.RenumberRequest.html#215-222" title="Go to source code">__debugInfo</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
 
 
 
@@ -547,7 +646,7 @@ $request = (new RenumberRequest($old, $new, $id))->implied();</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.RenumberRequest.html#17-22" title="Go to source code"><var>$_old</var></a>
+					<a href="source-class-App.Lib.RenumberRequest.html#24-29" title="Go to source code"><var>$_old</var></a>
 
 				<div class="description short">
 					<p>The original piece number</p>
@@ -572,7 +671,7 @@ $request = (new RenumberRequest($old, $new, $id))->implied();</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.RenumberRequest.html#24-29" title="Go to source code"><var>$_new</var></a>
+					<a href="source-class-App.Lib.RenumberRequest.html#31-36" title="Go to source code"><var>$_new</var></a>
 
 				<div class="description short">
 					<p>The new requested number</p>
@@ -597,7 +696,7 @@ $request = (new RenumberRequest($old, $new, $id))->implied();</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.RenumberRequest.html#31-36" title="Go to source code"><var>$_bad_new_number</var></a>
+					<a href="source-class-App.Lib.RenumberRequest.html#38-43" title="Go to source code"><var>$_bad_new_number</var></a>
 
 				<div class="description short">
 					<p>Indicates if the new number is not in the set of piece numbers</p>
@@ -622,7 +721,7 @@ $request = (new RenumberRequest($old, $new, $id))->implied();</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.RenumberRequest.html#38-43" title="Go to source code"><var>$_implied_change</var></a>
+					<a href="source-class-App.Lib.RenumberRequest.html#45-50" title="Go to source code"><var>$_implied_change</var></a>
 
 				<div class="description short">
 					<p>The need for this number swap was detected algoritmically</p>
@@ -640,14 +739,14 @@ $request = (new RenumberRequest($old, $new, $id))->implied();</p>
 				</div>
 			</td>
 		</tr>
-		<tr data-order="duplicate_new_number" id="$duplicate_new_number">
+		<tr data-order="_duplicate_new_number" id="$_duplicate_new_number">
 			<td class="attributes"><code>
 				public  
 				integer|boolean
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.RenumberRequest.html#45-53" title="Go to source code"><var>$duplicate_new_number</var></a>
+					<a href="source-class-App.Lib.RenumberRequest.html#52-60" title="Go to source code"><var>$_duplicate_new_number</var></a>
 
 				<div class="description short">
 					<p>The total number of pieces that are to receive this $new number</p>
@@ -656,14 +755,14 @@ $request = (new RenumberRequest($old, $new, $id))->implied();</p>
 				<div class="description detailed hidden">
 					<p>The total number of pieces that are to receive this $new number</p>
 
-<p>A truthy value here indicates this piece cannot recieve the indicated
+<p>A truthy value here indicates this piece cannot receive the indicated
 new number because that number has been used for other pieces also.</p>
 
 				</div>
 			</td>
 			<td class="value">
 				<div>
-					<a href="#$duplicate_new_number" class="anchor">#</a>
+					<a href="#$_duplicate_new_number" class="anchor">#</a>
 					<code><span class="php-keyword1">FALSE</span></code>
 				</div>
 			</td>
@@ -675,7 +774,7 @@ new number because that number has been used for other pieces also.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.RenumberRequest.html#55" title="Go to source code"><var>$_vague_receiver</var></a>
+					<a href="source-class-App.Lib.RenumberRequest.html#62" title="Go to source code"><var>$_vague_receiver</var></a>
 
 				<div class="description short">
 					
@@ -700,7 +799,7 @@ new number because that number has been used for other pieces also.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.RenumberRequest.html#57" title="Go to source code"><var>$_vague_provider</var></a>
+					<a href="source-class-App.Lib.RenumberRequest.html#64" title="Go to source code"><var>$_vague_provider</var></a>
 
 				<div class="description short">
 					
@@ -725,7 +824,7 @@ new number because that number has been used for other pieces also.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.RenumberRequest.html#59" title="Go to source code"><var>$_renumber_message</var></a>
+					<a href="source-class-App.Lib.RenumberRequest.html#66" title="Go to source code"><var>$_renumber_message</var></a>
 
 				<div class="description short">
 					

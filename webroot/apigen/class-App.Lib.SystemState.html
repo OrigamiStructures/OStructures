@@ -172,9 +172,11 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-App.Lib.DispositionFilter.html">DispositionFilter</a></li>
+				<li><a href="class-App.Lib.DispositionTypeMap.html">DispositionTypeMap</a></li>
 				<li><a href="class-App.Lib.EditionHelperFactory.html">EditionHelperFactory</a></li>
 				<li><a href="class-App.Lib.EditionTypeMap.html">EditionTypeMap</a></li>
 				<li><a href="class-App.Lib.Layer.html">Layer</a></li>
+				<li><a href="class-App.Lib.LayerFilterParms.html">LayerFilterParms</a></li>
 				<li><a href="class-App.Lib.PieceFilter.html">PieceFilter</a></li>
 				<li><a href="class-App.Lib.Range.html">Range</a></li>
 				<li><a href="class-App.Lib.RenumberMessaging.html">RenumberMessaging</a></li>
@@ -251,7 +253,7 @@ use of the design pattern... so...</p>
 				<b>Todo:</b>
 				<p>Carrying viewVars around like this breaks encapsulation and
     promotes coupling. Not a great idea in retrospect.</p><br>
-			<b>Located at</b> <a href="source-class-App.Lib.SystemState.html#18-488" title="Go to source code">Lib/SystemState.php</a>
+			<b>Located at</b> <a href="source-class-App.Lib.SystemState.html#17-472" title="Go to source code">Lib/SystemState.php</a>
 		<br>
 	</div>
 
@@ -271,7 +273,7 @@ use of the design pattern... so...</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#90-99" title="Go to source code">__construct</a>( <span>Cake\Network\Request <var>$request</var></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#89-98" title="Go to source code">__construct</a>( <span>Cake\Network\Request <var>$request</var></span> )</code>
 
 			<div class="description short">
 				
@@ -300,94 +302,7 @@ use of the design pattern... so...</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_implementedEvents">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#101-106" title="Go to source code">implementedEvents</a>( )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="collectedDispositionTypes" id="_collectedDispositionTypes">
-
-			<td class="attributes"><code>
-				 public static
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_collectedDispositionTypes">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#108-113" title="Go to source code">collectedDispositionTypes</a>( )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="scrappedDispositionTypes" id="_scrappedDispositionTypes">
-
-			<td class="attributes"><code>
-				 public static
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_scrappedDispositionTypes">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#114-117" title="Go to source code">scrappedDispositionTypes</a>( )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="unavailableDispositionTypes" id="_unavailableDispositionTypes">
-
-			<td class="attributes"><code>
-				 public static
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_unavailableDispositionTypes">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#119-121" title="Go to source code">unavailableDispositionTypes</a>( )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#100-105" title="Go to source code">implementedEvents</a>( )</code>
 
 			<div class="description short">
 				
@@ -416,7 +331,7 @@ use of the design pattern... so...</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___get">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#123-134" title="Go to source code">__get</a>( <span>string <var>$name</var></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#107-118" title="Go to source code">__get</a>( <span>string <var>$name</var></span> )</code>
 
 			<div class="description short">
 				<p>Make stored viewVars available</p>
@@ -454,7 +369,7 @@ use of the design pattern... so...</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#__standingDisposition">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#136-148" title="Go to source code">_standingDisposition</a>( )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#120-132" title="Go to source code">_standingDisposition</a>( )</code>
 
 			<div class="description short">
 				<p>See if there is a disposition cached</p>
@@ -487,7 +402,7 @@ from the cache so it will be available.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_is">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#150-158" title="Go to source code">is</a>( <span>integer <var>$state</var></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#134-142" title="Go to source code">is</a>( <span>integer <var>$state</var></span> )</code>
 
 			<div class="description short">
 				<p>Is the System State current this $state?</p>
@@ -525,7 +440,7 @@ from the cache so it will be available.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_now">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#160-162" title="Go to source code">now</a>( )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#144-146" title="Go to source code">now</a>( )</code>
 
 			<div class="description short">
 				
@@ -554,7 +469,7 @@ from the cache so it will be available.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_changeState">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#164-174" title="Go to source code">changeState</a>( <span>integer <var>$state</var></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#148-158" title="Go to source code">changeState</a>( <span>integer <var>$state</var></span> )</code>
 
 			<div class="description short">
 				<p>Set the system state</p>
@@ -590,7 +505,7 @@ from the cache so it will be available.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_storeVars">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#176-189" title="Go to source code">storeVars</a>( <span>array <var>$variables</var></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#160-173" title="Go to source code">storeVars</a>( <span>array <var>$variables</var></span> )</code>
 
 			<div class="description short">
 				<p>Store the current passes viewVars</p>
@@ -629,7 +544,7 @@ written yet so they don't keep this class up to date.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_artistId">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#191-230" title="Go to source code">artistId</a>( <span> <var>$id</var> = <span class="php-keyword1">NULL</span></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#175-214" title="Go to source code">artistId</a>( <span> <var>$id</var> = <span class="php-keyword1">NULL</span></span> )</code>
 
 			<div class="description short">
 				<p>Get the logged in artist's ID or the ID of the artist we're mocking</p>
@@ -677,7 +592,7 @@ would allow both variations to be found in the same way.
 
 			<td class="name"><div>
 			<a class="anchor" href="#_userId">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#232-234" title="Go to source code">userId</a>( )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#216-218" title="Go to source code">userId</a>( )</code>
 
 			<div class="description short">
 				
@@ -706,7 +621,7 @@ would allow both variations to be found in the same way.
 
 			<td class="name"><div>
 			<a class="anchor" href="#_afterLogin">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#236-245" title="Go to source code">afterLogin</a>( <span>type <var>$event</var></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#220-229" title="Go to source code">afterLogin</a>( <span>type <var>$event</var></span> )</code>
 
 			<div class="description short">
 				
@@ -740,7 +655,7 @@ would allow both variations to be found in the same way.
 
 			<td class="name"><div>
 			<a class="anchor" href="#_admin">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#247-266" title="Go to source code">admin</a>( <span>string <var>$type</var> = <span class="php-keyword1">NULL</span></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#231-250" title="Go to source code">admin</a>( <span>string <var>$type</var> = <span class="php-keyword1">NULL</span></span> )</code>
 
 			<div class="description short">
 				<p>Determine the degree (if any) of admin access</p>
@@ -778,7 +693,7 @@ would allow both variations to be found in the same way.
 
 			<td class="name"><div>
 			<a class="anchor" href="#_urlArgIsKnown">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#268-278" title="Go to source code">urlArgIsKnown</a>( <span>string <var>$name</var></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#252-262" title="Go to source code">urlArgIsKnown</a>( <span>string <var>$name</var></span> )</code>
 
 			<div class="description short">
 				<p>Is the value one of the URL query arguements?</p>
@@ -818,7 +733,7 @@ would allow both variations to be found in the same way.
 
 			<td class="name"><div>
 			<a class="anchor" href="#_hasFocus">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#280-303" title="Go to source code">hasFocus</a>( <span>entity|string <var>$name</var></span>, <span>string <var>$value</var> = <span class="php-keyword1">NULL</span></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#264-287" title="Go to source code">hasFocus</a>( <span>entity|string <var>$name</var></span>, <span>string <var>$value</var> = <span class="php-keyword1">NULL</span></span> )</code>
 
 			<div class="description short">
 				<p>Is an ID'd record referenced in the URL arguments?</p>
@@ -864,7 +779,7 @@ SystemState::hasFocus($format) // Format entity</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_stripNamespace">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#305-314" title="Go to source code">stripNamespace</a>( <span>Object <var>$obj</var></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#289-298" title="Go to source code">stripNamespace</a>( <span>Object <var>$obj</var></span> )</code>
 
 			<div class="description short">
 				<p>Get the class name from a full namespaced name</p>
@@ -902,7 +817,7 @@ SystemState::hasFocus($format) // Format entity</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_queryArg">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#316-330" title="Go to source code">queryArg</a>( <span>string <var>$name</var> = <span class="php-keyword1">NULL</span></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#300-314" title="Go to source code">queryArg</a>( <span>string <var>$name</var> = <span class="php-keyword1">NULL</span></span> )</code>
 
 			<div class="description short">
 				<p>Return one of the URL query arguements</p>
@@ -942,7 +857,7 @@ SystemState::hasFocus($format) // Format entity</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_controller">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#332-334" title="Go to source code">controller</a>( )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#316-318" title="Go to source code">controller</a>( )</code>
 
 			<div class="description short">
 				
@@ -971,7 +886,7 @@ SystemState::hasFocus($format) // Format entity</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_action">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#336-338" title="Go to source code">action</a>( )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#320-322" title="Go to source code">action</a>( )</code>
 
 			<div class="description short">
 				
@@ -1000,7 +915,7 @@ SystemState::hasFocus($format) // Format entity</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_inventoryActions">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#340-392" title="Go to source code">inventoryActions</a>( )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#324-376" title="Go to source code">inventoryActions</a>( )</code>
 
 			<div class="description short">
 				<p>Developer Utility to map controller actions</p>
@@ -1035,7 +950,7 @@ mapped (while avoiding a lot of hand work).</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_referer">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#394-434" title="Go to source code">referer</a>( <span>string <var>$referer</var> = <span class="php-keyword1">NULL</span></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#378-418" title="Go to source code">referer</a>( <span>string <var>$referer</var> = <span class="php-keyword1">NULL</span></span> )</code>
 
 			<div class="description short">
 				<p>Support logic-based referer to suppliment standard request->referer</p>
@@ -1092,7 +1007,7 @@ stored url and delete it also</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_buildConditions">#</a>
-			<code><a href="source-class-App.Lib.SystemState.html#436-487" title="Go to source code">buildConditions</a>( <span>array <var>$arg_list</var></span>, <span>boolean <var>$user_filter</var> = <span class="php-keyword1">TRUE</span></span> )</code>
+			<code><a href="source-class-App.Lib.SystemState.html#420-471" title="Go to source code">buildConditions</a>( <span>array <var>$arg_list</var></span>, <span>boolean <var>$user_filter</var> = <span class="php-keyword1">TRUE</span></span> )</code>
 
 			<div class="description short">
 				<p>Build a conditions array from query args based on a provided list of arg names</p>
@@ -1166,7 +1081,7 @@ yeilds
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.SystemState.html#44-51" title="Go to source code"><var>$map</var></a>
+					<a href="source-class-App.Lib.SystemState.html#43-50" title="Go to source code"><var>$map</var></a>
 
 				<div class="description short">
 					<p>Controller/action => state map</p>
@@ -1193,7 +1108,7 @@ yeilds
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.SystemState.html#53-58" title="Go to source code"><var>$request</var></a>
+					<a href="source-class-App.Lib.SystemState.html#52-57" title="Go to source code"><var>$request</var></a>
 
 				<div class="description short">
 					<p>Cake Request object</p>
@@ -1218,7 +1133,7 @@ yeilds
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.SystemState.html#59" title="Go to source code"><var>$rq</var></a>
+					<a href="source-class-App.Lib.SystemState.html#58" title="Go to source code"><var>$rq</var></a>
 
 				<div class="description short">
 					
@@ -1243,7 +1158,7 @@ yeilds
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.SystemState.html#62-67" title="Go to source code"><var>$_current_state</var></a>
+					<a href="source-class-App.Lib.SystemState.html#61-66" title="Go to source code"><var>$_current_state</var></a>
 
 				<div class="description short">
 					<p>The current system state</p>
@@ -1268,7 +1183,7 @@ yeilds
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.SystemState.html#69-74" title="Go to source code"><var>$_viewVars</var></a>
+					<a href="source-class-App.Lib.SystemState.html#68-73" title="Go to source code"><var>$_viewVars</var></a>
 
 				<div class="description short">
 					<p>A local, independent copy of every variable registered for use on the View</p>
@@ -1293,7 +1208,7 @@ yeilds
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.SystemState.html#76" title="Go to source code"><var>$_standing_disposition</var></a>
+					<a href="source-class-App.Lib.SystemState.html#75" title="Go to source code"><var>$_standing_disposition</var></a>
 
 				<div class="description short">
 					
@@ -1318,7 +1233,7 @@ yeilds
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Lib.SystemState.html#79-88" title="Go to source code"><var>$_admin_roles</var></a>
+					<a href="source-class-App.Lib.SystemState.html#78-87" title="Go to source code"><var>$_admin_roles</var></a>
 
 				<div class="description short">
 					<p>Array of types of 'admin' access</p>

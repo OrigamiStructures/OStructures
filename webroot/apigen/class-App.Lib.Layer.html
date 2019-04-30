@@ -172,9 +172,11 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-App.Lib.DispositionFilter.html">DispositionFilter</a></li>
+				<li><a href="class-App.Lib.DispositionTypeMap.html">DispositionTypeMap</a></li>
 				<li><a href="class-App.Lib.EditionHelperFactory.html">EditionHelperFactory</a></li>
 				<li><a href="class-App.Lib.EditionTypeMap.html">EditionTypeMap</a></li>
 				<li class="active"><a href="class-App.Lib.Layer.html">Layer</a></li>
+				<li><a href="class-App.Lib.LayerFilterParms.html">LayerFilterParms</a></li>
 				<li><a href="class-App.Lib.PieceFilter.html">PieceFilter</a></li>
 				<li><a href="class-App.Lib.Range.html">Range</a></li>
 				<li><a href="class-App.Lib.RenumberMessaging.html">RenumberMessaging</a></li>
@@ -239,7 +241,7 @@ We may want to remove some of that code.</p>
 
 				<b>Author:</b>
 				Main<br>
-			<b>Located at</b> <a href="source-class-App.Lib.Layer.html#9-378" title="Go to source code">Lib/Layer.php</a>
+			<b>Located at</b> <a href="source-class-App.Lib.Layer.html#9-447" title="Go to source code">Lib/Layer.php</a>
 		<br>
 	</div>
 
@@ -296,7 +298,7 @@ must be provided on the second param or an exception is raised.</p>
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="has" id="_has">
+		<tr data-order="hasId" id="_hasId">
 
 			<td class="attributes"><code>
 				 public 
@@ -306,8 +308,8 @@ must be provided on the second param or an exception is raised.</p>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_has">#</a>
-			<code><a href="source-class-App.Lib.Layer.html#81-89" title="Go to source code">has</a>( <span>string <var>$id</var></span> )</code>
+			<a class="anchor" href="#_hasId">#</a>
+			<code><a href="source-class-App.Lib.Layer.html#81-89" title="Go to source code">hasId</a>( <span>string <var>$id</var></span> )</code>
 
 			<div class="description short">
 				<p>Does the set contain an entity with ID = $id</p>
@@ -334,7 +336,7 @@ must be provided on the second param or an exception is raised.</p>
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="name" id="_name">
+		<tr data-order="layerName" id="_layerName">
 
 			<td class="attributes"><code>
 				 public 
@@ -344,8 +346,8 @@ must be provided on the second param or an exception is raised.</p>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_name">#</a>
-			<code><a href="source-class-App.Lib.Layer.html#91-98" title="Go to source code">name</a>( )</code>
+			<a class="anchor" href="#_layerName">#</a>
+			<code><a href="source-class-App.Lib.Layer.html#91-98" title="Go to source code">layerName</a>( )</code>
 
 			<div class="description short">
 				<p>The type/name of this layer data</p>
@@ -452,7 +454,7 @@ must be provided on the second param or an exception is raised.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_load">#</a>
-			<code><a href="source-class-App.Lib.Layer.html#127-189" title="Go to source code">load</a>( <span>string <var>$type</var></span>, <span> <var>$options</var> = []</span> )</code>
+			<code><a href="source-class-App.Lib.Layer.html#150-214" title="Go to source code">load</a>( <span>string <var>$type</var></span>, <span> <var>$options</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>The StackLayer's version of a find()</p>
@@ -487,6 +489,10 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 					</div>
 
 
+					<h4>Todo</h4>
+					<div class="list">
+							How about making a 'not' type search? ('not', ['edition_id', 455])<br>
+					</div>
 
 
 			</div>
@@ -503,7 +509,7 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 
 			<td class="name"><div>
 			<a class="anchor" href="#_count">#</a>
-			<code><a href="source-class-App.Lib.Layer.html#191-198" title="Go to source code">count</a>( )</code>
+			<code><a href="source-class-App.Lib.Layer.html#216-223" title="Go to source code">count</a>( )</code>
 
 			<div class="description short">
 				<p>The count of stored entities in this layer</p>
@@ -525,6 +531,83 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="element" id="_element">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_element">#</a>
+			<code><a href="source-class-App.Lib.Layer.html#225-230" title="Go to source code">element</a>( <span> <var>$number</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="keyList" id="_keyList">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_keyList">#</a>
+			<code><a href="source-class-App.Lib.Layer.html#232-264" title="Go to source code">keyList</a>( <span>string <var>$key</var></span>, <span>string <var>$value</var></span>, <span>string <var>$type</var> = <span class="php-quote">'all'</span></span>, <span>array <var>$options</var> = []</span> )</code>
+
+			<div class="description short">
+				<p>Get a key => value map from some or all of the stored entities</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get a key => value map from some or all of the stored entities</p>
+
+<p>Filtering is performed by Layer::load() (see the docs)
+$key must be a visible property of the entities
+$value must be either a visible property or a method that needs no args</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$key</var></dt>
+						<dd>The property to use for the result array keys</dd>
+						<dt><var>$value</var></dt>
+						<dd>The property or method to provide the result values</dd>
+						<dt><var>$type</var></dt>
+						<dd>First arg passed to $this->load() ('all' or 'first')</dd>
+						<dt><var>$options</var></dt>
+						<dd>Search conditions passed to $this->load()</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="IDs" id="_IDs">
 
 			<td class="attributes"><code>
@@ -536,7 +619,7 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 
 			<td class="name"><div>
 			<a class="anchor" href="#_IDs">#</a>
-			<code><a href="source-class-App.Lib.Layer.html#200-207" title="Go to source code">IDs</a>( )</code>
+			<code><a href="source-class-App.Lib.Layer.html#266-273" title="Go to source code">IDs</a>( )</code>
 
 			<div class="description short">
 				<p>Get an array of the IDs of the stored entities</p>
@@ -569,7 +652,7 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 
 			<td class="name"><div>
 			<a class="anchor" href="#_distinct">#</a>
-			<code><a href="source-class-App.Lib.Layer.html#209-219" title="Go to source code">distinct</a>( <span> <var>$property</var></span> )</code>
+			<code><a href="source-class-App.Lib.Layer.html#275-285" title="Go to source code">distinct</a>( <span> <var>$property</var></span> )</code>
 
 			<div class="description short">
 				
@@ -598,7 +681,7 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 
 			<td class="name"><div>
 			<a class="anchor" href="#_linkedTo">#</a>
-			<code><a href="source-class-App.Lib.Layer.html#221-247" title="Go to source code">linkedTo</a>( <span>string <var>$layer</var></span>, <span>string <var>$id</var></span> )</code>
+			<code><a href="source-class-App.Lib.Layer.html#287-313" title="Go to source code">linkedTo</a>( <span>string <var>$layer</var></span>, <span>string <var>$id</var></span> )</code>
 
 			<div class="description short">
 				<p>Get the records with a matching foreign key value</p>
@@ -644,14 +727,14 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 
 			<td class="attributes"><code>
 				 public 
-				type
+				array
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_filter">#</a>
-			<code><a href="source-class-App.Lib.Layer.html#249-274" title="Go to source code">filter</a>( <span>type <var>$property</var></span>, <span>type <var>$value</var></span> )</code>
+			<code><a href="source-class-App.Lib.Layer.html#315-340" title="Go to source code">filter</a>( <span>type <var>$property</var></span>, <span>type <var>$value</var></span> )</code>
 
 			<div class="description short">
 				<p>Provide single column search</p>
@@ -675,7 +758,7 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 
 					<h4>Returns</h4>
 					<div class="list">
-						type
+						array
 					</div>
 
 
@@ -688,14 +771,14 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 
 			<td class="attributes"><code>
 				 public 
-				type
+				array
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_sort">#</a>
-			<code><a href="source-class-App.Lib.Layer.html#276-298" title="Go to source code">sort</a>( <span>type <var>$property</var></span>, <span>type <var>$dir</var> = \SORT_DESC</span>, <span>type <var>$type</var> = \SORT_NUMERIC</span> )</code>
+			<code><a href="source-class-App.Lib.Layer.html#342-365" title="Go to source code">sort</a>( <span>string <var>$property</var></span>, <span>string <var>$dir</var> = \SORT_DESC</span>, <span>string <var>$type</var> = \SORT_NUMERIC</span> )</code>
 
 			<div class="description short">
 				<p>Provide single column sorting</p>
@@ -711,19 +794,23 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 					<h4>Parameters</h4>
 					<div class="list"><dl>
 						<dt><var>$property</var></dt>
-						<dd></dd>
+						<dd>Name of the property to sort by</dd>
 						<dt><var>$dir</var></dt>
-						<dd></dd>
+						<dd>SORT_ASC or SORT_DESC</dd>
 						<dt><var>$type</var></dt>
-						<dd></dd>
+						<dd>sort type constants</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
 					<div class="list">
-						type
+						array<br>Array of entities
 					</div>
 
 
+					<h4>See</h4>
+					<div class="list">
+							https://book.cakephp.org/3.0/en/core-libraries/collections.html#Cake\Collection\Collection::sortBy<br>
+					</div>
 
 
 			</div>
@@ -740,7 +827,7 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 
 			<td class="name"><div>
 			<a class="anchor" href="#__verifyProperty">#</a>
-			<code><a href="source-class-App.Lib.Layer.html#302-310" title="Go to source code">_verifyProperty</a>( <span>string <var>$property</var></span> )</code>
+			<code><a href="source-class-App.Lib.Layer.html#369-379" title="Go to source code">_verifyProperty</a>( <span>string <var>$property</var></span> )</code>
 
 			<div class="description short">
 				<p>Does the $property exist in this entity?</p>
@@ -748,6 +835,8 @@ $pieces-&gt;get('</span>first<span class="php-quote">', ['</span>edition_id<span
 
 			<div class="description detailed hidden">
 				<p>Does the $property exist in this entity?</p>
+
+<p>This checks against visible properties</p>
 
 
 					<h4>Parameters</h4>

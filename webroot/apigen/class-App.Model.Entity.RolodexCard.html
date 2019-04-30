@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class App\Model\Entity\RolodexCard | StudioManagerScratch</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">StudioManagerScratch</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-App.Model.Entity.html" title="Summary of App\Model\Entity"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-App.html">
+							App<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Cache.html">
+							Cache						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Console.html">
+							Console						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Controller.html">
+							Controller<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Controller.Component.html">
+							Component						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Database.html">
+							Database<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Database.Type.html">
+							Type						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Exception.html">
+							Exception						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Form.html">
+							Form						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Lib.html">
+							Lib<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Lib.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li class="active">
+						<a href="namespace-App.Model.html">
+							Model<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Behavior.html">
+							Behavior						</a>
+							</li>
+					<li class="active">
+						<a href="namespace-App.Model.Entity.html">
+							Entity<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.Model.Entity.EditionSubs.html">
+							EditionSubs						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Entity.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Model.Lib.html">
+							Lib						</a>
+							</li>
+					<li>
+						<a href="namespace-App.Model.Table.html">
+							Table						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-App.Shell.html">
+							Shell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.SiteMetrics.html">
+							SiteMetrics						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.html">
+							View<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Cell.html">
+							Cell						</a>
+							</li>
+					<li>
+						<a href="namespace-App.View.Helper.html">
+							Helper<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-App.View.Helper.Traits.html">
+							Traits						</a>
+							</li>
+								</ul></li></ul></li></ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-App.Model.Entity.Address.html">Address</a></li>
+				<li><a href="class-App.Model.Entity.Artist.html">Artist</a></li>
+				<li><a href="class-App.Model.Entity.ArtStack.html">ArtStack</a></li>
+				<li><a href="class-App.Model.Entity.Artwork.html">Artwork</a></li>
+				<li><a href="class-App.Model.Entity.Contact.html">Contact</a></li>
+				<li><a href="class-App.Model.Entity.Design.html">Design</a></li>
+				<li><a href="class-App.Model.Entity.Disposition.html">Disposition</a></li>
+				<li><a href="class-App.Model.Entity.DispositionsPiece.html">DispositionsPiece</a></li>
+				<li><a href="class-App.Model.Entity.Edition.html">Edition</a></li>
+				<li><a href="class-App.Model.Entity.Format.html">Format</a></li>
+				<li><a href="class-App.Model.Entity.Group.html">Group</a></li>
+				<li><a href="class-App.Model.Entity.GroupsMember.html">GroupsMember</a></li>
+				<li><a href="class-App.Model.Entity.HasMember.html">HasMember</a></li>
+				<li><a href="class-App.Model.Entity.Image.html">Image</a></li>
+				<li><a href="class-App.Model.Entity.Location.html">Location</a></li>
+				<li><a href="class-App.Model.Entity.Member.html">Member</a></li>
+				<li><a href="class-App.Model.Entity.MemberOf.html">MemberOf</a></li>
+				<li><a href="class-App.Model.Entity.MemberStack.html">MemberStack</a></li>
+				<li><a href="class-App.Model.Entity.Menu.html">Menu</a></li>
+				<li><a href="class-App.Model.Entity.Piece.html">Piece</a></li>
+				<li><a href="class-App.Model.Entity.ProxyMember.html">ProxyMember</a></li>
+				<li class="active"><a href="class-App.Model.Entity.RolodexCard.html">RolodexCard</a></li>
+				<li><a href="class-App.Model.Entity.Series.html">Series</a></li>
+				<li><a href="class-App.Model.Entity.StackEntity.html">StackEntity</a></li>
+				<li><a href="class-App.Model.Entity.Subscription.html">Subscription</a></li>
+				<li><a href="class-App.Model.Entity.User.html">User</a></li>
+				<li><a href="class-App.Model.Entity.UserStack.html">UserStack</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class RolodexCard</h1>
+
+
+	<div class="description">
+	<p>Base class for detailed Person/Institution/Grouping objects</p>
+
+<p>The system maintains a Member record that contains basic identifier data
+to describe who or what it represents and a few flag and indicator values
+to identify the nature of this individual units's role in the system is.</p>
+
+<p>The Member record also serves as a gathering point for any number of
+Contact records (phone, url, email, whatever) and any number of Address
+records.</p>
+
+<p>One linked Contact and one linked Address can be designated as "primary"
+by setting the PRIMARY flag field in the Contact or Address.</p>
+
+<p>Some Member records are attached to a Group record. The presence of this
+relationship indicates the Member acts as a category record that collects
+other Members into its group. 'The Drake Family', 'ABC Corp', or
+'Woodworkers' are example groups.</p>
+
+<p>When there is a Group record in the stack, there can also be content
+in the <code>has_members</code> layer. These will be basic data about the member
+records that are in the group.</p>
+
+<p>And, of course some Member records will also be included as
+members of such a group. The <code>member_of</code> layer will hold basic data
+about the groups this unit is a member of.</p>
+
+<p>The RolodexCard class works to gather all these associated elements together
+in a single manageable entity. It provides the basic structure and
+functionality for all of its concrete instantiations (PersonCard,
+InstitutionCard, GroupdCard, etc.)</p>
+
+<pre><span class="php-var">$Schema</span> = [
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'member'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'contacts'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'addresses'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'member_of'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'group'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'has_members'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+];</pre>
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+Cake\ORM\Entity
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-App.Model.Entity.StackEntity.html"><span>App\Model\Entity\StackEntity</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>App\Model\Entity\RolodexCard</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Model.html">Model</a>\<a href="namespace-App.Model.Entity.html">Entity</a><br>
+		
+
+				<b>Author:</b>
+				dondrake<br>
+				<b>Todo:</b>
+				<p>If a member has no contact or address, should it inherit from a
+    group? What if it is in more than one group? Would it need an
+    <code>inherit</code> flag? Would it need a <code>primary_group</code> pointer? Would
+    convenient upstream navigation satisfy the need for data? Would we
+    want a way to clone data down to the children?</p><br>
+			<b>Located at</b> <a href="source-class-App.Model.Entity.RolodexCard.html#13-181" title="Go to source code">Model/Entity/RolodexCard.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="count" id="_count">
+
+			<td class="attributes"><code>
+				 public 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_count">#</a>
+			<code><a href="source-class-App.Model.Entity.RolodexCard.html#66-78" title="Go to source code">count</a>( <span>string <var>$layer</var></span> )</code>
+
+			<div class="description short">
+				<p>Get the count of entities in a layer</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the count of entities in a layer</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$layer</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						integer
+					</div>
+
+
+
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-App.Model.Entity.StackEntity.html#_count">App\Model\Entity\StackEntity::count</a></code></div>
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isGroup" id="_isGroup">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isGroup">#</a>
+			<code><a href="source-class-App.Model.Entity.RolodexCard.html#80-91" title="Go to source code">isGroup</a>( )</code>
+
+			<div class="description short">
+				<p>Is this member a Group?</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is this member a Group?</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getName" id="_getName">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getName">#</a>
+			<code><a href="source-class-App.Model.Entity.RolodexCard.html#93-95" title="Go to source code">getName</a>( <span> <var>$format</var> = FIRST_LAST</span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getGroupId" id="_getGroupId">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getGroupId">#</a>
+			<code><a href="source-class-App.Model.Entity.RolodexCard.html#97-107" title="Go to source code">getGroupId</a>( )</code>
+
+			<div class="description short">
+				<p>Get the id this member's group if there is one</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the id this member's group if there is one</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string<br>the group id or '' if this is not a group
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="hasPrimary" id="_hasPrimary">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_hasPrimary">#</a>
+			<code><a href="source-class-App.Model.Entity.RolodexCard.html#115-126" title="Go to source code">hasPrimary</a>( <span>string <var>$type</var></span> )</code>
+
+			<div class="description short">
+				<p>Is a record in the named layer flagged as PRIMARY?</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is a record in the named layer flagged as PRIMARY?</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPrimary" id="_getPrimary">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPrimary">#</a>
+			<code><a href="source-class-App.Model.Entity.RolodexCard.html#128-149" title="Go to source code">getPrimary</a>( <span>string <var>$type</var></span>, <span>string <var>$returnStyle</var> = WRAPPED</span> )</code>
+
+			<div class="description short">
+				<p>Get the entity flagged as PRIMARY if one exists</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get the entity flagged as PRIMARY if one exists</p>
+
+<p>Return style allows the return to be wrapped in an array for
+consistency (Helpers may expect arrays of entities) but also
+allows a bare entity to return for convenience.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd>Name of a layer that uses a PRIMARY flag column</dd>
+						<dt><var>$returnStyle</var></dt>
+						<dd>WRAPPED or BARE</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed<br>array, entity object, or null
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getSecondary" id="_getSecondary">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getSecondary">#</a>
+			<code><a href="source-class-App.Model.Entity.RolodexCard.html#151-162" title="Go to source code">getSecondary</a>( <span>string <var>$type</var></span> )</code>
+
+			<div class="description short">
+				<p>Get any entities not flagged as PRIMARY</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get any entities not flagged as PRIMARY</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd>Name of a layer that uses a PRIMARY flag column</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="_flagsPrimary" id="__flagsPrimary">
+
+			<td class="attributes"><code>
+				 protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#__flagsPrimary">#</a>
+			<code><a href="source-class-App.Model.Entity.RolodexCard.html#165-177" title="Go to source code">_flagsPrimary</a>( <span>string <var>$type</var></span> )</code>
+
+			<div class="description short">
+				<p>Does the named layer have a PRIMARY flag column</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Does the named layer have a PRIMARY flag column</p>
+
+<p>This method both defines the list of layers known to use a
+PRIMARY flag, and confirst that the argument is one of those layers</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$type</var></dt>
+						<dd>The name of a layer</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods inherited from <a href="class-App.Model.Entity.StackEntity.html#methods">App\Model\Entity\StackEntity</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-App.Model.Entity.StackEntity.html#_IDs">IDs()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_distinct">distinct()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_exists">exists()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_hasNo">hasNo()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_isEmpty">isEmpty()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_linkedTo">linkedTo()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_load">load()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_primaryEntity">primaryEntity()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_primaryId">primaryId()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_primaryLayer">primaryLayer()</a></code>, 
+				<code><a href="class-App.Model.Entity.StackEntity.html#_set">set()</a></code>
+			</p>
+		</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		StudioManagerScratch API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

@@ -178,17 +178,21 @@
 				<li class="active"><a href="class-App.Model.Entity.Contact.html">Contact</a></li>
 				<li><a href="class-App.Model.Entity.Design.html">Design</a></li>
 				<li><a href="class-App.Model.Entity.Disposition.html">Disposition</a></li>
+				<li><a href="class-App.Model.Entity.DispositionsPiece.html">DispositionsPiece</a></li>
 				<li><a href="class-App.Model.Entity.Edition.html">Edition</a></li>
 				<li><a href="class-App.Model.Entity.Format.html">Format</a></li>
 				<li><a href="class-App.Model.Entity.Group.html">Group</a></li>
 				<li><a href="class-App.Model.Entity.GroupsMember.html">GroupsMember</a></li>
+				<li><a href="class-App.Model.Entity.HasMember.html">HasMember</a></li>
 				<li><a href="class-App.Model.Entity.Image.html">Image</a></li>
 				<li><a href="class-App.Model.Entity.Location.html">Location</a></li>
 				<li><a href="class-App.Model.Entity.Member.html">Member</a></li>
+				<li><a href="class-App.Model.Entity.MemberOf.html">MemberOf</a></li>
 				<li><a href="class-App.Model.Entity.MemberStack.html">MemberStack</a></li>
 				<li><a href="class-App.Model.Entity.Menu.html">Menu</a></li>
 				<li><a href="class-App.Model.Entity.Piece.html">Piece</a></li>
 				<li><a href="class-App.Model.Entity.ProxyMember.html">ProxyMember</a></li>
+				<li><a href="class-App.Model.Entity.RolodexCard.html">RolodexCard</a></li>
 				<li><a href="class-App.Model.Entity.Series.html">Series</a></li>
 				<li><a href="class-App.Model.Entity.StackEntity.html">StackEntity</a></li>
 				<li><a href="class-App.Model.Entity.Subscription.html">Subscription</a></li>
@@ -243,9 +247,217 @@ Cake\ORM\Entity
 		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Model.html">Model</a>\<a href="namespace-App.Model.Entity.html">Entity</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-App.Model.Entity.Contact.html#6-35" title="Go to source code">Model/Entity/Contact.php</a>
+			<b>Located at</b> <a href="source-class-App.Model.Entity.Contact.html#6-82" title="Go to source code">Model/Entity/Contact.php</a>
 		<br>
 	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="getContact" id="_getContact">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getContact">#</a>
+			<code><a href="source-class-App.Model.Entity.Contact.html#36-48" title="Go to source code">getContact</a>( )</code>
+
+			<div class="description short">
+				<p>Return the contact data</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Return the contact data</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+					<h4>Todo</h4>
+					<div class="list">
+							<p>This could do formatting on the returned value.
+    Or a task like that could be handled by Model validation tools.
+    Or we can decide that user data should not be tampered with except
+    in cases where it would effect system function/data integrity.</p><br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getLabel" id="_getLabel">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getLabel">#</a>
+			<code><a href="source-class-App.Model.Entity.Contact.html#50-57" title="Go to source code">getLabel</a>( )</code>
+
+			<div class="description short">
+				<p>Return the label for this contact</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Return the label for this contact</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string<br>(eg. 'phone', 'email', 'url', etc.)
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="asString" id="_asString">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_asString">#</a>
+			<code><a href="source-class-App.Model.Entity.Contact.html#60-62" title="Go to source code">asString</a>( <span> <var>$delimiter</var> = <span class="php-quote">&quot;: &quot;</span></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="asArray" id="_asArray">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_asArray">#</a>
+			<code><a href="source-class-App.Model.Entity.Contact.html#64-66" title="Go to source code">asArray</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isType" id="_isType">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isType">#</a>
+			<code><a href="source-class-App.Model.Entity.Contact.html#68-70" title="Go to source code">isType</a>( <span> <var>$type</var></span> )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isPrimary" id="_isPrimary">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isPrimary">#</a>
+			<code><a href="source-class-App.Model.Entity.Contact.html#72-81" title="Go to source code">isPrimary</a>( )</code>
+
+			<div class="description short">
+				<p>Is this marked as the primary contact</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Is this marked as the primary contact</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+					<h4>Todo</h4>
+					<div class="list">
+							There is no 'primary' column in the table yet<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
 
 
 

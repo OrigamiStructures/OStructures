@@ -172,9 +172,11 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-App.Lib.DispositionFilter.html">DispositionFilter</a></li>
+				<li><a href="class-App.Lib.DispositionTypeMap.html">DispositionTypeMap</a></li>
 				<li><a href="class-App.Lib.EditionHelperFactory.html">EditionHelperFactory</a></li>
 				<li><a href="class-App.Lib.EditionTypeMap.html">EditionTypeMap</a></li>
 				<li><a href="class-App.Lib.Layer.html">Layer</a></li>
+				<li><a href="class-App.Lib.LayerFilterParms.html">LayerFilterParms</a></li>
 				<li><a href="class-App.Lib.PieceFilter.html">PieceFilter</a></li>
 				<li><a href="class-App.Lib.Range.html">Range</a></li>
 				<li class="active"><a href="class-App.Lib.RenumberMessaging.html">RenumberMessaging</a></li>
@@ -225,7 +227,7 @@ methods to summarize the requested moves and errors to the user.</p>
 
 				<b>Author:</b>
 				dondrake<br>
-			<b>Located at</b> <a href="source-class-App.Lib.RenumberMessaging.html#4-109" title="Go to source code">Lib/RenumberMessaging.php</a>
+			<b>Located at</b> <a href="source-class-App.Lib.RenumberMessaging.html#6-111" title="Go to source code">Lib/RenumberMessaging.php</a>
 		<br>
 	</div>
 
@@ -245,7 +247,7 @@ methods to summarize the requested moves and errors to the user.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-App.Lib.RenumberMessaging.html#38-56" title="Go to source code">__construct</a>( <span>type <var>$requests</var></span> )</code>
+			<code><a href="source-class-App.Lib.RenumberMessaging.html#40-58" title="Go to source code">__construct</a>( <span><code><a href="class-App.Lib.RenumberRequest.html">App\Lib\RenumberRequest</a></code> <var>$requests</var> = []</span> )</code>
 
 			<div class="description short">
 				
@@ -287,7 +289,7 @@ methods to summarize the requested moves and errors to the user.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_errors">#</a>
-			<code><a href="source-class-App.Lib.RenumberMessaging.html#58-72" title="Go to source code">errors</a>( )</code>
+			<code><a href="source-class-App.Lib.RenumberMessaging.html#60-74" title="Go to source code">errors</a>( )</code>
 
 			<div class="description short">
 				<p>Return array of arrays of errors</p>
@@ -323,7 +325,7 @@ each containing an array of errors for that piece (empty if none)</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_summaries">#</a>
-			<code><a href="source-class-App.Lib.RenumberMessaging.html#74-85" title="Go to source code">summaries</a>( )</code>
+			<code><a href="source-class-App.Lib.RenumberMessaging.html#76-87" title="Go to source code">summaries</a>( )</code>
 
 			<div class="description short">
 				<p>Return array indexed by old piece number</p>
@@ -356,7 +358,7 @@ each containing an array of errors for that piece (empty if none)</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_request">#</a>
-			<code><a href="source-class-App.Lib.RenumberMessaging.html#87-98" title="Go to source code">request</a>( <span>integer <var>$number</var></span> )</code>
+			<code><a href="source-class-App.Lib.RenumberMessaging.html#89-100" title="Go to source code">request</a>( <span>integer <var>$number</var></span> )</code>
 
 			<div class="description short">
 				<p>Return a specific piece request</p>
@@ -394,7 +396,7 @@ each containing an array of errors for that piece (empty if none)</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_errorCount">#</a>
-			<code><a href="source-class-App.Lib.RenumberMessaging.html#100-107" title="Go to source code">errorCount</a>( )</code>
+			<code><a href="source-class-App.Lib.RenumberMessaging.html#102-109" title="Go to source code">errorCount</a>( )</code>
 
 			<div class="description short">
 				<p>Get the total number of errors over all requests</p>

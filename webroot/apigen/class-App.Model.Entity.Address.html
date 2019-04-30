@@ -178,17 +178,21 @@
 				<li><a href="class-App.Model.Entity.Contact.html">Contact</a></li>
 				<li><a href="class-App.Model.Entity.Design.html">Design</a></li>
 				<li><a href="class-App.Model.Entity.Disposition.html">Disposition</a></li>
+				<li><a href="class-App.Model.Entity.DispositionsPiece.html">DispositionsPiece</a></li>
 				<li><a href="class-App.Model.Entity.Edition.html">Edition</a></li>
 				<li><a href="class-App.Model.Entity.Format.html">Format</a></li>
 				<li><a href="class-App.Model.Entity.Group.html">Group</a></li>
 				<li><a href="class-App.Model.Entity.GroupsMember.html">GroupsMember</a></li>
+				<li><a href="class-App.Model.Entity.HasMember.html">HasMember</a></li>
 				<li><a href="class-App.Model.Entity.Image.html">Image</a></li>
 				<li><a href="class-App.Model.Entity.Location.html">Location</a></li>
 				<li><a href="class-App.Model.Entity.Member.html">Member</a></li>
+				<li><a href="class-App.Model.Entity.MemberOf.html">MemberOf</a></li>
 				<li><a href="class-App.Model.Entity.MemberStack.html">MemberStack</a></li>
 				<li><a href="class-App.Model.Entity.Menu.html">Menu</a></li>
 				<li><a href="class-App.Model.Entity.Piece.html">Piece</a></li>
 				<li><a href="class-App.Model.Entity.ProxyMember.html">ProxyMember</a></li>
+				<li><a href="class-App.Model.Entity.RolodexCard.html">RolodexCard</a></li>
 				<li><a href="class-App.Model.Entity.Series.html">Series</a></li>
 				<li><a href="class-App.Model.Entity.StackEntity.html">StackEntity</a></li>
 				<li><a href="class-App.Model.Entity.Subscription.html">Subscription</a></li>
@@ -213,7 +217,7 @@
 
 
 	<div class="description">
-	<p>Address Entity.</p>
+	<p>Address Entity</p>
 	</div>
 
 	<dl class="tree well">
@@ -243,7 +247,7 @@ Cake\ORM\Entity
 		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Model.html">Model</a>\<a href="namespace-App.Model.Entity.html">Entity</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-App.Model.Entity.Address.html#6-45" title="Go to source code">Model/Entity/Address.php</a>
+			<b>Located at</b> <a href="source-class-App.Model.Entity.Address.html#6-150" title="Go to source code">Model/Entity/Address.php</a>
 		<br>
 	</div>
 
@@ -252,28 +256,153 @@ Cake\ORM\Entity
 		<div class="panel panel-default">
 			<div class="panel-heading"><h2>Methods summary</h2></div>
 			<table class="summary table table-bordered table-striped methods" id="methods">
-		<tr data-order="_getAddressLine" id="__getAddressLine">
+		<tr data-order="isPrimary" id="_isPrimary">
 
 			<td class="attributes"><code>
 				 public 
-				
+				boolean
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#__getAddressLine">#</a>
-			<code><a href="source-class-App.Model.Entity.Address.html#41-44" title="Go to source code">_getAddressLine</a>( )</code>
+			<a class="anchor" href="#_isPrimary">#</a>
+			<code><a href="source-class-App.Model.Entity.Address.html#41-48" title="Go to source code">isPrimary</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Is this marked as the primary address</p>
 			</div>
 
 			<div class="description detailed hidden">
+				<p>Is this marked as the primary address</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="asString" id="_asString">
+
+			<td class="attributes"><code>
+				 public 
+				string
 				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_asString">#</a>
+			<code><a href="source-class-App.Model.Entity.Address.html#50-65" title="Go to source code">asString</a>( )</code>
+
+			<div class="description short">
+				<p>Make a basic one-line address</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Make a basic one-line address</p>
+
+<p>Assemble "adress1, city, state zip" and
+avoid uneeded puncutation and spaces.
+Any of the 4 values may be missing. If none are
+know, "Address unknown" is returned.</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="asArray" id="_asArray">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_asArray">#</a>
+			<code><a href="source-class-App.Model.Entity.Address.html#67-98" title="Go to source code">asArray</a>( )</code>
+
+			<div class="description short">
+				<p>Make an array in standard address structure</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Make an array in standard address structure</p>
+
+<p>A helper can walk through this and format it
+as a label, or other typical multi-line format
+This carefully avoids blank lines and
+unneccessary punctuations.</p>
+
+<p>There is no way to know how many elements there will be
+and which data will be known because the process crushes out
+any missing data and does some basic pre-assembly.</p>
+
+<p>The fullest possible return will be:
+<code>[ 0 =&gt; 'address1 string', 1 =&gt; 'address2 string', 2 =&gt; 'address3 string', 3 =&gt; 'city string ' . 'state string ' . 'zip string'
+]</code>
+Any of the 6 values may be missing and an empty array is possible.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="cityStateZip" id="_cityStateZip">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_cityStateZip">#</a>
+			<code><a href="source-class-App.Model.Entity.Address.html#100-118" title="Go to source code">cityStateZip</a>( )</code>
+
+			<div class="description short">
+				<p>Merge a "city, state zip" line</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Merge a "city, state zip" line</p>
+
+<p>Don't allow meaningless puctuation or spaces.
+If no values are known, an empty string is returned.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
 
 
 

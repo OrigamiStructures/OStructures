@@ -178,17 +178,21 @@
 				<li><a href="class-App.Model.Entity.Contact.html">Contact</a></li>
 				<li><a href="class-App.Model.Entity.Design.html">Design</a></li>
 				<li><a href="class-App.Model.Entity.Disposition.html">Disposition</a></li>
+				<li><a href="class-App.Model.Entity.DispositionsPiece.html">DispositionsPiece</a></li>
 				<li><a href="class-App.Model.Entity.Edition.html">Edition</a></li>
 				<li><a href="class-App.Model.Entity.Format.html">Format</a></li>
 				<li><a href="class-App.Model.Entity.Group.html">Group</a></li>
 				<li><a href="class-App.Model.Entity.GroupsMember.html">GroupsMember</a></li>
+				<li><a href="class-App.Model.Entity.HasMember.html">HasMember</a></li>
 				<li><a href="class-App.Model.Entity.Image.html">Image</a></li>
 				<li><a href="class-App.Model.Entity.Location.html">Location</a></li>
 				<li class="active"><a href="class-App.Model.Entity.Member.html">Member</a></li>
+				<li><a href="class-App.Model.Entity.MemberOf.html">MemberOf</a></li>
 				<li><a href="class-App.Model.Entity.MemberStack.html">MemberStack</a></li>
 				<li><a href="class-App.Model.Entity.Menu.html">Menu</a></li>
 				<li><a href="class-App.Model.Entity.Piece.html">Piece</a></li>
 				<li><a href="class-App.Model.Entity.ProxyMember.html">ProxyMember</a></li>
+				<li><a href="class-App.Model.Entity.RolodexCard.html">RolodexCard</a></li>
 				<li><a href="class-App.Model.Entity.Series.html">Series</a></li>
 				<li><a href="class-App.Model.Entity.StackEntity.html">StackEntity</a></li>
 				<li><a href="class-App.Model.Entity.Subscription.html">Subscription</a></li>
@@ -249,7 +253,7 @@ Cake\ORM\Entity
 		<b>Namespace:</b> <a href="namespace-App.html">App</a>\<a href="namespace-App.Model.html">Model</a>\<a href="namespace-App.Model.Entity.html">Entity</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-App.Model.Entity.Member.html#6-83" title="Go to source code">Model/Entity/Member.php</a>
+			<b>Located at</b> <a href="source-class-App.Model.Entity.Member.html#10-184" title="Go to source code">Model/Entity/Member.php</a>
 		<br>
 	</div>
 
@@ -262,24 +266,28 @@ Cake\ORM\Entity
 
 			<td class="attributes"><code>
 				 public 
-				
+				string
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#__getName">#</a>
-			<code><a href="source-class-App.Model.Entity.Member.html#37-48" title="Go to source code">_getName</a>( )</code>
+			<code><a href="source-class-App.Model.Entity.Member.html#41-59" title="Go to source code">_getName</a>( )</code>
 
 			<div class="description short">
-				
+				<p>The assembled <code>name</code> property; first/last format</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>The assembled <code>name</code> property; first/last format</p>
 
 
 
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
 
 
 
@@ -287,7 +295,7 @@ Cake\ORM\Entity
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="_getSortName" id="__getSortName">
+		<tr data-order="_getReverseName" id="__getReverseName">
 
 			<td class="attributes"><code>
 				 public 
@@ -297,15 +305,15 @@ Cake\ORM\Entity
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#__getSortName">#</a>
-			<code><a href="source-class-App.Model.Entity.Member.html#50-60" title="Go to source code">_getSortName</a>( )</code>
+			<a class="anchor" href="#__getReverseName">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#61-77" title="Go to source code">_getReverseName</a>( )</code>
 
 			<div class="description short">
-				
+				<p>The assembled <code>revers name</code>; last/first format</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>The assembled <code>revers name</code>; last/first format</p>
 
 
 
@@ -316,7 +324,47 @@ Cake\ORM\Entity
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="memberLabel" id="_memberLabel">
+		<tr data-order="_institutionName" id="__institutionName">
+
+			<td class="attributes"><code>
+				 protected 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#__institutionName">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#79-97" title="Go to source code">_institutionName</a>( )</code>
+
+			<div class="description short">
+				<p>Returns an institution/group name</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Returns an institution/group name</p>
+
+<p>Handles messy usage of the first/last name fields for these
+names that only need one field</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+					<h4>Todo</h4>
+					<div class="list">
+							The Member UX needs to route Institution/Group names to first_name<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getName" id="_getName">
 
 			<td class="attributes"><code>
 				 public 
@@ -326,27 +374,295 @@ Cake\ORM\Entity
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_memberLabel">#</a>
-			<code><a href="source-class-App.Model.Entity.Member.html#62-82" title="Go to source code">memberLabel</a>( <span>string <var>$case</var></span> )</code>
+			<a class="anchor" href="#_getName">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#99-125" title="Go to source code">getName</a>( <span>string <var>$format</var> = FIRST_LAST</span> )</code>
 
 			<div class="description short">
-				<p>Return a properly cased concatenation of the member type and its name.</p>
+				<p>Flexible name getter</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Return a properly cased concatenation of the member type and its name.</p>
+				<p>Flexible name getter</p>
+
+<p>Can return 3 variations of concatention
+FIRST_LAST = first_name last_name LAST_FIRST = last_name, first_name LABELED = memeber_type: first_name last_name</p>
 
 
 					<h4>Parameters</h4>
 					<div class="list"><dl>
-						<dt><var>$case</var></dt>
-						<dd>either 'title' or 'lower'</dd>
+						<dt><var>$format</var></dt>
+						<dd></dd>
 					</dl></div>
 
 					<h4>Returns</h4>
 					<div class="list">
-						string<br>the formatted label
+						string
 					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isCollector" id="_isCollector">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isCollector">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#127-137" title="Go to source code">isCollector</a>( )</code>
+
+			<div class="description short">
+				<p>Has this Memeber collected artwork</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Has this Memeber collected artwork</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getCollector" id="_getCollector">
+
+			<td class="attributes"><code>
+				 protected 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getCollector">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#139-141" title="Go to source code">getCollector</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getCollectedCount" id="_getCollectedCount">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getCollectedCount">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#143-149" title="Go to source code">getCollectedCount</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isDispositionParticipant" id="_isDispositionParticipant">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isDispositionParticipant">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#151-156" title="Go to source code">isDispositionParticipant</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getDispositionCount" id="_getDispositionCount">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getDispositionCount">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#158-164" title="Go to source code">getDispositionCount</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="isActive" id="_isActive">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_isActive">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#166-171" title="Go to source code">isActive</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getFirstName" id="_getFirstName">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getFirstName">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#173-175" title="Go to source code">getFirstName</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getLastName" id="_getLastName">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getLastName">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#177-179" title="Go to source code">getLastName</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getType" id="_getType">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getType">#</a>
+			<code><a href="source-class-App.Model.Entity.Member.html#181-183" title="Go to source code">getType</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+
+
 
 
 
@@ -377,7 +693,7 @@ Cake\ORM\Entity
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Entity.Member.html#23-35" title="Go to source code"><var>$_accessible</var></a>
+					<a href="source-class-App.Model.Entity.Member.html#27-39" title="Go to source code"><var>$_accessible</var></a>
 
 				<div class="description short">
 					<p>Fields that can be mass assigned using newEntity() or patchEntity().</p>
@@ -417,7 +733,7 @@ be mass assigned. For security purposes, it is advised to set '</em>' to false
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Entity.Member.html#9" title="Go to source code"><var>$id</var></a>
+					<a href="source-class-App.Model.Entity.Member.html#13" title="Go to source code"><var>$id</var></a>
 
 				<div class="description short">
 					
@@ -436,7 +752,7 @@ be mass assigned. For security purposes, it is advised to set '</em>' to false
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Entity.Member.html#10" title="Go to source code"><var>$created</var></a>
+					<a href="source-class-App.Model.Entity.Member.html#14" title="Go to source code"><var>$created</var></a>
 
 				<div class="description short">
 					
@@ -455,7 +771,7 @@ be mass assigned. For security purposes, it is advised to set '</em>' to false
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Entity.Member.html#11" title="Go to source code"><var>$modified</var></a>
+					<a href="source-class-App.Model.Entity.Member.html#15" title="Go to source code"><var>$modified</var></a>
 
 				<div class="description short">
 					
@@ -474,7 +790,7 @@ be mass assigned. For security purposes, it is advised to set '</em>' to false
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Entity.Member.html#12" title="Go to source code"><var>$name</var></a>
+					<a href="source-class-App.Model.Entity.Member.html#16" title="Go to source code"><var>$name</var></a>
 
 				<div class="description short">
 					
@@ -493,7 +809,7 @@ be mass assigned. For security purposes, it is advised to set '</em>' to false
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Entity.Member.html#13" title="Go to source code"><var>$user_id</var></a>
+					<a href="source-class-App.Model.Entity.Member.html#17" title="Go to source code"><var>$user_id</var></a>
 
 				<div class="description short">
 					
@@ -512,7 +828,7 @@ be mass assigned. For security purposes, it is advised to set '</em>' to false
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Entity.Member.html#14" title="Go to source code"><var>$image_id</var></a>
+					<a href="source-class-App.Model.Entity.Member.html#18" title="Go to source code"><var>$image_id</var></a>
 
 				<div class="description short">
 					

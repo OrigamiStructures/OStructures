@@ -190,7 +190,9 @@
 				<li><a href="class-App.Model.Table.MenusTable.html">MenusTable</a></li>
 				<li><a href="class-App.Model.Table.PiecesTable.html">PiecesTable</a></li>
 				<li><a href="class-App.Model.Table.ProxyMembersTable.html">ProxyMembersTable</a></li>
+				<li><a href="class-App.Model.Table.RolodexCardsTable.html">RolodexCardsTable</a></li>
 				<li><a href="class-App.Model.Table.SeriesTable.html">SeriesTable</a></li>
+				<li><a href="class-App.Model.Table.StacksTable.html">StacksTable</a></li>
 				<li><a href="class-App.Model.Table.SubscriptionsTable.html">SubscriptionsTable</a></li>
 				<li><a href="class-App.Model.Table.UsersTable.html">UsersTable</a></li>
 				<li class="active"><a href="class-App.Model.Table.UserStacksTable.html">UserStacksTable</a></li>
@@ -224,11 +226,18 @@ Cake\ORM\Table
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>App\Model\Table\UserStacksTable</span></b>			
+			<a href="class-App.Model.Table.StacksTable.html"><span>App\Model\Table\StacksTable</span></a>
+			
 			
 			 uses 
 					Cake\Core\ConventionsTrait (not available)
 
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>App\Model\Table\UserStacksTable</span></b>			
+			
 			
 		</dd>
 	</dl>
@@ -250,7 +259,7 @@ Cake\ORM\Table
 				\Cake\ORM\Behavior\TimestampBehavior<br>
 				<b>Mixin:</b>
 				\Cake\Core\ConventionsTrait<br>
-			<b>Located at</b> <a href="source-class-App.Model.Table.UserStacksTable.html#19-253" title="Go to source code">Model/Table/UserStacksTable.php</a>
+			<b>Located at</b> <a href="source-class-App.Model.Table.UserStacksTable.html#14-170" title="Go to source code">Model/Table/UserStacksTable.php</a>
 		<br>
 	</div>
 
@@ -270,7 +279,7 @@ Cake\ORM\Table
 
 			<td class="name"><div>
 			<a class="anchor" href="#_initialize">#</a>
-			<code><a href="source-class-App.Model.Table.UserStacksTable.html#37-45" title="Go to source code">initialize</a>( <span>array <var>$config</var></span> )</code>
+			<code><a href="source-class-App.Model.Table.UserStacksTable.html#57-65" title="Go to source code">initialize</a>( <span>array <var>$config</var></span> )</code>
 
 			<div class="description short">
 				<p>Initialize method</p>
@@ -289,48 +298,8 @@ Cake\ORM\Table
 
 
 
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="__get" id="___get">
-
-			<td class="attributes"><code>
-				 public 
-				Cake\ORM\Table|mixed
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#___get">#</a>
-			<code><a href="source-class-App.Model.Table.UserStacksTable.html#47-62" title="Go to source code">__get</a>( <span>string <var>$property</var></span> )</code>
-
-			<div class="description short">
-				<p>Lazy load the required tables</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Lazy load the required tables</p>
-
-<p>I couldn't get Associations to work in cooperation with the schema
-intialization that sets the custom 'layer' type properties. This is
-my solution to making the Tables available</p>
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$property</var></dt>
-						<dd></dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						Cake\ORM\Table|mixed
-					</div>
-
-
-
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-App.Model.Table.StacksTable.html#_initialize">App\Model\Table\StacksTable::initialize</a></code></div>
 
 			</div>
 			</div></td>
@@ -339,14 +308,14 @@ my solution to making the Tables available</p>
 
 			<td class="attributes"><code>
 				 protected 
-				Cake\Database\Schema\TableSchema
+				TableSchema
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#__initializeSchema">#</a>
-			<code><a href="source-class-App.Model.Table.UserStacksTable.html#64-81" title="Go to source code">_initializeSchema</a>( <span>Cake\Database\Schema\TableSchema <var>$schema</var></span> )</code>
+			<code><a href="source-class-App.Model.Table.UserStacksTable.html#67-84" title="Go to source code">_initializeSchema</a>( <span>App\Model\Table\TableSchema <var>$schema</var></span> )</code>
 
 			<div class="description short">
 				<p>Add the columns to hold the different layers and set their data type</p>
@@ -367,27 +336,29 @@ contain Layer objects.</p>
 
 					<h4>Returns</h4>
 					<div class="list">
-						Cake\Database\Schema\TableSchema
+						TableSchema
 					</div>
 
 
 
+					<h4>Overrides</h4>
+					<div class="list"><code><a href="class-App.Model.Table.StacksTable.html#__initializeSchema">App\Model\Table\StacksTable::_initializeSchema</a></code></div>
 
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="findStack" id="_findStack">
+		<tr data-order="loadFromUser" id="_loadFromUser">
 
 			<td class="attributes"><code>
-				 public 
+				 protected 
 				<code><a href="class-App.Model.Entity.UserStack.html">App\Model\Entity\UserStack</a></code>
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
-			<a class="anchor" href="#_findStack">#</a>
-			<code><a href="source-class-App.Model.Table.UserStacksTable.html#83-108" title="Go to source code">findStack</a>( <span>Cake\ORM\Query <var>$query</var></span>, <span>array <var>$options</var></span> )</code>
+			<a class="anchor" href="#_loadFromUser">#</a>
+			<code><a href="source-class-App.Model.Table.UserStacksTable.html#86-109" title="Go to source code">loadFromUser</a>( <span>Query <var>$ids</var></span>, <span>array <var>$options</var>,…</span> )</code>
 
 			<div class="description short">
 				<p>The primary access point to get the UserStack</p>
@@ -412,9 +383,9 @@ system user that has give permission for artist management.</p>
 
 					<h4>Parameters</h4>
 					<div class="list"><dl>
-						<dt><var>$query</var></dt>
-						<dd></dd>
-						<dt><var>$options</var></dt>
+						<dt><var>$ids</var></dt>
+						<dd>$query</dd>
+						<dt><var>$options</var>,…</dt>
 						<dd>None needed. Present for signature consistency</dd>
 					</dl></div>
 
@@ -433,90 +404,19 @@ system user that has give permission for artist management.</p>
 			</div>
 			</div></td>
 		</tr>
-		<tr data-order="_marshall" id="__marshall">
-
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#__marshall">#</a>
-			<code><a href="source-class-App.Model.Table.UserStacksTable.html#216-229" title="Go to source code">_marshall</a>( <span>Entity <var>$entity</var></span>, <span>string <var>$property</var></span>, <span>array <var>$value</var></span> )</code>
-
-			<div class="description short">
-				<p>Set one of the layer properties for the Stack type entity</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Set one of the layer properties for the Stack type entity</p>
-
-<p>The value must be a homogenous array of entities</p>
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$entity</var></dt>
-						<dd></dd>
-						<dt><var>$property</var></dt>
-						<dd>The property to set</dd>
-						<dt><var>$value</var></dt>
-						<dd>An array of Entities</dd>
-					</dl></div>
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="_loadFromJoinTable" id="__loadFromJoinTable">
-
-			<td class="attributes"><code>
-				 protected 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#__loadFromJoinTable">#</a>
-			<code><a href="source-class-App.Model.Table.UserStacksTable.html#231-250" title="Go to source code">_loadFromJoinTable</a>( <span>string <var>$table</var></span>, <span>string <var>$column</var></span>, <span>array <var>$ids</var></span> )</code>
-
-			<div class="description short">
-				<p>Throw together a temporary Join Table class and search it</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Throw together a temporary Join Table class and search it</p>
-
-<p>This will actually work for any table, but habtm tables typically
-don't have a named class written for them.</p>
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$table</var></dt>
-						<dd>The name of the table class by convention</dd>
-						<dt><var>$column</var></dt>
-						<dd>Name of the integer column to search</dd>
-						<dt><var>$ids</var></dt>
-						<dd></dd>
-					</dl></div>
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
 			</table>
 		</div>
 
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods inherited from <a href="class-App.Model.Table.StacksTable.html#methods">App\Model\Table\StacksTable</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-App.Model.Table.StacksTable.html#___get">__get()</a></code>, 
+				<code><a href="class-App.Model.Table.StacksTable.html#__loadFromJoinTable">_loadFromJoinTable()</a></code>, 
+				<code><a href="class-App.Model.Table.StacksTable.html#__loadLayer">_loadLayer()</a></code>, 
+				<code><a href="class-App.Model.Table.StacksTable.html#_findStackFrom">findStackFrom()</a></code>, 
+				<code><a href="class-App.Model.Table.StacksTable.html#_validateArguments">validateArguments()</a></code>
+			</p>
+		</div>
 
 
 
@@ -529,6 +429,95 @@ don't have a named class written for them.</p>
 
 		<div class="panel panel-default">
             <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="layerTables" id="$layerTables">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Table.UserStacksTable.html#30-36" title="Go to source code"><var>$layerTables</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$layerTables" class="anchor">#</a>
+					<code>[
+    <span class="php-quote">'Users'</span>, <span class="php-quote">'Members'</span>, <span class="php-quote">'Contacts'</span>, 
+    <span class="php-quote">'Addresses'</span>, <span class="php-quote">'Artists'</span>, <span class="php-quote">'GroupsMembers'</span>
+]</code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="stackSchema" id="$stackSchema">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Table.UserStacksTable.html#38-48" title="Go to source code"><var>$stackSchema</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$stackSchema" class="anchor">#</a>
+					<code>[   
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'user'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'member'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'contacts'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'addresses'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'artists'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+    [<span class="php-quote">'name'</span> =&gt; <span class="php-quote">'groups_members'</span>, <span class="php-quote">'specs'</span> =&gt; [<span class="php-quote">'type'</span> =&gt; <span class="php-quote">'layer'</span>]],
+]</code>
+				</div>
+			</td>
+		</tr>
+		<tr data-order="seedPoints" id="$seedPoints">
+			<td class="attributes"><code>
+				protected  
+				array
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-App.Model.Table.UserStacksTable.html#50-55" title="Go to source code"><var>$seedPoints</var></a>
+
+				<div class="description short">
+					
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$seedPoints" class="anchor">#</a>
+					<code>[
+    <span class="php-quote">'user'</span>, <span class="php-quote">'users'</span>,
+]</code>
+				</div>
+			</td>
+		</tr>
+			</table>
 		</div>
 
 
@@ -543,7 +532,7 @@ don't have a named class written for them.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Table.UserStacksTable.html#22" title="Go to source code"><var>$Users</var></a>
+					<a href="source-class-App.Model.Table.UserStacksTable.html#17" title="Go to source code"><var>$Users</var></a>
 
 				<div class="description short">
 					
@@ -562,7 +551,7 @@ don't have a named class written for them.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Table.UserStacksTable.html#23" title="Go to source code"><var>$Members</var></a>
+					<a href="source-class-App.Model.Table.UserStacksTable.html#18" title="Go to source code"><var>$Members</var></a>
 
 				<div class="description short">
 					
@@ -581,7 +570,7 @@ don't have a named class written for them.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Table.UserStacksTable.html#24" title="Go to source code"><var>$Contacts</var></a>
+					<a href="source-class-App.Model.Table.UserStacksTable.html#19" title="Go to source code"><var>$Contacts</var></a>
 
 				<div class="description short">
 					
@@ -600,7 +589,7 @@ don't have a named class written for them.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Table.UserStacksTable.html#25" title="Go to source code"><var>$Addresses</var></a>
+					<a href="source-class-App.Model.Table.UserStacksTable.html#20" title="Go to source code"><var>$Addresses</var></a>
 
 				<div class="description short">
 					
@@ -619,7 +608,7 @@ don't have a named class written for them.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Table.UserStacksTable.html#26" title="Go to source code"><var>$Artists</var></a>
+					<a href="source-class-App.Model.Table.UserStacksTable.html#21" title="Go to source code"><var>$Artists</var></a>
 
 				<div class="description short">
 					
@@ -638,7 +627,7 @@ don't have a named class written for them.</p>
 			</code></td>
 
 			<td class="name">
-					<a href="source-class-App.Model.Table.UserStacksTable.html#27" title="Go to source code"><var>$GroupMembers</var></a>
+					<a href="source-class-App.Model.Table.UserStacksTable.html#22" title="Go to source code"><var>$GroupMembers</var></a>
 
 				<div class="description short">
 					
