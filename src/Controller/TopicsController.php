@@ -18,7 +18,10 @@ class TopicsController extends AppController
      */
     public function index()
     {
-        $this->set('topics', $this->paginate($this->Topics));
+        $this->set('topics', $this->paginate(
+				$this->Topics
+				->find('all')
+				->order(['slug'])));
         $this->set('_serialize', ['topics']);
     }
 

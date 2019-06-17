@@ -22,14 +22,14 @@
             <h6 class="subheader"><?= __('Id') ?></h6>
             <p><?= $this->Number->format($topic->id) ?></p>
         </div>
-        <div class="large-2 columns dates end">
+<!--        <div class="large-2 columns dates end">
             <h6 class="subheader"><?= __('Created') ?></h6>
             <p><?= h($topic->created) ?></p>
             <h6 class="subheader"><?= __('Modified') ?></h6>
             <p><?= h($topic->modified) ?></p>
             <h6 class="subheader"><?= __('Updated') ?></h6>
             <p><?= h($topic->updated) ?></p>
-        </div>
+        </div>-->
     </div>
 </div>
 <div class="related row">
@@ -38,27 +38,28 @@
     <?php if (!empty($topic->articles)): ?>
     <table cellpadding="0" cellspacing="0">
         <tr>
-            <th><?= __('Id') ?></th>
-            <th><?= __('Title') ?></th>
-            <th><?= __('Text') ?></th>
+            <th  style="width:3rem;"><?= __('Id') ?></th>
+            <th  style="width:30%;"><?= __('Title') ?></th>
+<!--            <th><?= __('Text') ?></th>
             <th><?= __('Type') ?></th>
             <th><?= __('Slug') ?></th>
             <th><?= __('Created') ?></th>
             <th><?= __('Modified') ?></th>
-            <th><?= __('Updated') ?></th>
-            <th><?= __('Summary') ?></th>
+            <th><?= __('Updated') ?></th>-->
+            <th  style="width:50%;"><?= __('Summary') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($topic->articles as $articles): ?>
         <tr>
             <td><?= h($articles->id) ?></td>
-            <td><?= h($articles->title) ?></td>
-            <td><?= h($articles->text) ?></td>
+			<?php  ?>
+            <td><?= $this->Html->link($articles->title, '/article/' . $articles->slug) ?></td>
+<!--            <td><?= h($articles->text) ?></td>
             <td><?= h($articles->type) ?></td>
             <td><?= h($articles->slug) ?></td>
             <td><?= h($articles->created) ?></td>
             <td><?= h($articles->modified) ?></td>
-            <td><?= h($articles->updated) ?></td>
+            <td><?= h($articles->updated) ?></td>-->
             <td><?= h($articles->summary) ?></td>
 
             <td class="actions">
