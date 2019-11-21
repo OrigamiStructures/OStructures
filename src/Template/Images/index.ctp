@@ -33,6 +33,9 @@
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id)]) ?>
             </td>
         </tr>
+        <tr><td colspan="7"">
+                <?= $this->element('Resources/image_resources', ['images' => [$image], 'preview' => FALSE])?>
+            </td></tr>
 
     <?php endforeach; ?>
     </tbody>
