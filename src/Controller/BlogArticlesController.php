@@ -13,20 +13,20 @@ use Cake\Utility\Hash;
  * @author dondrake
  */
 class BlogArticlesController extends ArticlesController {
-    
-    
+
+
     public $paginate = [
         'limit' => 10,
         'order' => [
             'Articles.published' => 'desc'
         ]
     ];
-    
+
     public function initialize() {
         parent::initialize();
         $this->loadComponent('Paginator');
     }
-	
+
 	public function add() {
 		$article = new BlogArticle(['publish' => true]);
 		$this->BlogArticles->save($article);
@@ -43,12 +43,12 @@ class BlogArticlesController extends ArticlesController {
             $article = [];
             echo $exc->getTraceAsString();
         }
-        
+
         if ($this->request->is(['patch', 'post', 'put'])) {
 
 			/*
-			 * Can't figure out how to get the authors data to 
-			 * patch into the entity properly. So, I'm gonna jam 
+			 * Can't figure out how to get the authors data to
+			 * patch into the entity properly. So, I'm gonna jam
 			 * it in manually. First an early attemp to patch:
 			 */
 			// adjust author id values
@@ -76,25 +76,25 @@ class BlogArticlesController extends ArticlesController {
 				}
 				$article->dirty('authors', true);
 			}
-			
+
             $article = $this->{$this->modelClass}
 					->patchEntity($article, $this->request->data, ['associated' => ['Authors']]);
-			
+
 			if ($this->{$this->modelClass}->save($article)) {
 				GitRepo::write($article);
                 $this->Flash->success(__('The article has been saved.'));
 				if (!$this->request->data['continue']) {
 					return $this->redirect([
-						'controller' => 'BlogArticles', 
-						'action' => 'view', 
+						'controller' => 'BlogArticles',
+						'action' => 'view',
 						$article->slug]);
-				}				
+				}
             } else {
                 $this->Flash->error(__('The article could not be saved. '
 						. 'Please, try again.'));
             }
         }
-        
+
         try {
             $article = $this->{$this->modelClass}->get($id, [
                 'contain' => ['Images', 'Topics', 'Authors']
@@ -106,7 +106,7 @@ class BlogArticlesController extends ArticlesController {
             $linkedImages = $this->linkedImages($Images, $id);
             $otherArticles = $this->otherArticles($id);
 			$this->sidebarData();
-		
+
 			// make the options list for author select input
 			$authors = $this->{$this->modelClass}->Authors->find('list');
 			// make the val option for author select (to show current stored values)
@@ -115,18 +115,18 @@ class BlogArticlesController extends ArticlesController {
 				$accumulated[] = $author->id;
 				return $accumulated;
 			}, []);
-		
+
         } catch (Exception $exc) {
             $article = $articleImages = $unlinkedImages = $linkedImages = array();
             echo $exc->getTraceAsString();
         }
 
 		$toc = $article->toc();
-		
+
         $this->set(compact('article', 'articleImages', 'unlinkedImages', 'linkedImages', 'toc', 'otherArticles', 'authors', 'author_val'));
         $this->set('_serialize', ['article']);
 	}
-    
+
 	public function index() {
         $this->layout = 'min';
         try {
@@ -142,7 +142,7 @@ class BlogArticlesController extends ArticlesController {
         $this->set(compact('articles'));
         $this->set('_serialize', ['articles']);
     }
-	
+
 	public function view($id = NULL) {
 		$slug = $id;
         $this->layout = 'min';
@@ -159,10 +159,10 @@ class BlogArticlesController extends ArticlesController {
         $this->set(compact('article','toc'));
         $this->set('_serialize', ['article']);
 	}
-    
+
     /**
      * Filter the provided $Images object to return those not linked to any article
-     * 
+     *
      * @param object $Images
      * @return object the unlinked images as a Collection Object
      */
@@ -171,10 +171,10 @@ class BlogArticlesController extends ArticlesController {
                 return count($image->articles) == 0;
             });
     }
-    
+
     /**
      * Filter the provided $Images object to return those only linked to OTHER articles
-     * 
+     *
      * @param object $Images
      * @param string $id the current article id
      * @return object the linked images as a Collection Object
@@ -203,21 +203,21 @@ class BlogArticlesController extends ArticlesController {
             $otherArticles->where([
                 'id !=' => $id]);
         } catch (Exception $e) {
-            
+
         }
         return $otherArticles;
     }
-	
+
     /**
      * Fetch data for the sidebar
-     * 
+     *
      * This function MUST be called in a try block
      */
     private function sidebarData() {
         $this->loadModel('Articles');
-			
+
 		$recent = $this->Articles->find('recentArticles', $this->request->data);
-        
+
         $topics = $this->{$this->modelClass}->Topics->find('topicList');
         $this->set(compact('recent', 'topics'));
     }
