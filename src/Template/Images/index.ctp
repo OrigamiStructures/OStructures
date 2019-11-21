@@ -13,10 +13,8 @@
             <th><?= $this->Paginator->sort('image') ?></th>
             <th><?= $this->Paginator->sort('image_dir') ?></th>
             <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('article_id') ?></th>
-            <th><?= $this->Paginator->sort('modified') ?></th>
+            <th><?= Preview ?></th>
             <th><?= $this->Paginator->sort('created') ?></th>
-            <th><?= $this->Paginator->sort('mimetype') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -26,12 +24,9 @@
             <td><?= h($image->image) ?></td>
             <td><?= h($image->image_dir) ?></td>
             <td><?= $this->Number->format($image->id) ?></td>
-            <td>
-                <?= $image->has('article') ? $this->Html->link($image->article->title, ['controller' => 'Articles', 'action' => 'view', $image->article->id]) : '' ?>
-            </td>
-            <td><?= h($image->modified) ?></td>
+            <td><?php $path = "images/image/{$image['image_dir']}/small_{$image['image']}"; ?>
+                <?= $this->Html->image($path); ?></td>
             <td><?= h($image->created) ?></td>
-            <td><?= h($image->mimetype) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $image->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $image->id]) ?>

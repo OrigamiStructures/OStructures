@@ -19,7 +19,8 @@ class ImagesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Articles']
+            'contain' => ['Articles'],
+            'order' => ['created' => 'DESC']
         ];
         $this->set('images', $this->paginate($this->Images));
         $this->set('_serialize', ['images']);
