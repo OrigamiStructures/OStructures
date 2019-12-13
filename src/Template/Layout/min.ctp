@@ -13,12 +13,10 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
 echo $this->element('Common/common_scripts');
-if ($this->request->action == 'edit');
 if (isset($article)) {
 	$this->start('title');
-	echo ($this->request->action == 'edit' ? 'E:':'') . $article['title'];
+	echo ($this->request->action == 'edit' ? 'E:':'OS: ') . $article['title'];
 	$this->end();
 }
 ?>
