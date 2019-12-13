@@ -1,7 +1,7 @@
 /*
 Copyright 2015 Origami Structures
 */
-/* 
+/*
     Created on : Aug 19, 2015, 12:31:14 PM
     Author     : jasont
 */
@@ -27,10 +27,11 @@ article{
 			font-size: 102%;
 		}
 		li{
-			margin-top: .2rem;
-			margin-bottom: .4rem;
+			margin-top: .1rem;
+			margin-bottom: .1rem;
 			line-height: 1.3;
-			font-size: 95%;
+			font-size: 75%;
+            color: #015c73;
 			p {
 				margin: 0;
 			}
@@ -101,33 +102,33 @@ code {
 div.sidebar {
 	padding-top: 1.25rem;
 	margin-top: 3px;
-	
+
 	h1 {
 		font-size: 1.25rem;
 		margin-top: 0;
 		line-height: 1rem;
 	}
-	
+
 	fieldset {
 		padding: .4rem;
 		padding-top: rem-calc(2);
-		
+
 		div.submit > input {
 			margin: .5rem 0 0;
 			background-color: #e7e7e7;
 			color: #27587f;
 			font-size: 100%;
-			
+
 		}
 	}
-	
+
 	select {
 		margin: 0;
 	}
 }
 
 section.toc, div.sidebar {
-	
+
 	ul {
 		font-size: 1rem;
 	}
@@ -157,7 +158,7 @@ article.summary {
     border-left: medium solid desaturate(lighten($dk-blue, 70%), 40%);
     border-top: 1rem solid desaturate(lighten($dk-green, 75%), 40%);
     padding-left: 1rem;
-	
+
 	section[itemprop="description"] {
 		p:last-of-type {
 			margin-bottom: 0.05rem;

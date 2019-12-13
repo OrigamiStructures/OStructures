@@ -1,7 +1,7 @@
 /*
 Copyright 2015 Origami Structures
 */
-/* 
+/*
     Created on : Aug 19, 2015, 12:31:14 PM
     Author     : jasont
 */
@@ -6334,7 +6334,7 @@ th.hide-for-touch {
 /*
 Copyright 2015 Origami Structures
 */
-/* 
+/*
     Created on : Aug 14, 2015, 11:58:59 AM
     Author     : jasont
 */
@@ -6384,9 +6384,11 @@ article ul {
     font-size: 102%; }
   article ul li {
     margin-top: .2rem;
-    margin-bottom: .4rem;
+    margin-bottom: .2rem;
     line-height: 1.3;
-    font-size: 95%; }
+    font-size: 75%;
+    color: #015c73;
+  }
     article ul li p {
       margin: 0; }
   article ul ul {
