@@ -10,3 +10,4 @@ config/app.php
 /plugins/composer.*
 /.idea
 /plugins/OSDebug
+/composer.lock
