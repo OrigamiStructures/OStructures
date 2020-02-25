@@ -1,10 +1,14 @@
 <!-- Common/topic_filters -->
 <?php
 if (isset($topics)) :
-	$submitFilterButton = '';
+	$submitFilterButton = $submitPortalButton = '';
 	if ($this->request->action !== 'edit') {
 		echo $this->Form->create();
-		$submitFilterButton = $this->Form->submit('Filter', ['class' => 'button tiny radius secondary']);
+        $submitFilterButton = $this->Form->submit('Filter', ['class' => 'button tiny radius secondary']);
+        $submitPortalButton = $this->Form->submit('Portal', [
+            'class' => 'button tiny radius secondary',
+            'formaction' => \Cake\Routing\Router::url(['controller' => 'blog_articles', 'action' => 'portal'])
+        ]);
 	}
 	$topics = $topics->toArray();
 	echo $this->Form->fieldset(
@@ -13,11 +17,11 @@ if (isset($topics)) :
 				['value' => 'all', 'text' => ' Must have all topics', 'checked' => TRUE],
 				['value' => 'any', 'text' => ' Can have any of the topcis']
 			])
-			. $submitFilterButton,
+			. $submitFilterButton . $submitPortalButton,
 			['legend' => 'Filter by topic']) . "\n";
 	if ($this->request->action !== 'edit') {
 		echo $this->Form->end();
-	}	
+	}
 endif;
 ?>
 <!-- End Common/topic_filters -->

@@ -6,6 +6,7 @@ use Cake\Collection\Collection;
 use App\Model\Entity\BlogArticle;
 use Cake\Log\Log;
 use App\Lib\GitRepo;
+use Cake\ORM\TableRegistry;
 use Cake\Utility\Hash;
 
 /**
@@ -31,6 +32,44 @@ class BlogArticlesController extends ArticlesController {
 		$article = new BlogArticle(['publish' => true]);
 		$this->BlogArticles->save($article);
 		$this->redirect('/blog_articles/edit/' . $article->id );
+	}
+
+    /**
+     * Generate dynamic page showing articles on Topics
+     */
+    public function portal()
+    {
+        $TopicsTable = TableRegistry::getTableLocator()->get('Topics');
+        $topicIds = $this->request->getData('topics._ids');
+        $q = $TopicsTable->find('all')
+            ->where(['id IN' => $topicIds])
+            ->contain(['Articles' => [
+                'fields' => ['id', 'slug', 'title', 'text'],
+                'Topics' => ['fields' => ['id', 'name']]
+            ]]);
+        //reduce q result to distinct articles with topic counts
+        $articles = $filterTopics = [];
+        foreach ($q->toArray() as $topicAndArticles) {
+            $filterTopics[] = $topicAndArticles->name;
+            $articlesOnTopic = collection($topicAndArticles->articles);
+            $distinctArticles = $articlesOnTopic->reduce(function ($reduced, $entity) {
+                if (!isset($reduced[$entity->id])) {
+                    unset($entity->_joinData);
+                    $entity->topics = count($entity->topics);
+                    $entity->clean();
+                    $reduced[$entity->id] = $entity;
+                }
+                return $reduced;
+            }, $articles);
+        }
+        //sort articles based on topic counts
+        usort($distinctArticles, function($thisOne, $otherOne) {
+            return $thisOne->topics <=> $otherOne->topics;
+        });
+        $this->set(compact('filterTopics', 'distinctArticles'));
+        // stuff to support a normal article page
+        $this->layout = 'min';
+        $this->sidebarData();
 	}
 
 	public function edit($id = null) {
