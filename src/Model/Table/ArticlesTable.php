@@ -75,11 +75,11 @@ class ArticlesTable extends Table
 	 * @param Article $entity
 	 */
 	public function beforeSave(Event $event, Article $entity) {
-		if ($entity->dirty('created')) {
+		if ($entity->isDirty('created')) {
 			return $entity;
 		}
 
-		if (!$entity->dirty('text') && ($entity->dirty('title') || $entity->dirty('summary'))) {
+		if (!$entity->isDirty('text') && ($entity->isDirty('title') || $entity->dirty('summary'))) {
 			$this->buildToc($entity);
 
 			Cache::clearGroup('recent_articles', 'article_lists');
@@ -87,7 +87,7 @@ class ArticlesTable extends Table
 			Cache::delete($entity->id, 'article_summary');
 			Cache::delete($entity->id, 'toc_output');
 		}
-        if ($entity->isNew() || $entity->dirty('text')) {
+        if ($entity->isNew() || $entity->isDirty('text')) {
 			$this->manageTocAnchors($entity);
 			$entity = $this->manageImageAssociations($entity);
 			$this->manageTopicAssociations($entity);
