@@ -117,7 +117,7 @@ class BlogArticlesController extends ArticlesController {
 			}
 
             $article = $this->{$this->modelClass}
-					->patchEntity($article, $this->request->data, ['associated' => ['Authors']]);
+					->patchEntity($article, $this->request->getData(), ['associated' => ['Authors']]);
 
 			if ($this->{$this->modelClass}->save($article)) {
 //				GitRepo::write($article);
