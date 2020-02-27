@@ -29,7 +29,7 @@ class BlogArticlesController extends ArticlesController {
     }
 
 	public function add() {
-		$article = new BlogArticle(['publish' => true]);
+		$article = new BlogArticle(['publish' => 1]);
 		$this->BlogArticles->save($article);
 		$this->redirect('/blog_articles/edit/' . $article->id );
 	}
@@ -120,7 +120,7 @@ class BlogArticlesController extends ArticlesController {
 					->patchEntity($article, $this->request->data, ['associated' => ['Authors']]);
 
 			if ($this->{$this->modelClass}->save($article)) {
-				GitRepo::write($article);
+//				GitRepo::write($article);
                 $this->Flash->success(__('The article has been saved.'));
 				if (!$this->request->data['continue']) {
 					return $this->redirect([

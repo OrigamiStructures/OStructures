@@ -1,5 +1,7 @@
 <?php
 use Sluggable\Utility\Slug;
+/* @var \Cake\View\View $this */
+
 
 list($slug, $return, $heading) = [
 	Slug::generate($article->title),
