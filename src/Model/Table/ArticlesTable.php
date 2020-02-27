@@ -92,10 +92,10 @@ class ArticlesTable extends Table
 			$entity = $this->manageImageAssociations($entity);
 			$this->manageTopicAssociations($entity);
 			Cache::clearGroup('recent_articles', 'article_lists');
-			Cache::delete($entity->id, 'article_markdown');
-			Cache::delete($entity->id, 'article_summary');
-			Cache::delete($entity->id, 'toc_output');
-			
+			Cache::delete((string) $entity->id, 'article_markdown');
+			Cache::delete((string) $entity->id, 'article_summary');
+			Cache::delete((string) $entity->id, 'toc_output');
+
 			// waiting to see if we need this
 //			debug('link the articles');
 //			$entity = $this->manageArticleAssociations($entity);
