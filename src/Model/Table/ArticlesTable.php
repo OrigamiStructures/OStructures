@@ -6,6 +6,8 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\View\View;
+use Cake3xMarkdown\View\Helper\CakeMarkdownHelper;
 use Sluggable;
 use Cake\Event\Event;
 //use Cake\Utility\Inflector;
@@ -61,6 +63,9 @@ class ArticlesTable extends Table
 	 */
 	protected $article_link_detection_pattern = '/[^!]\[(.*)\]\(.*\)/';
 
+	protected $article_detail_detection_pattern = '/\[detail\](.*)\[:detail\]/sU';
+
+
 	/**
 	 * Do the background processing to fluff the markdown article
 	 *
@@ -91,6 +96,7 @@ class ArticlesTable extends Table
 			$this->manageTocAnchors($entity);
 			$entity = $this->manageImageAssociations($entity);
 			$this->manageTopicAssociations($entity);
+			$this->manageDetailSections($entity);
 			Cache::clearGroup('recent_articles', 'article_lists');
 			Cache::delete((string) $entity->id, 'article_markdown');
 			Cache::delete((string) $entity->id, 'article_summary');
@@ -169,6 +175,50 @@ class ArticlesTable extends Table
 		return $entity; // we're going to wait and see if this feature is necessary
 		preg_match_all($this->article_link_detection_pattern, $entity->text, $match);
 		debug($match);
+	}
+
+    /**
+     * Turn [detail] tags into toggling sections
+     *
+     * [detail] content [/detail] becomes
+     *
+     * <detail>
+     *  <summary>Summary</summary>
+     *  <p>content</p>
+     * </detail>
+     *
+     * where clicking on Summary will toggle the visibility of <p>content</p>
+     *
+     * @param $entity
+     * return Entity
+     */
+    private function manageDetailSections($entity)
+    {
+        $this->View = new \Cake\View\View();
+        $this->Mark = new CakeMarkdownHelper($this->View);
+        $result = preg_replace_callback(
+            $this->article_detail_detection_pattern,
+            [$this, 'detailBlock'],
+            $entity->text,
+            -1,
+            $count
+        );
+        $entity->display_text = $result;
+        return $entity;
+	}
+
+    public function detailBlock($capture)
+    {
+        static $count = 0;
+        $count++;
+        $detail = $this->Mark->transform($capture[1]);
+        return
+"<detail class=\"accordion - navigation\">
+<summary><a href=\"#detail-$count\">Click for further details</a></summary>
+<div  id=\"detail-$count\" >
+$detail
+</div>
+</detail>";
 	}
 
 	/**
