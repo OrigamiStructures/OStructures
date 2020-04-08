@@ -42,13 +42,13 @@ class AppController extends Controller
         parent::initialize();
         $this->loadComponent('Flash');
     }
-	
-	
+
+
 	public function beforeRender(Event $event) {
 		// configure the markdown helper with geshi helper for code parsing
 		$this->helpers['Cake3xMarkdown.CakeMarkdown'] = ['helpers' => 'Geshi.Geshi'];
 	}
-    
+
     public function beforeFilter(Event $event) {
         parent::beforeFilter($event);
     }
