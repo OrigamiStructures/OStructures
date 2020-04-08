@@ -1,0 +1,10 @@
+/*detail p {*/
+/*    display: none;*/
+/*}*/
+detail summary:before {
+    content: "▼";
+}
+
+div.detail {
+    display: none;
+}

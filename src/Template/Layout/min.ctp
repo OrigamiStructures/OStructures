@@ -14,6 +14,7 @@
  */
 
 echo $this->element('Common/common_scripts');
+echo $this->Html->css('summary');
 if (isset($article)) {
 	$this->start('title');
 	echo ($this->request->action == 'edit' ? 'E:':'OS: ') . $article['title'];

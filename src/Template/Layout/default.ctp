@@ -29,6 +29,7 @@ echo $this->element('Common/common_scripts');
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('summary.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
