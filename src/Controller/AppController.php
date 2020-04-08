@@ -25,6 +25,7 @@ use App\View\Helper\Markdown;
  * will inherit them.
  *
  * @link http://book.cakephp.org/3.0/en/controllers.html#the-app-controller
+ * @property Markdown $Markdown
  */
 class AppController extends Controller
 {

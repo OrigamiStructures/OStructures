@@ -1,11 +1,11 @@
 <?php
 use Sluggable\Utility\Slug;
-/* @var \Cake\View\View $this */
+/* @var \App\View\AppView $this */
 
 
 list($slug, $return, $heading) = [
 	Slug::generate($article->title),
-	Slug::generate('toc-:title', $article), 
+	Slug::generate('toc-:title', $article),
 	$this->Html->tag('h1', $article->title, ['class' => 'article-title', 'itemprop' => 'headline'])];
 
 ?>
