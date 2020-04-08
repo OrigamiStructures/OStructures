@@ -212,12 +212,14 @@ class ArticlesTable extends Table
         static $count = 0;
         $count++;
         $detail = $this->Mark->transform($capture[1]);
+
         return
-"<detail class=\"accordion - navigation\">
-<summary><a href=\"#detail-$count\">Click for further details</a></summary>
-<div  id=\"detail-$count\" >
+"<detail>
+<summary onclick=\"toggleThis('#detail-$count')\">Deeper Dive
+<div  id=\"detail-$count\" style=\"display: none\">
 $detail
 </div>
+</summary>
 </detail>";
 	}
 

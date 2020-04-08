@@ -1,10 +1,10 @@
 /*detail p {*/
 /*    display: none;*/
 /*}*/
-detail summary:before {
-    content: "▼";
+summary.detail::before {
+    content: "▼ ";
+}
+summary::before {
+    content: "► ";
 }
 
-div.detail {
-    display: none;
-}

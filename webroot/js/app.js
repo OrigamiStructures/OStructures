@@ -48,17 +48,6 @@ jQuery.fn.center = function() {
     return this;
 }
 
-/**
- * Toggle an element
- *
- * @param string element selector of the element to toggle
- * @returns {undefined}
- */
-//function toggleThis(element) {
-//    $(element).toggle(50, function() {
-//        // animation complete.
-//    });
-//}
 
 /**
  * Set up the click on a node to control the display-toggle of another node
@@ -110,4 +99,14 @@ function maximize() {
 		preview_zone.css('width', preview_zone.data('w'));
 		zone_tool.html('Expand');
 	}
+}
+/**
+ * Toggle an element
+ *
+ * @param string element selector of the element to toggle
+ * @returns {undefined}
+ */
+function toggleThis(element) {
+    $(element).toggle(50, function() {});
+    $(element).parent().toggleClass('detail');
 }
