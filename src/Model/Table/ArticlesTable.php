@@ -63,7 +63,7 @@ class ArticlesTable extends Table
 	 */
 	protected $article_link_detection_pattern = '/[^!]\[(.*)\]\(.*\)/';
 
-	protected $article_detail_detection_pattern = '/\[detail\](.*)\[:detail\]/sU';
+	protected $article_detail_detection_pattern = '/\[detail(.*)\](.*)\[:detail\]/sU';
 
 
 	/**
@@ -96,7 +96,7 @@ class ArticlesTable extends Table
 			$this->manageTocAnchors($entity);
 			$entity = $this->manageImageAssociations($entity);
 			$this->manageTopicAssociations($entity);
-			$this->manageDetailSections($entity);
+            $entity = $this->manageDetailSections($entity);
 			Cache::clearGroup('recent_articles', 'article_lists');
 			Cache::delete((string) $entity->id, 'article_markdown');
 			Cache::delete((string) $entity->id, 'article_summary');
@@ -195,27 +195,30 @@ class ArticlesTable extends Table
     private function manageDetailSections($entity)
     {
         $this->View = new \Cake\View\View();
-        $this->Mark = new CakeMarkdownHelper($this->View);
+        $this->Mark = new CakeMarkdownHelper($this->View, ['helpers' => 'Geshi.Geshi']);
         $result = preg_replace_callback(
             $this->article_detail_detection_pattern,
             [$this, 'detailBlock'],
-            $entity->text,
+            $entity->display_text,
             -1,
             $count
         );
+//        die;
         $entity->display_text = $result;
         return $entity;
 	}
 
     public function detailBlock($capture)
     {
+//        debug($capture);
         static $count = 0;
         $count++;
-        $detail = $this->Mark->transform($capture[1]);
+        $title = $capture[1] == '' ? 'Deeper Dive' : $capture[1];
+        $detail = $this->Mark->transform($capture[2]);
 
         return
 "<detail>
-<summary onclick=\"toggleThis('#detail-$count')\">Deeper Dive
+<summary onclick=\"toggleThis('#detail-$count')\">$title
 <div  id=\"detail-$count\" style=\"display: none\">
 $detail
 </div>
@@ -245,7 +248,7 @@ $detail
 		$current_links = $images->toArray();
 
 		// Get referenced images from newly edited article
-		preg_match_all($this->image_link_detection_pattern, $entity->text, $match);
+		preg_match_all($this->image_link_detection_pattern, $entity->display_text, $match);
 		$image_keys = $match[1];
 
 		// Determine the differences
@@ -293,13 +296,26 @@ $detail
 				list($slug, $return, $heading) = [
 					Slug::generate($match),
 					Slug::generate('toc-:title', $entity),
-					preg_replace('/^(#+).*/', '$1', $match) . preg_replace('/^#+/', '', $match)];
+					preg_replace(
+					    '/^(#+).*/',
+                        '$1',
+                        $match
+                    ) . preg_replace(
+                        '/^#+/',
+                        '',
+                        $match
+                    )
+                ];
 				return sprintf(TOC_LINKBACK, $slug ,$return, $heading);
 			},
 //				,
 			$entity->text
 		);
-		preg_match_all($this->heading_detection_pattern, $entity->text, $headings);
+		preg_match_all(
+		    $this->heading_detection_pattern,
+            $entity->text,
+            $headings
+        );
 		$headings = $headings[4];
 
 		$this->buildToc($entity, $headings);
@@ -327,7 +343,11 @@ $detail
 	 */
 	private function buildToc($entity, $headings = []) {
 		if (empty($headings)) {
-			preg_match_all($this->heading_detection_pattern, $entity->text, $headings);
+			preg_match_all(
+			    $this->heading_detection_pattern,
+                $entity->text,
+                $headings
+            );
 			$headings = $headings[4];
 		}
 		$count = 0;
@@ -336,12 +356,26 @@ $detail
 		// the regex pattern lost the first # on every heading and captured the trailing newline
 		$toc = ['#' . $entity->title];
 		while ($count < $max) {
-			array_push($toc, '#' . trim($headings[$count++], "\r\n"));
+			array_push(
+			    $toc,
+                '#' . trim($headings[$count++],
+                "\r\n"));
 		}
 		$toc = new Collection($toc);
 		$toc = $toc->map(function ($value, $key) {
 			// '##My Title' yeilds '##', 'My Title', 'my-title'
-			return [preg_replace('/^(#+).*/', '$1', $value), preg_replace('/^#+/', '', $value), Slug::generate($value)];
+			return [
+			    preg_replace(
+			        '/^(#+).*/',
+                    '$1',
+                    $value
+                ),
+                preg_replace(
+                    '/^#+/',
+                    '',
+                    $value
+                ),
+                Slug::generate($value)];
 		});
 		$entity->toc = serialize($toc->toArray());
 	}
@@ -354,13 +388,10 @@ $detail
      */
     public function initialize(array $config)
     {
-        $this->table('articles');
-        $this->displayField('title');
-        $this->primaryKey('id');
+        $this->setTable('articles');
+        $this->setDisplayField('title');
+        $this->setPrimaryKey('id');
         $this->addBehavior('Timestamp');
-        // $this->hasMany('Images', [
-        //     'foreignKey' => 'article_id'
-        // ]);
 		$this->addBehavior('Sluggable.Sluggable', [
             'pattern' => ':title',
 			'overwrite' => true
@@ -380,9 +411,6 @@ $detail
             'targetForeignKey' => 'author_id',
             'joinTable' => 'articles_authors'
         ]);
-//		$this->hasMany('ArticlesImages', [
-//			'foreignKey' => 'article_id'
-//		]);
     }
 
     /**

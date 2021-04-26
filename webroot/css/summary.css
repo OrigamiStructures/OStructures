@@ -8,3 +8,8 @@ summary::before {
     content: "► ";
 }
 
+summary.detail div {
+    border-bottom: thin solid gray;
+    border-top: thin solid gray;
+    padding-top: 1rem;
+}

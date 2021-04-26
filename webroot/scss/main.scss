@@ -19,8 +19,14 @@ footer {
     vertical-align: baseline;
 }
 
+summary.detail div {
+        border-bottom: thin solid gray;
+        border-top: thin solid gray;
+        padding-top: 1rem;
+}
+
 article{
-	ul {
+	ul, ol {
 		list-style-type: square;
 		a {
 			font-weight: bold;
